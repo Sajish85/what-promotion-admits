@@ -282,7 +282,7 @@ We do not rank the three tools. Patroni, pg_auto_failover and CloudNativePG diff
 
 ## 7. Artefact availability
 
-The study's artefacts are the three stacks' folders as they will be deposited; the file sets differ by stack where listed below.
+The study's artefacts are the three stacks' folders as deposited with this record; the file sets differ by stack where listed below.
 
 - **Harness.** The scripts that build the rig, stall and release replication, run the writers, verify the gap, inject the fault, trigger the promotion path, collect evidence and recompute loss. Patroni and pg_auto_failover: `cluster-up.sh`, `cluster-down.sh`, `tcpproxy.py`, `writer.py`, `harness.py`, `driver.py`, `analyze.py`, and for pg_auto_failover `reap-ipc.py`. CloudNativePG: `harness.py`, `driver.py`, `lib.py`, `writer.py`, `analyze.py`, `pg.yaml` and `kind.yaml`.
 - **Results CSVs.** One row per attempt, including invalid runs and their reasons: 134 rows for Patroni, 126 for pg_auto_failover and 76 for CloudNativePG, with the SHA-256 of each stored list.
@@ -290,11 +290,11 @@ The study's artefacts are the three stacks' folders as they will be deposited; t
 - **Generated tables.** `analyze.py` regenerates the per-cell tables, the denominators, the invalid-run list and the recount from the stored files without re-running anything.
 - **Setup notes.** Rig descriptions, versions as read from the running systems and all deviations.
 
-The harness, data and CSVs will be deposited in a public archive with a DOI; none has been assigned at the time of writing. The deposit will contain the files listed above and will omit credentials and host-specific identifiers.
+The harness, data and CSVs are deposited with this record (DOI: 10.5281/zenodo.24466483) and mirrored at https://github.com/Sajish85/what-promotion-admits. The deposit contains the files listed above; credentials and host-specific identifiers were removed before deposit.
 
 ## References
 
-[1] S. Krishnan. *Client-Observed Write Unavailability After a Primary Process Kill: Five Replicated Database Systems at Shipped Settings on a Single Host.* 2026. Zenodo. DOI: 10.5281/zenodo.24359724.
+[1] S. Krishnan. *Client-Observed Write Unavailability After a Primary Process Kill: Five Replicated Database Systems at Shipped Settings on a Single Host.* 2026. Zenodo. DOI: 10.5281/zenodo.24359723.
 
 [2] Patroni documentation: dynamic configuration settings (`https://patroni.readthedocs.io/en/latest/dynamic_configuration.html`), replication modes (`https://patroni.readthedocs.io/en/latest/replication_modes.html`) and `patronictl` (`https://patroni.readthedocs.io/en/latest/patronictl.html`). The quoted wording is the same in the repository documentation at tag v4.1.5 (`https://github.com/patroni/patroni`): `docs/dynamic_configuration.rst`, `docs/replication_modes.rst` and `docs/patronictl.rst`. Accessed 23 November 2026.
 

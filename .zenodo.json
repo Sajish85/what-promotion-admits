@@ -1,0 +1,16 @@
+{
+  "title": "What Promotion Admits: Acknowledged-Write Loss on PostgreSQL HA Promotion Paths When the Candidate Is Missing WAL",
+  "description": "A lag setting, such as Patroni's maximum_lag_on_failover, is naturally read as a bound on how much acknowledged data a failover can lose; we measured what each promotion path of three widely used stacks actually admits when the candidate replica has not received 10 MiB or 100 MiB of WAL: Patroni 4.1.5, pg_auto_failover 2.2 and CloudNativePG 1.30.2. We built each gap by stalling WAL shipping while the primary kept accepting writes, verified it per run against the primary's and the candidate's LSNs, killed the primary, and recomputed every acknowledged-write loss from stored lists of acknowledged and surviving transaction ids. Across 300 valid runs on three single-host rigs, the stacks gave three different answers. Patroni's operator-initiated patronictl failover, with the leader gone and a named candidate, promoted silently in 40 of 40 runs and lost the whole gap (up to 11,898 acknowledged transactions at 100 MiB), while its automatic path refused 20 of 20 slowly formed gaps but, in a supplementary burst cell, promoted silently in 10 of 10 runs: the leader position stored in the DCS lagged the candidate's own position by 24 to 287 MiB, so the computed lag was negative in 10 of 10 runs. pg_auto_failover, when configured for asynchronous replication, gated both automatic and operator promotion at 16 MiB on last-reported LSNs: a 10 MiB gap passed silently in every run and a 100 MiB gap was refused in every run, with the refusal reason visible only in the monitor log; a direct pg_promote() bypassed the gate at both sizes. CloudNativePG showed no lag gate on any measured path: automatic failover promoted silently in 10 of 10 runs at 100 MiB and lost 11,763 to 11,778 acknowledged transactions. In these three stacks, a lag setting bounds loss only on the path that consults it, and only when the position it compares against is fresh. All results come from one host per stack, asynchronous replication, and one version per stack.",
+  "creators": [
+    {"name": "Krishnan, Sajish", "affiliation": "Independent researcher", "orcid": "0009-0009-7561-9290"}
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "access_right": "open",
+  "keywords": ["PostgreSQL", "database failover", "high availability", "Patroni", "pg_auto_failover", "CloudNativePG", "Kubernetes", "replication lag", "recovery point objective", "WAL", "acknowledged write loss", "chaos engineering"],
+  "related_identifiers": [
+    {"identifier": "10.5281/zenodo.24359724", "relation": "cites", "scheme": "doi"},
+    {"identifier": "https://github.com/Sajish85/what-promotion-admits", "relation": "isSupplementedBy", "scheme": "url"}
+  ]
+}

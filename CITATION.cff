@@ -8,7 +8,7 @@ authors:
     orcid: "https://orcid.org/0009-0009-7561-9290"
 year: 2026
 license: CC-BY-4.0
-doi: "10.5281/zenodo.24466483"
+doi: "10.5281/zenodo.24466482"
 references:
   - type: article
     title: "Client-Observed Write Unavailability After a Primary Process Kill: Five Replicated Database Systems at Shipped Settings on a Single Host"

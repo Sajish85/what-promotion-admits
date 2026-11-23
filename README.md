@@ -2,8 +2,8 @@
 
 Data and harness supplement to the paper by Sajish Krishnan (independent researcher, GitHub [Sajish85](https://github.com/Sajish85), ORCID [0009-0009-7561-9290](https://orcid.org/0009-0009-7561-9290)).
 
-- Paper: [10.5281/zenodo.24466483](https://doi.org/10.5281/zenodo.24466483)
-- Prior work: S. Krishnan, *Client-Observed Write Unavailability After a Primary Process Kill: Five Replicated Database Systems at Shipped Settings on a Single Host*, Zenodo, DOI [10.5281/zenodo.24359724](https://doi.org/10.5281/zenodo.24359724). Earlier repository: [Sajish85/client-observed-write-unavailability](https://github.com/Sajish85/client-observed-write-unavailability).
+- Paper: [10.5281/zenodo.24466482](https://doi.org/10.5281/zenodo.24466482)
+- Prior work: S. Krishnan, *Client-Observed Write Unavailability After a Primary Process Kill: Five Replicated Database Systems at Shipped Settings on a Single Host*, Zenodo, DOI [10.5281/zenodo.24359723](https://doi.org/10.5281/zenodo.24359723). Earlier repository: [Sajish85/client-observed-write-unavailability](https://github.com/Sajish85/client-observed-write-unavailability).
 
 ## Abstract
 
@@ -69,7 +69,7 @@ Each stack has its own folder with the harness scripts, the results CSV (one row
 
 ## Licence
 
-The paper is released under CC BY 4.0. [10.5281/zenodo.24466483](https://doi.org/10.5281/zenodo.24466483)
+The paper is released under CC BY 4.0. [10.5281/zenodo.24466482](https://doi.org/10.5281/zenodo.24466482)
 
 ## Cite
 

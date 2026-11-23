@@ -1,0 +1,26 @@
+17:36:38 47408 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ primary
+17:36:53 47408 INFO  Monitor assigned new state "report_lsn"
+17:36:53 47408 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+17:36:53 47408 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+17:36:53 47408 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+17:36:53 47407 INFO  Stopping pg_autoctl postgres service
+17:36:53 47407 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+17:36:53 47408 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+17:36:53 47408 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+17:36:53 47408 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+17:36:53 48428 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+17:36:53 47407 WARN  PostgreSQL was not running, restarted with pid 48428
+17:36:53 47408 INFO  Transition complete: current state is now "report_lsn"
+17:36:54 47408 INFO  New state for node 2 "n2" (127.0.0.1:6482): prepare_promotion ➜ prepare_promotion
+17:36:54 47408 INFO  New state for node 2 "n2" (127.0.0.1:6482): prepare_promotion ➜ stop_replication
+17:36:54 47408 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ demote_timeout
+17:36:54 47408 INFO  Monitor assigned new state "join_secondary"
+17:36:55 47408 INFO  FSM transition from "report_lsn" to "join_secondary": A failover candidate has been selected, stop replication
+17:36:55 47408 INFO  Preparing Postgres shutdown: CHECKPOINT;
+17:36:55 47408 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+17:36:55 47407 INFO  Stopping pg_autoctl postgres service
+17:36:55 47407 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+17:36:55 47408 INFO  Transition complete: current state is now "join_secondary"
+17:36:55 47408 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): report_lsn ➜ join_secondary
+17:36:55 47408 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): join_secondary ➜ join_secondary
+17:36:56 47408 INFO  New state for node 2 "n2" (127.0.0.1:6482): stop_replication ➜ stop_replication

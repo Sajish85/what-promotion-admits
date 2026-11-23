@@ -1,0 +1,54 @@
+00:24:23 68191 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+00:24:23 68191 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+00:24:23 68191 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+00:24:23 68191 ERROR Failed to get the goal state from the monitor
+00:24:25 68191 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", retrying until the server is ready
+00:24:25 68191 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+00:24:25 68191 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable" after 1 attempts in 2000 ms, pg_autoctl stops retrying now
+00:24:25 68191 WARN  Lost connection.
+00:24:27 68191 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+00:24:27 68191 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+00:24:27 68191 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+00:24:27 68191 ERROR Failed to get the goal state from the monitor
+00:24:29 68191 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", retrying until the server is ready
+00:24:29 68191 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+00:24:29 68191 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+00:24:29 68191 WARN  Lost connection.
+00:24:31 68191 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+00:24:31 68191 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+00:24:31 68191 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+00:24:31 68191 ERROR Failed to get the goal state from the monitor
+00:24:33 68191 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", retrying until the server is ready
+00:24:33 68191 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+00:24:33 68191 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable" after 1 attempts in 2000 ms, pg_autoctl stops retrying now
+00:24:33 68191 WARN  Lost connection.
+00:24:35 68191 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+00:24:35 68191 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+00:24:35 68191 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+00:24:35 68191 ERROR Failed to get the goal state from the monitor
+00:24:36 68191 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): secondary ➜ secondary
+00:24:36 68191 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+00:24:36 68191 INFO  Successfully got the goal state from the monitor
+00:24:44 68191 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+00:24:57 68191 ERROR Monitor ERROR:  deadlock detected
+00:24:57 68191 ERROR Monitor DETAIL:  Process 69267 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 69266.
+00:24:57 68191 ERROR Monitor Process 69266 waits for ShareLock on transaction 1080; blocked by process 69267.
+00:24:57 68191 ERROR Monitor HINT:  See server log for query details.
+00:24:57 68191 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+00:24:57 68191 ERROR SQL params: 'default', '2', '0', 'secondary', 'true', '1', '0/53E9D08', ''
+00:24:57 68191 ERROR Failed to get node state for node 2 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/53E9D08", see previous lines for details
+00:24:57 68191 ERROR Failed to get the goal state from the monitor
+00:24:58 68191 INFO  Successfully got the goal state from the monitor
+00:24:58 68191 INFO  Monitor assigned new state "report_lsn"
+00:24:58 68191 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+00:24:58 68191 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+00:24:58 68191 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+00:24:58 68190 INFO  Stopping pg_autoctl postgres service
+00:24:58 68190 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+00:24:58 68191 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+00:24:58 68191 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+00:24:58 68191 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+00:24:58 69295 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+00:24:59 68191 INFO  Transition complete: current state is now "report_lsn"
+00:24:59 68190 WARN  PostgreSQL was not running, restarted with pid 69295
+00:24:59 68191 INFO  New state for node 3 "n3" (127.0.0.1:6483): report_lsn ➜ report_lsn

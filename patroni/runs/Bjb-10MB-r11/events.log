@@ -1,0 +1,9 @@
+    3.07s leader=pg2 replicas=['pg1', 'pg3'] candidate=None
+    6.13s pre-stall gap (candidates) bytes={'pg1': 49916504, 'pg3': 49951768} tps_total=79.0
+    6.13s phase jitter 6.67s before stall
+   12.83s replication stall on primary proxy: stall conns=4 fwd_c2u=6343079 fwd_u2c=15090420215
+   16.06s VERIFIED gap: primary_lsn=4281029976 recv={'pg1': 4244635648, 'pg3': 4270126632} gap={'pg1': 36394328, 'pg3': 10903344} candidate_gap=10903344 ratio=1.040
+   16.07s KILL primary pg2: agent 47276 + postmaster 47794
+   16.81s Patroni view at decision: optime=4276019416 cand=pg3 xlog=4270126632 reported_lag=5892784 true=10903344
+  106.12s NO PROMOTION within 90s
+  107.19s EXCEPTION OSError: [Errno 28] No space left on device

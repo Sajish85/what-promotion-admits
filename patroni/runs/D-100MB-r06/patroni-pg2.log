@@ -1,0 +1,4 @@
+2026-11-22 13:14:44,672 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 13:14:54,668 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 13:15:05,172 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 13:15:15,177 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)

@@ -1,0 +1,9 @@
+  132.48s leader=pg2 replicas=['pg1', 'pg3'] candidate=None
+  135.56s pre-stall gap (candidates) bytes={'pg1': 60828800, 'pg3': -176368} tps_total=79.0
+  135.56s phase jitter 2.04s before stall
+  137.65s replication stall on primary proxy: stall conns=4 fwd_c2u=7225678 fwd_u2c=15677093449
+  138.19s VERIFIED gap: primary_lsn=4556502200 recv={'pg1': 4545519560, 'pg3': 4545519560} gap={'pg1': 10982640, 'pg3': 10982640} candidate_gap=10982640 ratio=1.047
+  138.20s KILL primary pg2: agent 61325 + postmaster 3530
+  138.71s Patroni view at decision: optime=4294975752 cand=pg1 xlog=4294975752 reported_lag=0 true=10982640
+  159.65s PROMOTED pg3 after 21.4s; survivors=28349 fork_lsn=4545519560
+  160.69s recover: restore proxies, restart old primary agent

@@ -1,0 +1,82 @@
+23:30:23 35150 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:30:23 35150 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+23:30:23 35150 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:30:23 35150 ERROR Failed to get the goal state from the monitor
+23:30:25 35150 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+23:30:27 35150 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:30:27 35150 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 2 attempts in 4008 ms, pg_autoctl stops retrying now
+23:30:27 35150 WARN  Lost connection.
+23:30:29 35150 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:30:29 35150 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+23:30:29 35150 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:30:29 35150 ERROR Failed to get the goal state from the monitor
+23:30:31 35150 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+23:30:31 35150 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:30:31 35150 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+23:30:31 35150 WARN  Lost connection.
+23:30:33 35150 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:30:33 35150 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+23:30:33 35150 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:30:33 35150 ERROR Failed to get the goal state from the monitor
+23:30:35 35150 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+23:30:35 35150 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:30:35 35150 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+23:30:35 35150 WARN  Lost connection.
+23:30:36 35150 INFO  Successfully got the goal state from the monitor
+23:30:37 35150 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): secondary ➜ secondary
+23:30:37 35150 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:30:45 35150 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:30:57 35150 ERROR Monitor ERROR:  deadlock detected
+23:30:57 35150 ERROR Monitor DETAIL:  Process 36061 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 36060.
+23:30:57 35150 ERROR Monitor Process 36060 waits for ShareLock on transaction 1093; blocked by process 36061.
+23:30:57 35150 ERROR Monitor HINT:  See server log for query details.
+23:30:57 35150 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+23:30:57 35150 ERROR SQL params: 'default', '3', '0', 'secondary', 'true', '1', '0/4230AD8', ''
+23:30:57 35150 ERROR Failed to get node state for node 3 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/4230AD8", see previous lines for details
+23:30:57 35150 ERROR Failed to get the goal state from the monitor
+23:30:58 35150 INFO  Successfully got the goal state from the monitor
+23:30:58 35150 INFO  Monitor assigned new state "report_lsn"
+23:30:58 35150 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+23:30:58 35150 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+23:30:58 35150 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+23:30:58 35149 INFO  Stopping pg_autoctl postgres service
+23:30:58 35149 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+23:30:58 35150 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+23:30:58 35150 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+23:30:58 35150 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+23:30:58 36081 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+23:30:58 35150 INFO  Transition complete: current state is now "report_lsn"
+23:30:58 35149 WARN  PostgreSQL was not running, restarted with pid 36081
+23:31:00 35150 INFO  Monitor assigned new state "prepare_promotion"
+23:31:00 35150 INFO  FSM transition from "report_lsn" to "prepare_promotion": Stop traffic to primary, wait for it to finish draining.
+23:31:00 35150 INFO  Transition complete: current state is now "prepare_promotion"
+23:31:00 35150 INFO  Monitor assigned new state "stop_replication"
+23:31:00 35150 INFO  FSM transition from "prepare_promotion" to "stop_replication": Prevent against split-brain situations.
+23:31:00 35150 INFO  Prevent writes to the promoted standby while the primary is not demoted yet, by making the service incompatible with target_session_attrs = read-write
+23:31:00 35150 INFO  Setting default_transaction_read_only to on
+23:31:00 35150 INFO  Reloading Postgres configuration and HBA rules
+23:31:00 35150 INFO  Promoting postgres
+23:31:00 35150 INFO  Waiting for postgres to promote
+23:31:01 35150 INFO  Cleaning-up Postgres replication settings
+23:31:01 35150 INFO  Disabling synchronous replication
+23:31:01 35150 INFO  Reloading Postgres configuration and HBA rules
+23:31:01 35150 INFO  Transition complete: current state is now "stop_replication"
+23:31:11 35150 INFO  New state for node 2 "n2" (127.0.0.1:6482): join_secondary ➜ join_secondary
+23:31:30 35150 INFO  Monitor assigned new state "wait_primary"
+23:31:30 35150 INFO  FSM transition from "stop_replication" to "wait_primary": Confirmed promotion with the monitor
+23:31:30 35150 INFO  Setting default_transaction_read_only to off
+23:31:30 35150 INFO  Reloading Postgres configuration and HBA rules
+23:31:30 35150 INFO  Fetched current list of 2 other nodes from the monitor to update HBA rules, including 2 changes.
+23:31:30 35150 INFO  Ensuring HBA rules for node 1 "n1" (127.0.0.1:6481)
+23:31:30 35150 INFO  Ensuring HBA rules for node 2 "n2" (127.0.0.1:6482)
+23:31:30 35150 INFO  Reloading Postgres configuration and HBA rules
+23:31:30 35150 INFO  Transition complete: current state is now "wait_primary"
+23:31:30 35150 INFO  New state for node 2 "n2" (127.0.0.1:6482): secondary ➜ secondary
+23:31:31 35150 INFO  Monitor assigned new state "primary"
+23:31:31 35150 INFO  FSM transition from "wait_primary" to "primary": A healthy secondary appeared
+23:31:31 35150 INFO  Setting synchronous_standby_names to ''
+23:31:31 35150 INFO  Reloading Postgres configuration and HBA rules
+23:31:31 35150 INFO  Transition complete: current state is now "primary"
+23:31:31 35150 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): wait_primary ➜ primary
+23:31:31 35150 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): primary ➜ primary
+23:31:31 35150 INFO  New state for node 2 "n2" (127.0.0.1:6482): secondary ➜ secondary

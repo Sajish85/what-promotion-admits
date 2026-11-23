@@ -1,0 +1,130 @@
+T                      R                          O              M
+2026-11-23T01:22:39Z   Killing                    pg-3           Stopping container postgres
+2026-11-23T01:22:44Z   FailedScheduling           pg-3           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:22:47Z   FailedScheduling           pg-3           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:22:47Z   Scheduled                  pg-3           Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T01:22:49Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T01:22:50Z   Created                    pg-3           Created container: bootstrap-controller
+2026-11-23T01:22:51Z   Started                    pg-3           Started container bootstrap-controller
+2026-11-23T01:22:53Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T01:22:54Z   Started                    pg-3           Started container postgres
+2026-11-23T01:22:54Z   Created                    pg-3           Created container: postgres
+2026-11-23T01:22:58Z   Unhealthy                  pg-3           Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T01:28:13Z   Killing                    pg-2           Stopping container postgres
+2026-11-23T01:28:18Z   FailedScheduling           pg-2           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:28:22Z   Scheduled                  pg-2           Successfully assigned default/pg-2 to cnpg-worker
+2026-11-23T01:28:22Z   FailedScheduling           pg-2           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:28:24Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T01:28:25Z   Started                    pg-2           Started container bootstrap-controller
+2026-11-23T01:28:25Z   Created                    pg-2           Created container: bootstrap-controller
+2026-11-23T01:28:30Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T01:28:31Z   Started                    pg-2           Started container postgres
+2026-11-23T01:28:31Z   Created                    pg-2           Created container: postgres
+2026-11-23T01:28:33Z   Unhealthy                  pg-2           Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T01:33:41Z   Killing                    pg-3           Stopping container postgres
+2026-11-23T01:33:46Z   FailedScheduling           pg-3           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:33:50Z   FailedScheduling           pg-3           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:33:50Z   Scheduled                  pg-3           Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T01:33:52Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T01:33:53Z   Created                    pg-3           Created container: bootstrap-controller
+2026-11-23T01:33:53Z   Started                    pg-3           Started container bootstrap-controller
+2026-11-23T01:33:57Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T01:33:58Z   Created                    pg-3           Created container: postgres
+2026-11-23T01:33:58Z   Started                    pg-3           Started container postgres
+2026-11-23T01:34:01Z   Unhealthy                  pg-3           Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T01:39:09Z   Killing                    pg-2           Stopping container postgres
+2026-11-23T01:39:15Z   FailedScheduling           pg-2           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:39:19Z   Scheduled                  pg-2           Successfully assigned default/pg-2 to cnpg-worker
+2026-11-23T01:39:19Z   FailedScheduling           pg-2           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:39:21Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T01:39:22Z   Created                    pg-2           Created container: bootstrap-controller
+2026-11-23T01:39:22Z   Started                    pg-2           Started container bootstrap-controller
+2026-11-23T01:39:25Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T01:39:26Z   Started                    pg-2           Started container postgres
+2026-11-23T01:39:26Z   Created                    pg-2           Created container: postgres
+2026-11-23T01:40:08Z   Killing                    pg-3           Stopping container postgres
+2026-11-23T01:40:12Z   FailedScheduling           pg-3           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:40:16Z   FailedScheduling           pg-3           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:40:16Z   Scheduled                  pg-3           Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T01:40:18Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T01:40:19Z   Started                    pg-3           Started container bootstrap-controller
+2026-11-23T01:40:19Z   Created                    pg-3           Created container: bootstrap-controller
+2026-11-23T01:40:22Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T01:40:24Z   Created                    pg-3           Created container: postgres
+2026-11-23T01:40:25Z   Started                    pg-3           Started container postgres
+2026-11-23T01:40:28Z   Unhealthy                  pg-3           Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T01:45:42Z   Killing                    pg-2           Stopping container postgres
+2026-11-23T01:45:47Z   FailedScheduling           pg-2           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:46:20Z   FailedScheduling           pg-2           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:46:20Z   Scheduled                  pg-2           Successfully assigned default/pg-2 to cnpg-worker
+2026-11-23T01:46:22Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T01:46:23Z   Created                    pg-2           Created container: bootstrap-controller
+2026-11-23T01:46:24Z   Started                    pg-2           Started container bootstrap-controller
+2026-11-23T01:46:25Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T01:46:26Z   Created                    pg-2           Created container: postgres
+2026-11-23T01:46:27Z   Started                    pg-2           Started container postgres
+2026-11-23T01:51:11Z   Killing                    pg-3           Stopping container postgres
+2026-11-23T01:51:15Z   FailedScheduling           pg-3           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:51:49Z   FailedScheduling           pg-3           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:51:49Z   Scheduled                  pg-3           Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T01:51:51Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T01:51:52Z   Created                    pg-3           Created container: bootstrap-controller
+2026-11-23T01:51:53Z   Started                    pg-3           Started container bootstrap-controller
+2026-11-23T01:51:54Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T01:51:55Z   Created                    pg-3           Created container: postgres
+2026-11-23T01:51:55Z   Started                    pg-3           Started container postgres
+2026-11-23T01:56:43Z   Killing                    pg-2           Stopping container postgres
+2026-11-23T01:56:48Z   FailedScheduling           pg-2           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:57:22Z   FailedScheduling           pg-2           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T01:57:22Z   Scheduled                  pg-2           Successfully assigned default/pg-2 to cnpg-worker
+2026-11-23T01:57:24Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T01:57:25Z   Started                    pg-2           Started container bootstrap-controller
+2026-11-23T01:57:25Z   Created                    pg-2           Created container: bootstrap-controller
+2026-11-23T01:57:28Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T01:57:29Z   Created                    pg-2           Created container: postgres
+2026-11-23T01:57:30Z   Started                    pg-2           Started container postgres
+2026-11-23T01:57:33Z   Unhealthy                  pg-2           Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T02:02:14Z   Killing                    pg-3           Stopping container postgres
+2026-11-23T02:02:16Z   PrimaryStatusCheckFailed   pg             Primary pod pg-3 is Ready but the operator's /pg/status check failed; failover deferred until Kubernetes marks the primary as not Ready. See operator logs for the underlying error.
+2026-11-23T02:02:36Z   FailedScheduling           pg-3           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T02:03:10Z   FailedScheduling           pg-3           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T02:03:10Z   Scheduled                  pg-3           Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T02:03:13Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T02:03:14Z   Created                    pg-3           Created container: bootstrap-controller
+2026-11-23T02:03:14Z   Started                    pg-3           Started container bootstrap-controller
+2026-11-23T02:03:17Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T02:03:19Z   Started                    pg-3           Started container postgres
+2026-11-23T02:03:19Z   Created                    pg-3           Created container: postgres
+2026-11-23T02:03:21Z   Unhealthy                  pg-3           Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T02:08:05Z   Killing                    pg-2           Stopping container postgres
+2026-11-23T02:08:26Z   FailedScheduling           pg-2           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T02:08:59Z   Scheduled                  pg-2           Successfully assigned default/pg-2 to cnpg-worker
+2026-11-23T02:08:59Z   FailedScheduling           pg-2           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T02:09:02Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T02:09:03Z   Started                    pg-2           Started container bootstrap-controller
+2026-11-23T02:09:03Z   Created                    pg-2           Created container: bootstrap-controller
+2026-11-23T02:09:07Z   Pulled                     pg-2           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T02:09:08Z   Created                    pg-2           Created container: postgres
+2026-11-23T02:09:08Z   NodeSchedulable            cnpg-worker    Node cnpg-worker status is now: NodeSchedulable
+2026-11-23T02:09:09Z   Started                    pg-2           Started container postgres
+2026-11-23T02:09:10Z   Unhealthy                  pg-2           Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T02:13:57Z   Killing                    pg-3           Stopping container postgres
+2026-11-23T02:13:57Z   FailingOver                pg             Current primary isn't healthy, initiating a failover from pg-3
+2026-11-23T02:13:58Z   FailoverTarget             pg             Failing over from pg-3 to pg-2
+2026-11-23T02:14:03Z   FailedScheduling           pg-3           0/4 nodes are available: 1 node(s) had untolerated taint(s), 1 node(s) were unschedulable, 2 node(s) didn't match PersistentVolume's node affinity. no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T02:14:06Z   NodeNotSchedulable         cnpg-worker2   Node cnpg-worker2 status is now: NodeNotSchedulable
+2026-11-23T02:14:37Z   NodeSchedulable            cnpg-worker2   Node cnpg-worker2 status is now: NodeSchedulable
+2026-11-23T02:14:37Z   FailedScheduling           pg-3           0/4 nodes are available: 2 node(s) didn't match PersistentVolume's node affinity, 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/4 nodes are available: 4 Preemption is not helpful for scheduling.
+2026-11-23T02:14:37Z   Scheduled                  pg-3           Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T02:14:39Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T02:14:40Z   Created                    pg-3           Created container: bootstrap-controller
+2026-11-23T02:14:41Z   Started                    pg-3           Started container bootstrap-controller
+2026-11-23T02:14:43Z   Pulled                     pg-3           Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T02:14:44Z   Created                    pg-3           Created container: postgres
+2026-11-23T02:14:44Z   Started                    pg-3           Started container postgres
+2026-11-23T02:14:49Z   Unhealthy                  pg-3           Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T02:19:30Z   Unhealthy                  pg-2           Readiness probe failed: Get "https://10.244.3.27:8000/readyz": dial tcp 10.244.3.27:8000: connect: connection refused
+2026-11-23T02:19:30Z   Killing                    pg-2           Stopping container postgres
+2026-11-23T02:19:30Z   NodeNotSchedulable         cnpg-worker    Node cnpg-worker status is now: NodeNotSchedulable
+2026-11-23T02:19:31Z   FailingOver                pg             Current primary isn't healthy, initiating a failover from pg-2
+2026-11-23T02:19:31Z   FailoverTarget             pg             Failing over from pg-2 to pg-3

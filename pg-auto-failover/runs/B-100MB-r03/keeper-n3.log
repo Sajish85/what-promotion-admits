@@ -1,0 +1,25 @@
+19:13:57 51467 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ primary
+19:14:08 51467 ERROR Monitor ERROR:  deadlock detected
+19:14:08 51467 ERROR Monitor DETAIL:  Process 52598 waits for ShareLock on transaction 1107; blocked by process 52597.
+19:14:08 51467 ERROR Monitor Process 52597 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 52598.
+19:14:08 51467 ERROR Monitor HINT:  See server log for query details.
+19:14:08 51467 ERROR Monitor CONTEXT:  while updating tuple (0,4) in relation "node"
+19:14:08 51467 ERROR Monitor SQL statement "UPDATE pgautofailover.node SET goalstate = $1, statechangetime = now() WHERE nodeid = $2"
+19:14:08 51467 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+19:14:08 51467 ERROR SQL params: 'default', '3', '0', 'secondary', 'true', '1', '0/53E7790', ''
+19:14:08 51467 ERROR Failed to get node state for node 3 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/53E7790", see previous lines for details
+19:14:08 51467 ERROR Failed to get the goal state from the monitor
+19:14:10 51467 INFO  Successfully got the goal state from the monitor
+19:14:10 51467 INFO  Monitor assigned new state "report_lsn"
+19:14:10 51467 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+19:14:10 51467 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+19:14:10 51467 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+19:14:10 51466 INFO  Stopping pg_autoctl postgres service
+19:14:10 51466 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+19:14:10 51467 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+19:14:10 51467 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+19:14:10 51467 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+19:14:10 52638 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+19:14:10 51466 WARN  PostgreSQL was not running, restarted with pid 52638
+19:14:10 51467 INFO  Transition complete: current state is now "report_lsn"
+19:14:10 51467 INFO  New state for node 2 "n2" (127.0.0.1:6482): report_lsn ➜ report_lsn

@@ -1,0 +1,28 @@
+Cluster Summary
+Name                     default/pg
+PostgreSQL Image:        ghcr.io/cloudnative-pg/postgresql:17
+Primary instance:        pg-1
+Primary promotion time:  2026-11-23 06:52:21 +0000 UTC (3m8s)
+Status:                  Cluster in healthy state 
+Instances:               3
+Ready instances:         1
+Size:                    container not found
+
+Continuous Backup not configured
+
+Physical backups
+Primary instance not found
+
+Streaming Replication status
+Primary instance not found
+
+Instances status
+Name  Current LSN  Replication role      Status         QoS        Manager Version  Node
+----  -----------  ----------------      ------         ---        ---------------  ----
+pg-2  0/6586E60    Standby (file based)  OK             Burstable  1.30.2           cnpg-worker3
+pg-3  -            -                     InternalError  Burstable  -                cnpg-worker2
+
+
+Error(s) extracting status
+--------------------------
+failed to get status by proxying to the pod, you might lack permissions to get pods/proxy: an error on the server ("failed to connect to `user=postgres database=postgres`: /controller/run/.s.PGSQL.5432 (/controller/run): dial error: dial unix /controller/run/.s.PGSQL.5432: connect: no such file or directory") has prevented the request from succeeding (get pods https:pg-3:8000)

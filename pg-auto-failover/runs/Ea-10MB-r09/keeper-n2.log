@@ -1,0 +1,27 @@
+18:02:39 74347 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ primary
+18:02:52 74347 INFO  Monitor assigned new state "report_lsn"
+18:02:52 74347 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+18:02:52 74347 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+18:02:52 74347 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+18:02:53 74346 INFO  Stopping pg_autoctl postgres service
+18:02:53 74346 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+18:02:53 74347 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+18:02:53 74347 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+18:02:53 74347 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+18:02:53 75581 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+18:02:53 74346 WARN  PostgreSQL was not running, restarted with pid 75581
+18:02:53 74347 INFO  Transition complete: current state is now "report_lsn"
+18:02:54 74347 INFO  Monitor assigned new state "prepare_promotion"
+18:02:54 74347 INFO  FSM transition from "report_lsn" to "prepare_promotion": Stop traffic to primary, wait for it to finish draining.
+18:02:54 74347 INFO  Transition complete: current state is now "prepare_promotion"
+18:02:54 74347 INFO  Monitor assigned new state "stop_replication"
+18:02:54 74347 INFO  FSM transition from "prepare_promotion" to "stop_replication": Prevent against split-brain situations.
+18:02:54 74347 INFO  Prevent writes to the promoted standby while the primary is not demoted yet, by making the service incompatible with target_session_attrs = read-write
+18:02:54 74347 INFO  Setting default_transaction_read_only to on
+18:02:54 74347 INFO  Reloading Postgres configuration and HBA rules
+18:02:54 74347 INFO  Promoting postgres
+18:02:54 74347 INFO  Waiting for postgres to promote
+18:02:55 74347 INFO  Cleaning-up Postgres replication settings
+18:02:55 74347 INFO  Disabling synchronous replication
+18:02:55 74347 INFO  Reloading Postgres configuration and HBA rules
+18:02:55 74347 INFO  Transition complete: current state is now "stop_replication"

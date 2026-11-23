@@ -1,0 +1,21 @@
+20:52:51 59571 ERROR Monitor ERROR:  deadlock detected
+20:52:51 59571 ERROR Monitor DETAIL:  Process 60585 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 60586.
+20:52:51 59571 ERROR Monitor Process 60586 waits for ShareLock on transaction 1086; blocked by process 60585.
+20:52:51 59571 ERROR Monitor HINT:  See server log for query details.
+20:52:51 59571 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+20:52:51 59571 ERROR SQL params: 'default', '3', '0', 'secondary', 'true', '1', '0/53CDA38', ''
+20:52:51 59571 ERROR Failed to get node state for node 3 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/53CDA38", see previous lines for details
+20:52:51 59571 ERROR Failed to get the goal state from the monitor
+20:52:52 59571 INFO  Successfully got the goal state from the monitor
+20:52:52 59571 INFO  Monitor assigned new state "report_lsn"
+20:52:52 59571 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+20:52:52 59571 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+20:52:52 59571 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+20:52:52 59570 INFO  Stopping pg_autoctl postgres service
+20:52:52 59570 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+20:52:52 59571 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+20:52:52 59571 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+20:52:52 59571 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+20:52:53 60628 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+20:52:53 59570 WARN  PostgreSQL was not running, restarted with pid 60628
+20:52:53 59571 INFO  Transition complete: current state is now "report_lsn"

@@ -1,0 +1,50 @@
+2026-11-22 12:55:14,135 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:55:24,131 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:55:26.435 PST [96785] LOG:  received promote request
+2026-11-22 12:55:26.436 PST [96790] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 12:55:26.436 PST [96785] LOG:  invalid record length at 0/6A9EE458: expected at least 24, got 0
+2026-11-22 12:55:26.436 PST [96785] LOG:  redo done at 0/6A9EE430 system usage: CPU: user: 0.02 s, system: 0.02 s, elapsed: 29.62 s
+2026-11-22 12:55:26.436 PST [96785] LOG:  last completed transaction was at log time 2026-11-22 12:55:09.567932-08
+2026-11-22 12:55:26.438 PST [96785] LOG:  selected new timeline ID: 42
+2026-11-22 12:55:26.463 PST [96785] LOG:  archive recovery complete
+2026-11-22 12:55:26.465 PST [96783] LOG:  checkpoint starting: force
+2026-11-22 12:55:26.468 PST [96782] LOG:  database system is ready to accept connections
+2026-11-22 12:55:34,630 INFO: Lock owner: pg2; I am pg3
+2026-11-22 12:55:34,634 INFO: Demoting self (immediate-nolock)
+2026-11-22 12:55:34.685 PST [96782] LOG:  received immediate shutdown request
+2026-11-22 12:55:34.688 PST [96782] LOG:  database system is shut down
+2026-11-22 12:55:34,697 INFO: demoting self because I do not have the lock and I was a leader
+2026-11-22 12:55:34.874 PST [96888] LOG:  starting PostgreSQL 17.12 (Postgres.app) on aarch64-apple-darwin23.6.0, compiled by Apple clang version 15.0.0 (clang-1500.3.9.4), 64-bit
+2026-11-22 12:55:34.875 PST [96888] LOG:  listening on IPv4 address "127.0.0.1", port 6443
+2026-11-22 12:55:34.875 PST [96888] LOG:  listening on Unix socket "$HOME/invention-hunt/pilots/failover-gate/cluster/pg3/.s.PGSQL.6443"
+2026-11-22 12:55:34.877 PST [96893] LOG:  database system was interrupted; last known up at 2026-11-22 12:55:26 PST
+2026-11-22 12:55:34,877 INFO: postmaster pid=96888
+2026-11-22 12:55:34.883 PST [96895] FATAL:  the database system is starting up
+localhost:6443 - rejecting connections
+2026-11-22 12:55:34.888 PST [96897] FATAL:  the database system is starting up
+localhost:6443 - rejecting connections
+2026-11-22 12:55:34.897 PST [96893] LOG:  entering standby mode
+2026-11-22 12:55:34.898 PST [96893] LOG:  redo starts at 0/693FF270
+2026-11-22 12:55:34.925 PST [96893] LOG:  consistent recovery state reached at 0/6A9EE490
+2026-11-22 12:55:34.925 PST [96888] LOG:  database system is ready to accept read-only connections
+2026-11-22 12:55:34.925 PST [96893] LOG:  invalid record length at 0/6A9EE4E8: expected at least 24, got 0
+localhost:6443 - accepting connections
+2026-11-22 12:55:35,934 INFO: Lock owner: pg2; I am pg3
+2026-11-22 12:55:35,934 INFO: establishing a new patroni heartbeat connection to postgres
+2026-11-22 12:55:35,949 INFO: Local timeline=42 lsn=0/6A9EE4E8
+2026-11-22 12:55:38,952 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6452 failed: timeout expired
+
+2026-11-22 12:55:38,989 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:55:42,582 INFO: establishing a new patroni restapi connection to postgres

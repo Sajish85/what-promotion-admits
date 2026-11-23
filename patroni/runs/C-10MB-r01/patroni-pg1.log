@@ -1,0 +1,70 @@
+2026-11-22 12:36:15,565 INFO: Lock owner: pg2; I am pg1
+2026-11-22 12:36:15,571 INFO: Local timeline=22 lsn=0/5E3042E8
+2026-11-22 12:36:18,573 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6452 failed: timeout expired
+
+2026-11-22 12:36:18,594 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:36:25,566 INFO: Lock owner: pg2; I am pg1
+2026-11-22 12:36:25,576 INFO: Local timeline=22 lsn=0/5E3042E8
+2026-11-22 12:36:28,578 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6452 failed: timeout expired
+
+2026-11-22 12:36:28,585 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:36:36,074 INFO: Lock owner: pg2; I am pg1
+2026-11-22 12:36:36,084 INFO: Local timeline=22 lsn=0/5E3042E8
+2026-11-22 12:36:39,087 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6452 failed: timeout expired
+
+2026-11-22 12:36:39,092 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:36:46,073 INFO: Lock owner: pg2; I am pg1
+2026-11-22 12:36:46,084 INFO: Local timeline=22 lsn=0/5E3042E8
+2026-11-22 12:36:49,088 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6452 failed: timeout expired
+
+2026-11-22 12:36:49,095 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:36:55,965 INFO: Got response from pg3 http://127.0.0.1:9010/patroni: {"state": "running", "postmaster_start_time": "2026-11-22 11:54:29.619023-08:00", "role": "replica", "server_version": 170012, "xlog": {"received_location": 1580221160, "replayed_location": 1580221160, "replayed_timestamp": "2026-11-22 12:36:15.549380-08:00", "paused": false}, "timeline": 22, "replication_state": "streaming", "cluster_unlocked": true, "dcs_last_seen": 1795379815, "database_system_identifier": "7711086291571539087", "patroni": {"version": "4.1.5", "scope": "pilot", "name": "pg3"}}
+2026-11-22 12:36:55,966 INFO: manual failover: to pg3, i am pg1

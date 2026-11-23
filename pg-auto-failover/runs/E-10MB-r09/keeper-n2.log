@@ -1,0 +1,45 @@
+23:26:47 31346 INFO  New state for node 3 "n3" (127.0.0.1:6483): secondary ➜ secondary
+23:26:47 31346 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:26:56 31346 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:27:09 31346 INFO  Monitor assigned new state "report_lsn"
+23:27:09 31346 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+23:27:09 31346 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+23:27:09 31346 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+23:27:10 31345 INFO  Stopping pg_autoctl postgres service
+23:27:10 31345 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+23:27:10 31346 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+23:27:10 31346 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+23:27:10 31346 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+23:27:10 32400 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+23:27:10 31345 WARN  PostgreSQL was not running, restarted with pid 32400
+23:27:10 31346 INFO  Transition complete: current state is now "report_lsn"
+23:27:10 31346 INFO  New state for node 3 "n3" (127.0.0.1:6483): prepare_promotion ➜ prepare_promotion
+23:27:10 31346 INFO  New state for node 3 "n3" (127.0.0.1:6483): prepare_promotion ➜ stop_replication
+23:27:10 31346 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ demote_timeout
+23:27:10 31346 INFO  Monitor assigned new state "join_secondary"
+23:27:10 31346 INFO  FSM transition from "report_lsn" to "join_secondary": A failover candidate has been selected, stop replication
+23:27:10 31346 INFO  Preparing Postgres shutdown: CHECKPOINT;
+23:27:10 31346 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+23:27:10 31345 INFO  Stopping pg_autoctl postgres service
+23:27:10 31345 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+23:27:10 31346 INFO  Transition complete: current state is now "join_secondary"
+23:27:10 31346 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): report_lsn ➜ join_secondary
+23:27:10 31346 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): join_secondary ➜ join_secondary
+23:27:11 31346 INFO  New state for node 3 "n3" (127.0.0.1:6483): stop_replication ➜ stop_replication
+23:27:22 31346 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): join_secondary ➜ join_secondary
+23:27:41 31346 INFO  New state for node 3 "n3" (127.0.0.1:6483): wait_primary ➜ wait_primary
+23:27:41 31346 INFO  Monitor assigned new state "secondary"
+23:27:41 31346 INFO  FSM transition from "join_secondary" to "secondary": Failover is done, we have a new primary to follow
+23:27:41 31346 INFO  Follow new primary node 3 "n3" (127.0.0.1:6483)
+23:27:41 31346 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+23:27:41 31346 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+23:27:41 31346 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+23:27:41 32765 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+23:27:41 31346 INFO  Reached timeline 2, same as upstream node 3 "n3" (127.0.0.1:6483)
+23:27:41 31346 INFO  Transition complete: current state is now "secondary"
+23:27:41 31346 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): join_secondary ➜ secondary
+23:27:41 31346 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): secondary ➜ secondary
+23:27:41 31346 INFO  New state for node 3 "n3" (127.0.0.1:6483): wait_primary ➜ primary
+23:27:41 31346 INFO  New state for node 3 "n3" (127.0.0.1:6483): primary ➜ primary
+23:27:41 31345 WARN  PostgreSQL was not running, restarted with pid 32765
+23:27:42 31346 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): secondary ➜ secondary

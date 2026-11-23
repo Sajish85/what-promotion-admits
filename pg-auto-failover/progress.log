@@ -1,0 +1,19 @@
+15:09 cnpg: STOPPED (no k8s, docker daemon unresponsive) see SETUP.md
+16:21 pg_auto_failover C 10MB valid=10 attempts=10
+16:54 pg_auto_failover B 10MB valid=10 attempts=10
+17:33 pg_auto_failover D 10MB valid=10 attempts=10
+18:06 pg_auto_failover E 10MB valid=10 attempts=10
+19:00 pg_auto_failover C 100MB valid=10 attempts=10
+19:54 pg_auto_failover B 100MB valid=10 attempts=10
+20:33 pg_auto_failover D 100MB valid=10 attempts=10
+21:27 pg_auto_failover E 100MB valid=10 attempts=10
+22:00 pg_auto_failover Bb 10MB valid=10 attempts=10
+E harness flaw: E runs (20) issued no promotion command; relabelled Ea (auto failover with candidate keeper->monitor path cut), kept as supplementary; true E (perform promotion after cut) re-run
+22:53 pg_auto_failover Bb 100MB valid=10 attempts=10
+23:31 pg_auto_failover E 10MB valid=10 attempts=10
+00:10 reaped 4791 orphan SysV semaphore sets (SEMMNS exhaustion made E-100MB r03-r06 rig-invalid)
+00:59 pg_auto_failover E 100MB valid=10 attempts=15
+01:00 C-100MB-r08 reclassified INVALID (monitor deadlock in perform_promotion); re-running 1 C:100
+01:05 pg_auto_failover C 100MB valid=10 attempts=11
+01:07 reports written: pg-auto-failover-report.md cnpg-report.md STUDY-REPORT.md
+01:07 NOTE: overwrote other session's cnpg-report.md by mistake; see cnpg-report.md. STUDY-REPORT updated with CNPG rows from cnpg-results.csv

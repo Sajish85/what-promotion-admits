@@ -1,0 +1,56 @@
+23:34:08 38809 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:34:08 38809 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+23:34:08 38809 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:34:08 38809 ERROR Failed to get the goal state from the monitor
+23:34:10 38809 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+23:34:10 38809 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:34:10 38809 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+23:34:10 38809 WARN  Lost connection.
+23:34:12 38809 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:34:12 38809 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+23:34:12 38809 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:34:12 38809 ERROR Failed to get the goal state from the monitor
+23:34:14 38809 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+23:34:14 38809 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:34:14 38809 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+23:34:14 38809 WARN  Lost connection.
+23:34:16 38809 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:34:16 38809 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+23:34:16 38809 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:34:16 38809 ERROR Failed to get the goal state from the monitor
+23:34:18 38809 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+23:34:18 38809 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:34:18 38809 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2000 ms, pg_autoctl stops retrying now
+23:34:18 38809 WARN  Lost connection.
+23:34:20 38809 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+23:34:20 38809 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+23:34:20 38809 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:34:20 38809 ERROR Failed to get the goal state from the monitor
+23:34:22 38809 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): secondary ➜ secondary
+23:34:22 38809 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:34:22 38809 INFO  Successfully got the goal state from the monitor
+23:34:30 38809 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:34:43 38809 ERROR Monitor ERROR:  deadlock detected
+23:34:43 38809 ERROR Monitor DETAIL:  Process 39648 waits for ShareLock on transaction 1079; blocked by process 39647.
+23:34:43 38809 ERROR Monitor Process 39647 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 39648.
+23:34:43 38809 ERROR Monitor HINT:  See server log for query details.
+23:34:43 38809 ERROR Monitor CONTEXT:  while updating tuple (0,19) in relation "node"
+23:34:43 38809 ERROR Monitor SQL statement "UPDATE pgautofailover.node SET goalstate = $1, statechangetime = now() WHERE nodeid = $2"
+23:34:43 38809 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+23:34:43 38809 ERROR SQL params: 'default', '3', '0', 'secondary', 'true', '1', '0/53F0470', ''
+23:34:43 38809 ERROR Failed to get node state for node 3 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/53F0470", see previous lines for details
+23:34:43 38809 ERROR Failed to get the goal state from the monitor
+23:34:44 38809 INFO  Successfully got the goal state from the monitor
+23:34:44 38809 INFO  Monitor assigned new state "report_lsn"
+23:34:44 38809 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+23:34:44 38809 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+23:34:44 38809 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+23:34:44 38808 INFO  Stopping pg_autoctl postgres service
+23:34:44 38808 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+23:34:44 38809 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+23:34:44 38809 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+23:34:44 38809 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+23:34:44 39674 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+23:34:44 38808 WARN  PostgreSQL was not running, restarted with pid 39674
+23:34:44 38809 INFO  Transition complete: current state is now "report_lsn"
+23:34:45 38809 INFO  New state for node 2 "n2" (127.0.0.1:6482): report_lsn ➜ report_lsn

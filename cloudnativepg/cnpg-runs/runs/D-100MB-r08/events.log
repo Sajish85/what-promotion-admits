@@ -1,0 +1,20 @@
+1795421769.215 +   1.21s healthy after 0s
+1795421769.501 +   1.50s primary pg-1 10.244.3.128 on cnpg-worker; replicas pg-2=10.244.1.107@cnpg-worker3, pg-3=10.244.2.129@cnpg-worker2; failoverDelay=300
+1795421776.090 +   8.09s writers started (base 782.6 txn/s total); jitter done
+1795421776.091 +   8.09s pre-stall snapshot: {'pg-2': {'gap': -8888, 'walreceiver': [('streaming', 'pg-rw', 5432)]}, 'pg-3': {'gap': -8888, 'walreceiver': [('streaming', 'pg-rw', 5432)]}}
+1795421776.904 +   8.90s stall rules applied on cnpg-worker: 4 rules
+1795421781.911 +  13.91s growing: {'pg-2': 39583456, 'pg-3': 37079464}
+1795421786.923 +  18.92s growing: {'pg-2': 74766392, 'pg-3': 72262400}
+1795421791.622 +  23.62s gap reached {'pg-2': 107463192, 'pg-3': 104959200} in 15.51s; writers stopped
+1795421791.938 +  23.94s VERIFIED primary_lsn=247763424 recv={'pg-2': 140300232, 'pg-3': 142804224} replay={'pg-2': 140300232, 'pg-3': 142804224} gaps={'pg-2': 107463192, 'pg-3': 104959200} ratio=1.001
+1795421792.349 +  24.35s operator view (kubectl cnpg status, pre-fault): {'pg-1': ('Primary', 247763424), 'pg-3': ('Standby (file based)', 142804224), 'pg-2': ('Standby (file based)', 140300232)}
+1795421793.350 +  25.35s delete pod: pod "pg-1" force deleted from default namespace | Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+1795421793.350 +  25.35s FAULT: node cordoned, primary pod force-deleted; stall rules stay in place
+1795421797.318 +  29.32s pg_promote -> True in 0.50s
+1795421797.344 +  29.34s early read on candidate ok: 4700 rows, tli 2
+1795421797.344 +  29.34s decision: promoted=pg-3 after 5.0s
+1795421798.527 +  30.52s survivors at promotion: 4700 of 16447 acked; lost 11747; fork 0/8830500; tli 2
+1795421866.733 +  98.73s D: rebuilding cluster after run
+1795421866.733 +  98.73s REBUILD cluster pg
+1795422054.572 + 286.57s cluster.postgresql.cnpg.io/pg created
+1795422188.616 + 420.61s run complete

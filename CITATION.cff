@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: article
+title: "What Promotion Admits: Acknowledged-Write Loss on PostgreSQL HA Promotion Paths When the Candidate Is Missing WAL"
+authors:
+  - family-names: Krishnan
+    given-names: Sajish
+    orcid: "https://orcid.org/0009-0009-7561-9290"
+year: 2026
+doi: "[DOI]"
+license: CC-BY-4.0
+references:
+  - type: article
+    title: "Client-Observed Write Unavailability After a Primary Process Kill: Five Replicated Database Systems at Shipped Settings on a Single Host"
+    authors:
+      - family-names: Krishnan
+        given-names: Sajish
+    year: 2026
+    doi: "10.5281/zenodo.24359724"

@@ -1,0 +1,13 @@
+    0.00s REBUILD rig
+  150.57s rebuild ok=True
+  150.57s leader=n1 replicas=['n2', 'n3'] candidate=n2
+  153.60s pre-stall gap bytes={'n2': 0} tps_total=789.9
+  153.63s replication stall on primary proxy: stall conns=4 fwd_c2u=321256 fwd_u2c=124232279
+  169.23s VERIFIED gap: primary_lsn=192984640 recv={'n2': 87909392, 'n3': 87909392} gap={'n2': 105075248, 'n3': 105075248} candidate_gap=105075248 ratio=1.002
+  169.27s KILL primary n1: pg_autoctl tree [19613, 19622, 19623, 19649, 19650, 19651, 19652, 19654, 19655, 19656, 21406, 21618] + postmaster 19649
+  169.69s monitor view: primary_reported=0/B5F4EE0 cand_reported=0/53D6410 reported_lag=102886096 true=105075248
+  170.73s perform promotion rc=0 in 1.0s: ority = $1, replicationquorum = $2  WHERE nodeid = $3 and nodehost = $4 AND nodeport = $5"
+18:46:46 22224 ERROR SQL query: SELECT pgautofailover.perform_promotion($1, $2)
+18:46:46 22224 ERROR SQL params: 'default', 'n2'
+18:46:46 22224 ERROR Failed to perform failover for node n2 in formation default
+  319.49s NO PROMOTION within 150s

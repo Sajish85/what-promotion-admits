@@ -1,0 +1,2 @@
+Node pg-3 in cluster pg will be promoted
+{"level":"info","ts":"2026-11-22T21:44:15.4069794-06:00","msg":"Cluster has become unhealthy"}

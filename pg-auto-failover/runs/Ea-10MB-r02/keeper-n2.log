@@ -1,0 +1,56 @@
+17:39:34 50614 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+17:39:34 50614 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+17:39:34 50614 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+17:39:34 50614 ERROR Failed to get the goal state from the monitor
+17:39:36 50614 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", retrying until the server is ready
+17:39:36 50614 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+17:39:36 50614 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+17:39:36 50614 WARN  Lost connection.
+17:39:38 50614 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+17:39:38 50614 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+17:39:38 50614 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+17:39:38 50614 ERROR Failed to get the goal state from the monitor
+17:39:40 50614 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", retrying until the server is ready
+17:39:40 50614 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+17:39:40 50614 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+17:39:40 50614 WARN  Lost connection.
+17:39:42 50614 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+17:39:42 50614 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+17:39:42 50614 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+17:39:42 50614 ERROR Failed to get the goal state from the monitor
+17:39:44 50614 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", retrying until the server is ready
+17:39:44 50614 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+17:39:44 50614 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+17:39:44 50614 WARN  Lost connection.
+17:39:46 50614 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+17:39:46 50614 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+17:39:46 50614 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+17:39:46 50614 ERROR Failed to get the goal state from the monitor
+17:39:48 50614 INFO  Successfully got the goal state from the monitor
+17:39:54 50614 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ primary
+17:40:09 50614 INFO  Monitor assigned new state "report_lsn"
+17:40:09 50614 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+17:40:09 50614 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+17:40:09 50614 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+17:40:09 50613 INFO  Stopping pg_autoctl postgres service
+17:40:09 50613 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+17:40:09 50614 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+17:40:09 50614 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+17:40:09 50614 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+17:40:09 51858 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+17:40:09 50614 INFO  Transition complete: current state is now "report_lsn"
+17:40:10 50613 WARN  PostgreSQL was not running, restarted with pid 51858
+17:40:11 50614 INFO  Monitor assigned new state "prepare_promotion"
+17:40:11 50614 INFO  FSM transition from "report_lsn" to "prepare_promotion": Stop traffic to primary, wait for it to finish draining.
+17:40:11 50614 INFO  Transition complete: current state is now "prepare_promotion"
+17:40:11 50614 INFO  Monitor assigned new state "stop_replication"
+17:40:11 50614 INFO  FSM transition from "prepare_promotion" to "stop_replication": Prevent against split-brain situations.
+17:40:11 50614 INFO  Prevent writes to the promoted standby while the primary is not demoted yet, by making the service incompatible with target_session_attrs = read-write
+17:40:11 50614 INFO  Setting default_transaction_read_only to on
+17:40:11 50614 INFO  Reloading Postgres configuration and HBA rules
+17:40:11 50614 INFO  Promoting postgres
+17:40:11 50614 INFO  Waiting for postgres to promote
+17:40:12 50614 INFO  Cleaning-up Postgres replication settings
+17:40:12 50614 INFO  Disabling synchronous replication
+17:40:12 50614 INFO  Reloading Postgres configuration and HBA rules
+17:40:12 50614 INFO  Transition complete: current state is now "stop_replication"

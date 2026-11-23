@@ -1,0 +1,86 @@
+2026-11-22 14:35:37.825 PST [7704] LOG:  restartpoint complete: wrote 3112 buffers (19.0%); 0 WAL file(s) added, 6 removed, 25 recycled; write=70.914 s, sync=0.033 s, total=71.304 s; sync files=31, longest=0.028 s, average=0.002 s; distance=496737 kB, estimate=669431 kB; lsn=0/C3BBFE18, redo lsn=0/C3BBFDC0
+2026-11-22 14:35:37.826 PST [7704] LOG:  recovery restart point at 0/C3BBFDC0
+2026-11-22 14:35:37.826 PST [7704] DETAIL:  Last completed transaction was at log time 2026-11-22 14:35:37.274092-08.
+2026-11-22 14:35:37.826 PST [7704] LOG:  restartpoint starting: wal
+2026-11-22 14:35:39,027 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 14:35:49,624 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 14:35:59,517 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 14:36:09,241 WARNING: Request failed to pg1: GET http://127.0.0.1:9008/patroni (HTTPConnectionPool(host='127.0.0.1', port=9008): Max retries exceeded with url: /patroni (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9008): Failed to establish a new connection: [Errno 61] Connection refused")))
+2026-11-22 14:36:09,309 INFO: Got response from pg2 http://127.0.0.1:9009/patroni: {"state": "running", "postmaster_start_time": "2026-11-22 14:35:07.316455-08:00", "role": "replica", "server_version": 170012, "xlog": {"received_location": 3953562224, "replayed_location": 3953562224, "replayed_timestamp": "2026-11-22 14:35:42.694666-08:00", "paused": false}, "timeline": 48, "replication_state": "streaming", "cluster_unlocked": true, "dcs_last_seen": 1795386969, "database_system_identifier": "7711115187394724740", "patroni": {"version": "4.1.5", "scope": "pilot", "name": "pg2"}}
+2026-11-22 14:36:09,343 INFO: Could not take out TTL lock
+2026-11-22 14:36:09,343 ERROR: watchprefix failed: ProtocolError('Response ended prematurely')
+2026-11-22 14:36:09,345 ERROR: Unexpected exception
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ha.py", line 2396, in run_cycle
+    info = self._run_cycle()
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ha.py", line 2314, in _run_cycle
+    ret = self.process_unhealthy_cluster()
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ha.py", line 1801, in process_unhealthy_cluster
+    return self.follow('demoted self after trying and failing to obtain lock',
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ha.py", line 794, in follow
+    self.state_handler.follow(node_to_follow, role, do_reload=True)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/__init__.py", line 1187, in follow
+    self.config.write_postgresql_conf()
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/config.py", line 563, in write_postgresql_conf
+    with self.config_writer(self._postgresql_conf) as f:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/config.py", line 514, in config_writer
+    with ConfigWriter(filename) as writer:
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/config.py", line 285, in __enter__
+    self._fd = open(self._filename, 'w')
+OSError: [Errno 28] No space left on device: '$HOME/invention-hunt/pilots/failover-gate/cluster/pg3/data/postgresql.conf'
+--- Logging error ---
+2026-11-22 14:36:09,357 INFO: Unexpected exception raised, please report it as a BUG
+--- Logging error ---
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/logging/__init__.py", line 1086, in emit
+    stream.write(msg + self.terminator)
+OSError: [Errno 28] No space left on device
+Call stack:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/log.py", line 552, in run
+    self.log_handler.handle(record)
+Message: 'Unexpected exception raised, please report it as a BUG'
+Arguments: None
+2026-11-22 14:36:09,357 INFO: Lock owner: pg2; I am pg3
+server signaled
+2026-11-22 14:36:11.786 PST [7703] LOG:  received SIGHUP, reloading configuration files
+2026-11-22 14:36:11.796 PST [7703] LOG:  parameter "primary_conninfo" changed to "dbname=postgres user=replicator passfile=$HOME/invention-hunt/pilots/failover-gate/cluster/pg3/pgpass host=127.0.0.1 port=6452 sslmode=prefer application_name=pg3 gssencmode=prefer channel_binding=prefer sslnegotiation=postgres"
+2026-11-22 14:36:11.797 PST [7707] LOG:  WAL receiver process shutdown requested
+2026-11-22 14:36:11.800 PST [47127] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 14:36:11.824 PST [53001] LOG:  fetching timeline history file for timeline 49 from primary server
+2026-11-22 14:36:09,381 ERROR: Unexpected exception
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ha.py", line 2396, in run_cycle
+    info = self._run_cycle()
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ha.py", line 2316, in _run_cycle
+    msg = self.process_healthy_cluster()
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ha.py", line 1867, in process_healthy_cluster
+    return self.follow('demoting self because I do not have the lock and I was a leader',
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ha.py", line 794, in follow
+    self.state_handler.follow(node_to_follow, role, do_reload=True)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/__init__.py", line 1187, in follow
+    self.config.write_postgresql_conf()
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/config.py", line 563, in write_postgresql_conf
+    with self.config_writer(self._postgresql_conf) as f:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/config.py", line 514, in config_writer
+    with ConfigWriter(filename) as writer:
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/config.py", line 285, in __enter__
+    self._fd = open(self._filename, 'w')
+OSError: [Errno 28] No space left on device: '$HOME/invention-hunt/pilots/failover-gate/cluster/pg3/data/postgresql.conf'
+--- Logging error ---
+2026-11-22 14:36:09,382 INFO: Unexpected exception raised, please report it as a BUG
+--- Logging error ---
+2026-11-22 14:36:11,868 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 14:36:11.869 PST [53001] LOG:  started streaming WAL from primary at 0/EB000000 on timeline 48
+2026-11-22 14:36:11.891 PST [53001] LOG:  replication terminated by primary server
+2026-11-22 14:36:11.891 PST [53001] DETAIL:  End of WAL reached on timeline 48 at 0/EBA69270.
+2026-11-22 14:36:11.923 PST [7707] LOG:  new target timeline is 49
+2026-11-22 14:36:11.923 PST [7707] LOG:  record with incorrect prev-link BA28EE31/2890D448 at 0/EBA69270
+2026-11-22 14:36:11.924 PST [53001] LOG:  restarted WAL streaming at 0/EB000000 on timeline 49

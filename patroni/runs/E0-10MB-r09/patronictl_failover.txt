@@ -1,0 +1,81 @@
+$ patronictl -c $HOME/invention-hunt/pilots/failover-gate/cluster/ctl.yml failover pilot --candidate pg2 --force
+rc=0
+Current cluster topology
++ Cluster: pilot (7711108976268041395) ---------+----+-------------+-----+------------+-----+
+| Member | Host           | Role    | State     | TL | Receive LSN | Lag | Replay LSN | Lag |
++--------+----------------+---------+-----------+----+-------------+-----+------------+-----+
+| pg1    | 127.0.0.1:6451 | Leader  | running   |  9 |             |     |            |     |
+| pg2    | 127.0.0.1:6452 | Replica | streaming |  9 |   0/43BB630 |  10 |  0/43BB630 |  10 |
+| pg3    | 127.0.0.1:6453 | Replica | streaming |  9 |   0/43BB630 |  10 |  0/43BB630 |  10 |
++--------+----------------+---------+-----------+----+-------------+-----+------------+-----+
+2026-11-22 13:29:50.17604 Could not failover using Patroni api, falling back to DCS
++ Cluster: pilot (7711108976268041395) ---------+----+-------------+-----+------------+-----+
+| Member | Host           | Role    | State     | TL | Receive LSN | Lag | Replay LSN | Lag |
++--------+----------------+---------+-----------+----+-------------+-----+------------+-----+
+| pg1    | 127.0.0.1:6451 | Leader  | running   |  9 |             |     |            |     |
+| pg2    | 127.0.0.1:6452 | Replica | streaming |  9 |   0/43BB630 |  10 |  0/43BB630 |  10 |
+| pg3    | 127.0.0.1:6453 | Replica | streaming |  9 |   0/43BB630 |  10 |  0/43BB630 |  10 |
++--------+----------------+---------+-----------+----+-------------+-----+------------+-----+
+2026-11-22 13:29:50,170 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='127.0.0.1', port=9008): Failed to establish a new connection: [Errno 61] Connection refused")': /failover
+2026-11-22 13:29:50,170 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='127.0.0.1', port=9008): Failed to establish a new connection: [Errno 61] Connection refused")': /failover
+2026-11-22 13:29:50,170 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='127.0.0.1', port=9008): Failed to establish a new connection: [Errno 61] Connection refused")': /failover
+2026-11-22 13:29:50,170 - ERROR - None
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/dcs/etcd.py", line 665, in create_connection_patched
+    raise err
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/dcs/etcd.py", line 655, in create_connection_patched
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connection.py", line 500, in request
+    self.endheaders()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1252, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1012, in _send_output
+    self.send(msg)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 952, in send
+    self.connect()
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connection.py", line 331, in connect
+    self.sock = self._new_conn()
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connection.py", line 219, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPConnection(host='127.0.0.1', port=9008): Failed to establish a new connection: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ctl.py", line 1389, in _do_failover_or_switchover
+    r = request_patroni(member, 'post', action, failover_value)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/ctl.py", line 418, in request_patroni
+    return request_executor(member, method, endpoint, data)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/request.py", line 167, in __call__
+    return self.request(method, url, data, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/request.py", line 151, in request
+    return self._pool.request(method.upper(), url, body=body, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/_request_methods.py", line 143, in request
+    return self.request_encode_body(
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/poolmanager.py", line 457, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 871, in urlopen
+    return self.urlopen(
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "$HOME/tools/venv/lib/python3.9/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=9008): Max retries exceeded with url: /failover (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9008): Failed to establish a new connection: [Errno 61] Connection refused"))
+2026-11-22 13:29:50,176 - WARNING - Failing over to DCS

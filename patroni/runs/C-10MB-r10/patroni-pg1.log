@@ -1,0 +1,4 @@
+2026-11-22 12:44:59,098 INFO: no action. I am (pg1), the leader with the lock
+2026-11-22 12:45:09,083 INFO: no action. I am (pg1), the leader with the lock
+2026-11-22 12:45:16.722 PST [90712] FATAL:  terminating connection due to unexpected postmaster exit
+2026-11-22 12:45:16.722 PST [91044] FATAL:  terminating connection due to unexpected postmaster exit

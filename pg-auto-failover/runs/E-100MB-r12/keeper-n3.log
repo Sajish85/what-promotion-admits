@@ -1,0 +1,46 @@
+00:40:29 85249 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+00:40:29 85249 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+00:40:29 85249 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+00:40:29 85249 ERROR Failed to get the goal state from the monitor
+00:40:31 85249 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+00:40:31 85249 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+00:40:31 85249 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+00:40:31 85249 WARN  Lost connection.
+00:40:33 85249 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+00:40:33 85249 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+00:40:33 85249 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+00:40:33 85249 ERROR Failed to get the goal state from the monitor
+00:40:35 85249 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+00:40:35 85249 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+00:40:35 85249 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2000 ms, pg_autoctl stops retrying now
+00:40:35 85249 WARN  Lost connection.
+00:40:37 85249 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+00:40:37 85249 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+00:40:37 85249 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+00:40:37 85249 ERROR Failed to get the goal state from the monitor
+00:40:39 85249 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+00:40:39 85249 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+00:40:39 85249 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2000 ms, pg_autoctl stops retrying now
+00:40:39 85249 WARN  Lost connection.
+00:40:41 85249 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+00:40:41 85249 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+00:40:41 85249 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+00:40:41 85249 ERROR Failed to get the goal state from the monitor
+00:40:43 85249 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): secondary ➜ secondary
+00:40:43 85249 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+00:40:43 85249 INFO  Successfully got the goal state from the monitor
+00:40:51 85249 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+00:41:03 85249 INFO  New state for node 2 "n2" (127.0.0.1:6482): report_lsn ➜ report_lsn
+00:41:03 85249 INFO  Monitor assigned new state "report_lsn"
+00:41:03 85249 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+00:41:03 85249 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+00:41:03 85249 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+00:41:03 85248 INFO  Stopping pg_autoctl postgres service
+00:41:03 85248 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+00:41:03 85249 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+00:41:03 85249 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+00:41:03 85249 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+00:41:03 86138 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+00:41:03 85248 WARN  PostgreSQL was not running, restarted with pid 86138
+00:41:04 85249 INFO  Transition complete: current state is now "report_lsn"
+00:41:04 85249 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): report_lsn ➜ report_lsn

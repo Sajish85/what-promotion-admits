@@ -1,0 +1,22 @@
+2026-11-22 13:28:37,147 INFO: no action. I am (pg1), a secondary, and following a leader (pg3)
+2026-11-22 13:28:47,142 INFO: no action. I am (pg1), a secondary, and following a leader (pg3)
+2026-11-22 13:28:57,650 INFO: no action. I am (pg1), a secondary, and following a leader (pg3)
+2026-11-22 13:29:07,653 INFO: no action. I am (pg1), a secondary, and following a leader (pg3)
+2026-11-22 13:29:17,511 INFO: establishing a new patroni restapi connection to postgres
+2026-11-22 13:29:17,520 INFO: Cleaning up failover key after acquiring leader lock...
+2026-11-22 13:29:17,532 INFO: promoted self to leader by acquiring session lock
+server promoting
+2026-11-22 13:29:17.544 PST [6308] LOG:  received promote request
+2026-11-22 13:29:17.544 PST [6309] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 13:29:17.544 PST [6308] LOG:  invalid record length at 0/4185A30: expected at least 24, got 0
+2026-11-22 13:29:17.544 PST [6308] LOG:  redo done at 0/4185A08 system usage: CPU: user: 0.01 s, system: 0.01 s, elapsed: 57.97 s
+2026-11-22 13:29:17.544 PST [6308] LOG:  last completed transaction was at log time 2026-11-22 13:28:32.545737-08
+2026-11-22 13:29:17.547 PST [6308] LOG:  selected new timeline ID: 9
+2026-11-22 13:29:17.564 PST [6308] LOG:  archive recovery complete
+2026-11-22 13:29:17.565 PST [6306] LOG:  checkpoint starting: force
+2026-11-22 13:29:17.567 PST [6304] LOG:  database system is ready to accept connections
+2026-11-22 13:29:18,619 INFO: no action. I am (pg1), the leader with the lock
+2026-11-22 13:29:18.622 PST [6306] LOG:  checkpoint complete: wrote 290 buffers (1.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.054 s, sync=0.002 s, total=1.057 s; sync files=26, longest=0.001 s, average=0.001 s; distance=4497 kB, estimate=4497 kB; lsn=0/418A658, redo lsn=0/4185A68
+2026-11-22 13:29:18.622 PST [6306] LOG:  checkpoint starting: immediate force wait
+2026-11-22 13:29:18.623 PST [6306] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.001 s; sync files=3, longest=0.001 s, average=0.001 s; distance=19 kB, estimate=4049 kB; lsn=0/418A728, redo lsn=0/418A6D0
+2026-11-22 13:29:18,633 INFO: no action. I am (pg1), the leader with the lock

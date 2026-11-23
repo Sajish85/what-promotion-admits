@@ -1,0 +1,20 @@
+2026-11-22 11:26:11,360 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 11:26:21,341 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 11:26:31,839 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 11:26:41,859 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 11:26:51,779 INFO: establishing a new patroni restapi connection to postgres
+2026-11-22 11:26:51,788 INFO: Cleaning up failover key after acquiring leader lock...
+2026-11-22 11:26:51,801 INFO: promoted self to leader by acquiring session lock
+2026-11-22 11:26:51,806 INFO: Lock owner: pg2; I am pg2
+2026-11-22 11:26:51,811 INFO: updated leader lock during promote
+server promoting
+2026-11-22 11:26:51.832 PST [63391] LOG:  received promote request
+2026-11-22 11:26:51.832 PST [63420] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 11:26:51.833 PST [63391] LOG:  invalid record length at 0/8316C00: expected at least 24, got 0
+2026-11-22 11:26:51.833 PST [63391] LOG:  redo done at 0/8316BD8 system usage: CPU: user: 0.11 s, system: 0.18 s, elapsed: 247.98 s
+2026-11-22 11:26:51.833 PST [63391] LOG:  last completed transaction was at log time 2026-11-22 11:26:06.934372-08
+2026-11-22 11:26:51.835 PST [63391] LOG:  selected new timeline ID: 2
+2026-11-22 11:26:51.853 PST [63391] LOG:  archive recovery complete
+2026-11-22 11:26:51.858 PST [63389] LOG:  checkpoint starting: force
+2026-11-22 11:26:51.860 PST [63384] LOG:  database system is ready to accept connections
+2026-11-22 11:26:52,891 INFO: no action. I am (pg2), the leader with the lock

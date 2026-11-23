@@ -1,0 +1,11 @@
+2026-11-22 11:42:10,649 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 11:42:20,660 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 11:42:28.081 PST [66837] LOG:  received promote request
+2026-11-22 11:42:28.081 PST [66881] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 11:42:28.081 PST [66837] LOG:  invalid record length at 0/3238318: expected at least 24, got 0
+2026-11-22 11:42:28.081 PST [66837] LOG:  redo done at 0/32382F0 system usage: CPU: user: 0.01 s, system: 0.01 s, elapsed: 54.78 s
+2026-11-22 11:42:28.081 PST [66837] LOG:  last completed transaction was at log time 2026-11-22 11:42:11.364025-08
+2026-11-22 11:42:28.085 PST [66837] LOG:  selected new timeline ID: 2
+2026-11-22 11:42:28.113 PST [66837] LOG:  archive recovery complete
+2026-11-22 11:42:28.117 PST [66833] LOG:  checkpoint starting: force
+2026-11-22 11:42:28.120 PST [66830] LOG:  database system is ready to accept connections

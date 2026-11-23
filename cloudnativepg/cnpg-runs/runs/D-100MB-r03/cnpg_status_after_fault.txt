@@ -1,0 +1,24 @@
+Cluster Summary
+Name                     default/pg
+PostgreSQL Image:        ghcr.io/cloudnative-pg/postgresql:17
+Primary instance:        pg-1
+Primary promotion time:  2026-11-23 07:40:20 +0000 UTC (2m10s)
+Status:                  Cluster in healthy state 
+Instances:               3
+Ready instances:         2
+Size:                    container not found
+
+Continuous Backup not configured
+
+Physical backups
+Primary instance not found
+
+Streaming Replication status
+Primary instance not found
+
+Instances status
+Name  Current LSN  Replication role      Status  QoS        Manager Version  Node
+----  -----------  ----------------      ------  ---        ---------------  ----
+pg-3  0/851CD78    Standby (file based)  OK      Burstable  1.30.2           cnpg-worker2
+pg-2  0/82D4E80    Standby (file based)  OK      Burstable  1.30.2           cnpg-worker3
+

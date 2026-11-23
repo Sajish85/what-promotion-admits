@@ -1,0 +1,76 @@
+22:56:18 2780 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+22:56:18 2780 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+22:56:18 2780 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+22:56:18 2780 ERROR Failed to get the goal state from the monitor
+22:56:20 2780 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+22:56:20 2780 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+22:56:20 2780 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+22:56:20 2780 WARN  Lost connection.
+22:56:23 2780 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+22:56:23 2780 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+22:56:23 2780 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+22:56:23 2780 ERROR Failed to get the goal state from the monitor
+22:56:25 2780 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+22:56:25 2780 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+22:56:25 2780 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+22:56:25 2780 WARN  Lost connection.
+22:56:27 2780 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+22:56:27 2780 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+22:56:27 2780 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+22:56:27 2780 ERROR Failed to get the goal state from the monitor
+22:56:29 2780 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+22:56:29 2780 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+22:56:29 2780 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+22:56:29 2780 WARN  Lost connection.
+22:56:31 2780 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+22:56:31 2780 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+22:56:31 2780 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+22:56:31 2780 ERROR Failed to get the goal state from the monitor
+22:56:32 2780 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): secondary ➜ secondary
+22:56:32 2780 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+22:56:32 2780 INFO  Successfully got the goal state from the monitor
+22:56:40 2780 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+22:56:54 2780 INFO  Monitor assigned new state "report_lsn"
+22:56:54 2780 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+22:56:54 2780 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+22:56:54 2780 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+22:56:54 2779 INFO  Stopping pg_autoctl postgres service
+22:56:54 2779 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+22:56:54 2780 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+22:56:54 2780 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+22:56:54 2780 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+22:56:54 3642 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+22:56:55 2780 INFO  Transition complete: current state is now "report_lsn"
+22:56:55 2779 WARN  PostgreSQL was not running, restarted with pid 3642
+22:56:56 2780 INFO  Monitor assigned new state "prepare_promotion"
+22:56:56 2780 INFO  FSM transition from "report_lsn" to "prepare_promotion": Stop traffic to primary, wait for it to finish draining.
+22:56:56 2780 INFO  Transition complete: current state is now "prepare_promotion"
+22:56:56 2780 INFO  Monitor assigned new state "stop_replication"
+22:56:56 2780 INFO  FSM transition from "prepare_promotion" to "stop_replication": Prevent against split-brain situations.
+22:56:56 2780 INFO  Prevent writes to the promoted standby while the primary is not demoted yet, by making the service incompatible with target_session_attrs = read-write
+22:56:56 2780 INFO  Setting default_transaction_read_only to on
+22:56:56 2780 INFO  Reloading Postgres configuration and HBA rules
+22:56:56 2780 INFO  Promoting postgres
+22:56:56 2780 INFO  Waiting for postgres to promote
+22:56:57 2780 INFO  Cleaning-up Postgres replication settings
+22:56:57 2780 INFO  Disabling synchronous replication
+22:56:57 2780 INFO  Reloading Postgres configuration and HBA rules
+22:56:57 2780 INFO  Transition complete: current state is now "stop_replication"
+22:57:06 2780 INFO  New state for node 2 "n2" (127.0.0.1:6482): join_secondary ➜ join_secondary
+22:57:26 2780 INFO  Monitor assigned new state "wait_primary"
+22:57:26 2780 INFO  FSM transition from "stop_replication" to "wait_primary": Confirmed promotion with the monitor
+22:57:26 2780 INFO  Setting default_transaction_read_only to off
+22:57:26 2780 INFO  Reloading Postgres configuration and HBA rules
+22:57:26 2780 INFO  Fetched current list of 2 other nodes from the monitor to update HBA rules, including 2 changes.
+22:57:26 2780 INFO  Ensuring HBA rules for node 1 "n1" (127.0.0.1:6481)
+22:57:26 2780 INFO  Ensuring HBA rules for node 2 "n2" (127.0.0.1:6482)
+22:57:26 2780 INFO  Reloading Postgres configuration and HBA rules
+22:57:26 2780 INFO  Transition complete: current state is now "wait_primary"
+22:57:27 2780 INFO  New state for node 2 "n2" (127.0.0.1:6482): secondary ➜ secondary
+22:57:27 2780 INFO  Monitor assigned new state "primary"
+22:57:27 2780 INFO  FSM transition from "wait_primary" to "primary": A healthy secondary appeared
+22:57:27 2780 INFO  Setting synchronous_standby_names to ''
+22:57:27 2780 INFO  Reloading Postgres configuration and HBA rules
+22:57:27 2780 INFO  Transition complete: current state is now "primary"
+22:57:27 2780 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): wait_primary ➜ primary
+22:57:27 2780 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): primary ➜ primary

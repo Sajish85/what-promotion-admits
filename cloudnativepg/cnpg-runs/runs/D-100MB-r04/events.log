@@ -1,0 +1,20 @@
+1795420133.892 +   1.42s healthy after 0s
+1795420134.113 +   1.64s primary pg-1 10.244.3.112 on cnpg-worker; replicas pg-2=10.244.1.91@cnpg-worker3, pg-3=10.244.2.113@cnpg-worker2; failoverDelay=300
+1795420138.742 +   6.27s writers started (base 782.6 txn/s total); jitter done
+1795420138.744 +   6.27s pre-stall snapshot: {'pg-2': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}, 'pg-3': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}}
+1795420139.592 +   7.12s stall rules applied on cnpg-worker: 4 rules
+1795420144.609 +  12.14s growing: {'pg-2': 39646280, 'pg-3': 38017064}
+1795420149.629 +  17.16s growing: {'pg-2': 74702000, 'pg-3': 73072784}
+1795420154.176 +  21.71s gap reached {'pg-2': 106526168, 'pg-3': 104896952} in 15.42s; writers stopped
+1795420154.527 +  22.06s VERIFIED primary_lsn=233517680 recv={'pg-2': 126964848, 'pg-3': 128594064} replay={'pg-2': 126964848, 'pg-3': 128594064} gaps={'pg-2': 106552832, 'pg-3': 104923616} ratio=1.001
+1795420154.967 +  22.50s operator view (kubectl cnpg status, pre-fault): {'pg-1': ('Primary', 233517680), 'pg-3': ('Standby (file based)', 128594064), 'pg-2': ('Standby (file based)', 126964848)}
+1795420156.882 +  24.41s delete pod: pod "pg-1" force deleted from default namespace | Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+1795420156.882 +  24.41s FAULT: node cordoned, primary pod force-deleted; stall rules stay in place
+1795420160.604 +  28.13s pg_promote -> True in 0.50s
+1795420160.607 +  28.14s early read on candidate ok: 3104 rows, tli 2
+1795420160.607 +  28.14s decision: promoted=pg-3 after 5.6s
+1795420161.333 +  28.86s survivors at promotion: 3104 of 14847 acked; lost 11743; fork 0/7AA3090; tli 2
+1795420228.852 +  96.38s D: rebuilding cluster after run
+1795420228.852 +  96.38s REBUILD cluster pg
+1795420413.144 + 280.67s cluster.postgresql.cnpg.io/pg created
+1795420535.098 + 402.63s run complete

@@ -1,0 +1,39 @@
+17:39:54 50804 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ primary
+17:40:08 50804 ERROR Monitor ERROR:  deadlock detected
+17:40:08 50804 ERROR Monitor DETAIL:  Process 51816 waits for ShareLock on transaction 1076; blocked by process 51815.
+17:40:08 50804 ERROR Monitor Process 51815 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 51816.
+17:40:08 50804 ERROR Monitor HINT:  See server log for query details.
+17:40:08 50804 ERROR Monitor CONTEXT:  while updating tuple (0,20) in relation "node"
+17:40:08 50804 ERROR Monitor SQL statement "UPDATE pgautofailover.node SET goalstate = $1, statechangetime = now() WHERE nodeid = $2"
+17:40:08 50804 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+17:40:08 50804 ERROR SQL params: 'default', '3', '0', 'secondary', 'true', '1', '0/4230AD8', ''
+17:40:08 50804 ERROR Failed to get node state for node 3 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/4230AD8", see previous lines for details
+17:40:08 50804 ERROR Failed to get the goal state from the monitor
+17:40:09 50804 INFO  Successfully got the goal state from the monitor
+17:40:09 50804 INFO  Monitor assigned new state "report_lsn"
+17:40:09 50804 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+17:40:09 50804 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+17:40:09 50804 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+17:40:09 50803 INFO  Stopping pg_autoctl postgres service
+17:40:09 50803 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+17:40:09 50804 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+17:40:09 50804 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+17:40:09 50804 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+17:40:09 51853 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+17:40:09 50803 WARN  PostgreSQL was not running, restarted with pid 51853
+17:40:09 50804 INFO  Transition complete: current state is now "report_lsn"
+17:40:09 50804 INFO  New state for node 2 "n2" (127.0.0.1:6482): report_lsn ➜ report_lsn
+17:40:09 50804 INFO  New state for node 2 "n2" (127.0.0.1:6482): report_lsn ➜ prepare_promotion
+17:40:11 50804 INFO  New state for node 2 "n2" (127.0.0.1:6482): prepare_promotion ➜ prepare_promotion
+17:40:11 50804 INFO  New state for node 2 "n2" (127.0.0.1:6482): prepare_promotion ➜ stop_replication
+17:40:11 50804 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ demote_timeout
+17:40:11 50804 INFO  Monitor assigned new state "join_secondary"
+17:40:11 50804 INFO  FSM transition from "report_lsn" to "join_secondary": A failover candidate has been selected, stop replication
+17:40:11 50804 INFO  Preparing Postgres shutdown: CHECKPOINT;
+17:40:11 50804 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+17:40:11 50803 INFO  Stopping pg_autoctl postgres service
+17:40:11 50803 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+17:40:11 50804 INFO  Transition complete: current state is now "join_secondary"
+17:40:11 50804 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): report_lsn ➜ join_secondary
+17:40:11 50804 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): join_secondary ➜ join_secondary
+17:40:12 50804 INFO  New state for node 2 "n2" (127.0.0.1:6482): stop_replication ➜ stop_replication

@@ -1,0 +1,10 @@
+    0.00s REBUILD rig
+  148.25s rebuild ok=True
+  148.25s leader=n1 replicas=['n2', 'n3'] candidate=None
+  151.29s pre-stall gap bytes={'n2': 935752, 'n3': 979832} tps_total=79.0
+  151.29s phase jitter 9.63s
+  160.95s replication stall on primary proxy: stall conns=4 fwd_c2u=3878179 fwd_u2c=1074196230
+  161.47s VERIFIED gap: primary_lsn=576607240 recv={'n2': 565475216, 'n3': 565475216} gap={'n2': 11132024, 'n3': 11132024} candidate_gap=11132024 ratio=1.062
+  161.51s KILL primary n1: pg_autoctl tree [31713, 31722, 31723, 31739, 31740, 31741, 31742, 31744, 31745, 31746, 33497, 33690] + postmaster 31739
+  161.92s monitor view: primary_reported=0/215967A8 cand_reported=0/21B47790 reported_lag=-5967848 true=11132024
+  195.22s PROMOTED n2 after 33.7s; survivors=56416 fork_lsn=565475216

@@ -1,0 +1,12 @@
+1795412390.559 +   1.25s healthy after 0s
+1795412390.934 +   1.63s primary pg-1 10.244.1.25 on cnpg-worker3; replicas pg-2=10.244.3.47@cnpg-worker, pg-3=10.244.2.47@cnpg-worker2; failoverDelay=300
+1795412395.571 +   6.26s writers started (base 78.3 txn/s total); jitter done
+1795412396.439 +   7.13s stall rules applied on cnpg-worker3: 4 rules
+1795412455.850 +  66.54s gap reached {'pg-2': 41876344, 'pg-3': 10495576} in 60.21s; writers stopped
+1795412456.051 +  66.74s VERIFIED primary_lsn=1537222232 recv={'pg-2': 1495345888, 'pg-3': 1526726656} replay={'pg-2': 1495345888, 'pg-3': 1526726816} gaps={'pg-2': 41876344, 'pg-3': 10495576} ratio=1.001
+1795412456.492 +  67.19s operator view (kubectl cnpg status, pre-fault): {'pg-1': ('Primary', 1537222232), 'pg-3': ('Standby (file based)', 1526726816), 'pg-2': ('Standby (file based)', 1495345888)}
+1795412457.344 +  68.04s delete pod: pod "pg-1" force deleted from default namespace | Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+1795412457.344 +  68.04s FAULT: node cordoned, primary pod force-deleted; stall rules stay in place
+1795412461.250 +  71.94s pg_promote -> True in 0.60s
+1795412461.251 +  71.94s early read failed: UndefinedTable('relation "t_d_10mb_r05" does not exist\nLINE 1: select id from t_D_10MB_r05 order by id\n                       ^\n')
+1795412461.251 +  71.94s decision: promoted=pg-3 after 4.8s

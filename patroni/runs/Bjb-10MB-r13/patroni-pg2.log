@@ -1,0 +1,24 @@
+2026-11-22 14:41:31,872 INFO: no action. I am (pg2), a secondary, and following a leader (pg3)
+2026-11-22 14:41:34.607 PST [3949] LOG:  restartpoint starting: wal
+2026-11-22 14:41:42,435 INFO: no action. I am (pg2), a secondary, and following a leader (pg3)
+2026-11-22 14:41:52,340 INFO: no action. I am (pg2), a secondary, and following a leader (pg3)
+2026-11-22 14:42:02,245 WARNING: Request failed to pg3: GET http://127.0.0.1:9010/patroni (HTTPConnectionPool(host='127.0.0.1', port=9010): Max retries exceeded with url: /patroni (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9010): Failed to establish a new connection: [Errno 61] Connection refused")))
+2026-11-22 14:42:02,246 INFO: establishing a new patroni restapi connection to postgres
+2026-11-22 14:42:02,261 INFO: Got response from pg1 http://127.0.0.1:9008/patroni: {"state": "running", "postmaster_start_time": "2026-11-22 14:40:25.365115-08:00", "role": "replica", "server_version": 170012, "xlog": {"received_location": 5082822400, "replayed_location": 5082822400, "replayed_timestamp": "2026-11-22 14:41:38.502406-08:00", "paused": false}, "timeline": 51, "replication_state": "streaming", "cluster_unlocked": true, "dcs_last_seen": 1795387322, "database_system_identifier": "7711115187394724740", "patroni": {"version": "4.1.5", "scope": "pilot", "name": "pg1"}}
+2026-11-22 14:42:02,277 INFO: promoted self to leader by acquiring session lock
+2026-11-22 14:42:02,278 INFO: Lock owner: pg2; I am pg2
+2026-11-22 14:42:02,284 INFO: updated leader lock during promote
+server promoting
+2026-11-22 14:42:02.291 PST [3951] LOG:  received promote request
+2026-11-22 14:42:02.292 PST [3956] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 14:42:02.292 PST [3951] LOG:  record with incorrect prev-link 47402C89/2D4C66DB at 1/2EF5B700
+2026-11-22 14:42:02.292 PST [3951] LOG:  redo done at 1/2EF5B6D8 system usage: CPU: user: 0.65 s, system: 1.20 s, elapsed: 45.28 s
+2026-11-22 14:42:02.292 PST [3951] LOG:  last completed transaction was at log time 2026-11-22 14:41:38.502406-08
+2026-11-22 14:42:02.292 PST [3951] LOG:  selected new timeline ID: 52
+2026-11-22 14:42:02.318 PST [3951] LOG:  archive recovery complete
+2026-11-22 14:42:02.340 PST [3948] LOG:  database system is ready to accept connections
+2026-11-22 14:42:03,432 INFO: no action. I am (pg2), the leader with the lock
+2026-11-22 14:42:03.433 PST [3949] LOG:  restartpoint complete: wrote 996 buffers (6.1%); 0 WAL file(s) added, 15 removed, 0 recycled; write=28.759 s, sync=0.031 s, total=28.826 s; sync files=26, longest=0.022 s, average=0.002 s; distance=244687 kB, estimate=244687 kB; lsn=1/EEF4060, redo lsn=1/EEF3FF0
+2026-11-22 14:42:03.433 PST [3949] LOG:  recovery restart point at 1/EEF3FF0
+2026-11-22 14:42:03.433 PST [3949] DETAIL:  Last completed transaction was at log time 2026-11-22 14:41:38.502406-08.
+2026-11-22 14:42:03.433 PST [3949] LOG:  checkpoint starting: immediate force wait

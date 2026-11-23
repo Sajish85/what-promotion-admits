@@ -1,0 +1,13 @@
+19:24:57 63696 INFO  Monitor assigned new state "report_lsn"
+19:24:57 63696 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+19:24:57 63696 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+19:24:57 63696 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+19:24:57 63694 INFO  Stopping pg_autoctl postgres service
+19:24:57 63694 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+19:24:57 63696 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+19:24:57 63696 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+19:24:57 63696 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+19:24:57 65101 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+19:24:58 63696 INFO  Transition complete: current state is now "report_lsn"
+19:24:58 63694 WARN  PostgreSQL was not running, restarted with pid 65101
+19:24:58 63696 INFO  New state for node 3 "n3" (127.0.0.1:6483): report_lsn ➜ report_lsn

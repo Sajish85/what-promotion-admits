@@ -1,0 +1,26 @@
+2026-11-22 14:40:44.270 PST [3532] LOG:  restartpoint complete: wrote 1138 buffers (6.9%); 0 WAL file(s) added, 21 removed, 0 recycled; write=13.889 s, sync=0.388 s, total=14.671 s; sync files=37, longest=0.247 s, average=0.011 s; distance=327792 kB, estimate=327792 kB; lsn=0/D7BDC1E8, redo lsn=0/D7BDC190
+2026-11-22 14:40:44.270 PST [3532] LOG:  recovery restart point at 0/D7BDC190
+2026-11-22 14:40:44.270 PST [3532] DETAIL:  Last completed transaction was at log time 2026-11-22 14:40:44.103766-08.
+2026-11-22 14:40:44.270 PST [3532] LOG:  restartpoint starting: wal
+2026-11-22 14:40:49,963 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 14:40:59,940 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 14:41:09,744 WARNING: Request failed to pg2: GET http://127.0.0.1:9009/patroni (HTTPConnectionPool(host='127.0.0.1', port=9009): Max retries exceeded with url: /patroni (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9009): Failed to establish a new connection: [Errno 61] Connection refused")))
+2026-11-22 14:41:09,746 INFO: establishing a new patroni restapi connection to postgres
+2026-11-22 14:41:09,773 INFO: Got response from pg1 http://127.0.0.1:9008/patroni: {"state": "running", "postmaster_start_time": "2026-11-22 14:40:25.365115-08:00", "role": "replica", "server_version": 170012, "xlog": {"received_location": 4545519560, "replayed_location": 4545519560, "replayed_timestamp": "2026-11-22 14:40:48.140352-08:00", "paused": false}, "timeline": 50, "replication_state": "streaming", "cluster_unlocked": true, "dcs_last_seen": 1795387269, "database_system_identifier": "7711115187394724740", "patroni": {"version": "4.1.5", "scope": "pilot", "name": "pg1"}}
+2026-11-22 14:41:09,791 INFO: promoted self to leader by acquiring session lock
+2026-11-22 14:41:09,792 INFO: Lock owner: pg3; I am pg3
+2026-11-22 14:41:09,796 INFO: updated leader lock during promote
+server promoting
+2026-11-22 14:41:09.800 PST [3534] LOG:  received promote request
+2026-11-22 14:41:09.800 PST [3626] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 14:41:09.800 PST [3534] LOG:  invalid record length at 1/EEF1FC8: expected at least 24, got 0
+2026-11-22 14:41:09.800 PST [3534] LOG:  redo done at 1/EEF1FA0 system usage: CPU: user: 1.05 s, system: 1.61 s, elapsed: 44.38 s
+2026-11-22 14:41:09.800 PST [3534] LOG:  last completed transaction was at log time 2026-11-22 14:40:48.140352-08
+2026-11-22 14:41:09.801 PST [3534] LOG:  selected new timeline ID: 51
+2026-11-22 14:41:09.838 PST [3534] LOG:  archive recovery complete
+2026-11-22 14:41:09.856 PST [3528] LOG:  database system is ready to accept connections
+2026-11-22 14:41:10,882 INFO: no action. I am (pg3), the leader with the lock
+2026-11-22 14:41:10.891 PST [3532] LOG:  restartpoint complete: wrote 321 buffers (2.0%); 0 WAL file(s) added, 0 removed, 43 recycled; write=26.600 s, sync=0.008 s, total=26.622 s; sync files=29, longest=0.006 s, average=0.001 s; distance=659599 kB, estimate=659599 kB; lsn=1/130, redo lsn=1/D8
+2026-11-22 14:41:10.891 PST [3532] LOG:  recovery restart point at 1/D8
+2026-11-22 14:41:10.891 PST [3532] DETAIL:  Last completed transaction was at log time 2026-11-22 14:40:48.140352-08.
+2026-11-22 14:41:10.892 PST [3532] LOG:  checkpoint starting: immediate force wait

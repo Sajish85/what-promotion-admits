@@ -1,0 +1,646 @@
+T                      R                        O                   M
+2026-11-23T06:41:38Z   Unhealthy                pg-3                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T06:41:44Z   Killing                  pg-3                Stopping container postgres
+2026-11-23T06:41:44Z   Killing                  pg-2                Stopping container postgres
+2026-11-23T06:44:39Z   Unhealthy                pg-2                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T06:44:50Z   CreatingServiceAccount   pg                  Creating ServiceAccount
+2026-11-23T06:44:51Z   CreatingRole             pg                  Creating Cluster Role
+2026-11-23T06:44:53Z   WaitForFirstConsumer     pg-1                waiting for first consumer to be created before binding
+2026-11-23T06:44:53Z   CreatingInstance         pg                  Primary instance (initdb)
+2026-11-23T06:44:54Z   SuccessfulCreate         pg-1-initdb         Created pod: pg-1-initdb-74xgm
+2026-11-23T06:44:54Z   ExternalProvisioning     pg-1                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T06:44:54Z   Provisioning             pg-1                External provisioner is provisioning volume for claim "default/pg-1"
+2026-11-23T06:45:00Z   ProvisioningSucceeded    pg-1                Successfully provisioned volume pvc-e4088667-e58a-43a1-b85d-c2e36a575b78
+2026-11-23T06:45:01Z   Scheduled                pg-1-initdb-74xgm   Successfully assigned default/pg-1-initdb-74xgm to cnpg-worker
+2026-11-23T06:45:03Z   Pulled                   pg-1-initdb-74xgm   Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:45:04Z   Started                  pg-1-initdb-74xgm   Started container bootstrap-controller
+2026-11-23T06:45:04Z   Created                  pg-1-initdb-74xgm   Created container: bootstrap-controller
+2026-11-23T06:45:08Z   Pulled                   pg-1-initdb-74xgm   Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:45:09Z   Started                  pg-1-initdb-74xgm   Started container initdb
+2026-11-23T06:45:09Z   Created                  pg-1-initdb-74xgm   Created container: initdb
+2026-11-23T06:45:15Z   Scheduled                pg-1                Successfully assigned default/pg-1 to cnpg-worker
+2026-11-23T06:45:15Z   Completed                pg-1-initdb         Job completed
+2026-11-23T06:45:17Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:45:18Z   Created                  pg-1                Created container: bootstrap-controller
+2026-11-23T06:45:19Z   Started                  pg-1                Started container bootstrap-controller
+2026-11-23T06:45:20Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:45:21Z   Created                  pg-1                Created container: postgres
+2026-11-23T06:45:22Z   Started                  pg-1                Started container postgres
+2026-11-23T06:45:27Z   CreatingInstance         pg                  Creating instance pg-2
+2026-11-23T06:45:28Z   Provisioning             pg-2                External provisioner is provisioning volume for claim "default/pg-2"
+2026-11-23T06:45:28Z   WaitForFirstConsumer     pg-2                waiting for first consumer to be created before binding
+2026-11-23T06:45:28Z   SuccessfulCreate         pg-2-join           Created pod: pg-2-join-48gxh
+2026-11-23T06:45:32Z   ExternalProvisioning     pg-2                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T06:45:35Z   ProvisioningSucceeded    pg-2                Successfully provisioned volume pvc-f6f1b41c-427d-492e-b28d-1574318e83f7
+2026-11-23T06:45:36Z   Scheduled                pg-2-join-48gxh     Successfully assigned default/pg-2-join-48gxh to cnpg-worker3
+2026-11-23T06:45:39Z   Pulled                   pg-2-join-48gxh     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:45:40Z   Created                  pg-2-join-48gxh     Created container: bootstrap-controller
+2026-11-23T06:45:41Z   Started                  pg-2-join-48gxh     Started container bootstrap-controller
+2026-11-23T06:45:45Z   Pulled                   pg-2-join-48gxh     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:45:46Z   Started                  pg-2-join-48gxh     Started container join
+2026-11-23T06:45:46Z   Created                  pg-2-join-48gxh     Created container: join
+2026-11-23T06:45:54Z   Completed                pg-2-join           Job completed
+2026-11-23T06:45:55Z   Scheduled                pg-2                Successfully assigned default/pg-2 to cnpg-worker3
+2026-11-23T06:45:58Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:45:58Z   Created                  pg-2                Created container: bootstrap-controller
+2026-11-23T06:45:59Z   Started                  pg-2                Started container bootstrap-controller
+2026-11-23T06:46:02Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:46:03Z   Created                  pg-2                Created container: postgres
+2026-11-23T06:46:03Z   Started                  pg-2                Started container postgres
+2026-11-23T06:46:07Z   CreatingInstance         pg                  Creating instance pg-3
+2026-11-23T06:46:08Z   SuccessfulCreate         pg-3-join           Created pod: pg-3-join-6gcpg
+2026-11-23T06:46:08Z   WaitForFirstConsumer     pg-3                waiting for first consumer to be created before binding
+2026-11-23T06:46:08Z   Provisioning             pg-3                External provisioner is provisioning volume for claim "default/pg-3"
+2026-11-23T06:46:09Z   ExternalProvisioning     pg-3                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T06:46:16Z   Scheduled                pg-3-join-6gcpg     Successfully assigned default/pg-3-join-6gcpg to cnpg-worker2
+2026-11-23T06:46:16Z   ProvisioningSucceeded    pg-3                Successfully provisioned volume pvc-d9765c11-f20b-4695-bc8f-1029f8a1dfd5
+2026-11-23T06:46:18Z   Pulled                   pg-3-join-6gcpg     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:46:19Z   Created                  pg-3-join-6gcpg     Created container: bootstrap-controller
+2026-11-23T06:46:19Z   Started                  pg-3-join-6gcpg     Started container bootstrap-controller
+2026-11-23T06:46:23Z   Pulled                   pg-3-join-6gcpg     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:46:24Z   Started                  pg-3-join-6gcpg     Started container join
+2026-11-23T06:46:24Z   Created                  pg-3-join-6gcpg     Created container: join
+2026-11-23T06:46:34Z   Completed                pg-3-join           Job completed
+2026-11-23T06:46:35Z   Scheduled                pg-3                Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T06:46:37Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:46:38Z   Created                  pg-3                Created container: bootstrap-controller
+2026-11-23T06:46:38Z   Started                  pg-3                Started container bootstrap-controller
+2026-11-23T06:47:29Z   Killing                  pg-1                Stopping container postgres
+2026-11-23T06:47:36Z   Unhealthy                pg-3                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T06:47:38Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:47:40Z   Started                  pg-3                Started container postgres
+2026-11-23T06:47:40Z   Created                  pg-3                Created container: postgres
+2026-11-23T06:48:36Z   Unhealthy                pg-3                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T06:48:42Z   Killing                  pg-2                Stopping container postgres
+2026-11-23T06:48:42Z   Killing                  pg-3                Stopping container postgres
+2026-11-23T06:51:37Z   Unhealthy                pg-2                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T06:51:49Z   CreatingServiceAccount   pg                  Creating ServiceAccount
+2026-11-23T06:51:50Z   CreatingRole             pg                  Creating Cluster Role
+2026-11-23T06:51:52Z   WaitForFirstConsumer     pg-1                waiting for first consumer to be created before binding
+2026-11-23T06:51:52Z   SuccessfulCreate         pg-1-initdb         Created pod: pg-1-initdb-plggb
+2026-11-23T06:51:52Z   CreatingInstance         pg                  Primary instance (initdb)
+2026-11-23T06:51:53Z   ExternalProvisioning     pg-1                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T06:51:53Z   Provisioning             pg-1                External provisioner is provisioning volume for claim "default/pg-1"
+2026-11-23T06:52:00Z   Scheduled                pg-1-initdb-plggb   Successfully assigned default/pg-1-initdb-plggb to cnpg-worker
+2026-11-23T06:52:00Z   ProvisioningSucceeded    pg-1                Successfully provisioned volume pvc-0be8a232-dab9-4160-a811-612bc09bc424
+2026-11-23T06:52:02Z   Pulled                   pg-1-initdb-plggb   Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:52:03Z   Created                  pg-1-initdb-plggb   Created container: bootstrap-controller
+2026-11-23T06:52:04Z   Started                  pg-1-initdb-plggb   Started container bootstrap-controller
+2026-11-23T06:52:05Z   Pulled                   pg-1-initdb-plggb   Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:52:06Z   Created                  pg-1-initdb-plggb   Created container: initdb
+2026-11-23T06:52:06Z   Started                  pg-1-initdb-plggb   Started container initdb
+2026-11-23T06:52:11Z   Completed                pg-1-initdb         Job completed
+2026-11-23T06:52:12Z   Scheduled                pg-1                Successfully assigned default/pg-1 to cnpg-worker
+2026-11-23T06:52:14Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:52:15Z   Created                  pg-1                Created container: bootstrap-controller
+2026-11-23T06:52:16Z   Started                  pg-1                Started container bootstrap-controller
+2026-11-23T06:52:17Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:52:18Z   Created                  pg-1                Created container: postgres
+2026-11-23T06:52:18Z   Started                  pg-1                Started container postgres
+2026-11-23T06:52:24Z   Provisioning             pg-2                External provisioner is provisioning volume for claim "default/pg-2"
+2026-11-23T06:52:24Z   WaitForFirstConsumer     pg-2                waiting for first consumer to be created before binding
+2026-11-23T06:52:24Z   CreatingInstance         pg                  Creating instance pg-2
+2026-11-23T06:52:24Z   SuccessfulCreate         pg-2-join           Created pod: pg-2-join-2rpl4
+2026-11-23T06:52:32Z   ProvisioningSucceeded    pg-2                Successfully provisioned volume pvc-9206b767-51b9-4842-a985-04af49d04f0f
+2026-11-23T06:52:32Z   ExternalProvisioning     pg-2                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T06:52:33Z   Scheduled                pg-2-join-2rpl4     Successfully assigned default/pg-2-join-2rpl4 to cnpg-worker3
+2026-11-23T06:52:35Z   Pulled                   pg-2-join-2rpl4     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:52:36Z   Created                  pg-2-join-2rpl4     Created container: bootstrap-controller
+2026-11-23T06:52:36Z   Started                  pg-2-join-2rpl4     Started container bootstrap-controller
+2026-11-23T06:52:41Z   Pulled                   pg-2-join-2rpl4     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:52:42Z   Created                  pg-2-join-2rpl4     Created container: join
+2026-11-23T06:52:43Z   Started                  pg-2-join-2rpl4     Started container join
+2026-11-23T06:52:51Z   Completed                pg-2-join           Job completed
+2026-11-23T06:52:52Z   Scheduled                pg-2                Successfully assigned default/pg-2 to cnpg-worker3
+2026-11-23T06:52:54Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:52:55Z   Started                  pg-2                Started container bootstrap-controller
+2026-11-23T06:52:55Z   Created                  pg-2                Created container: bootstrap-controller
+2026-11-23T06:52:59Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:53:00Z   Created                  pg-2                Created container: postgres
+2026-11-23T06:53:00Z   Started                  pg-2                Started container postgres
+2026-11-23T06:53:04Z   CreatingInstance         pg                  Creating instance pg-3
+2026-11-23T06:53:05Z   Provisioning             pg-3                External provisioner is provisioning volume for claim "default/pg-3"
+2026-11-23T06:53:05Z   WaitForFirstConsumer     pg-3                waiting for first consumer to be created before binding
+2026-11-23T06:53:05Z   SuccessfulCreate         pg-3-join           Created pod: pg-3-join-lvsb2
+2026-11-23T06:53:06Z   ExternalProvisioning     pg-3                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T06:53:12Z   ProvisioningSucceeded    pg-3                Successfully provisioned volume pvc-e44157f8-7b73-445a-b709-aa8779a52815
+2026-11-23T06:53:13Z   Scheduled                pg-3-join-lvsb2     Successfully assigned default/pg-3-join-lvsb2 to cnpg-worker2
+2026-11-23T06:53:15Z   Pulled                   pg-3-join-lvsb2     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:53:16Z   Started                  pg-3-join-lvsb2     Started container bootstrap-controller
+2026-11-23T06:53:16Z   Created                  pg-3-join-lvsb2     Created container: bootstrap-controller
+2026-11-23T06:53:19Z   Pulled                   pg-3-join-lvsb2     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:53:20Z   Created                  pg-3-join-lvsb2     Created container: join
+2026-11-23T06:53:21Z   Started                  pg-3-join-lvsb2     Started container join
+2026-11-23T06:53:30Z   Completed                pg-3-join           Job completed
+2026-11-23T06:53:31Z   Scheduled                pg-3                Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T06:53:34Z   Created                  pg-3                Created container: bootstrap-controller
+2026-11-23T06:53:34Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:53:35Z   Started                  pg-3                Started container bootstrap-controller
+2026-11-23T06:54:16Z   Killing                  pg-1                Stopping container postgres
+2026-11-23T06:54:23Z   Unhealthy                pg-3                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T06:54:26Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:54:27Z   Started                  pg-3                Started container postgres
+2026-11-23T06:54:27Z   Created                  pg-3                Created container: postgres
+2026-11-23T06:55:22Z   Unhealthy                pg-3                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T06:55:29Z   Killing                  pg-3                Stopping container postgres
+2026-11-23T06:55:30Z   Killing                  pg-2                Stopping container postgres
+2026-11-23T06:58:24Z   Unhealthy                pg-2                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T06:58:36Z   CreatingServiceAccount   pg                  Creating ServiceAccount
+2026-11-23T06:58:36Z   CreatingRole             pg                  Creating Cluster Role
+2026-11-23T06:58:39Z   SuccessfulCreate         pg-1-initdb         Created pod: pg-1-initdb-46k5r
+2026-11-23T06:58:39Z   CreatingInstance         pg                  Primary instance (initdb)
+2026-11-23T06:58:39Z   WaitForFirstConsumer     pg-1                waiting for first consumer to be created before binding
+2026-11-23T06:58:40Z   Provisioning             pg-1                External provisioner is provisioning volume for claim "default/pg-1"
+2026-11-23T06:58:47Z   ExternalProvisioning     pg-1                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T06:58:48Z   ProvisioningSucceeded    pg-1                Successfully provisioned volume pvc-518443e0-c1d7-4bb3-b8ff-27c1e6238d0f
+2026-11-23T06:58:50Z   Scheduled                pg-1-initdb-46k5r   Successfully assigned default/pg-1-initdb-46k5r to cnpg-worker
+2026-11-23T06:58:52Z   Pulled                   pg-1-initdb-46k5r   Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:58:53Z   Created                  pg-1-initdb-46k5r   Created container: bootstrap-controller
+2026-11-23T06:58:54Z   Started                  pg-1-initdb-46k5r   Started container bootstrap-controller
+2026-11-23T06:58:55Z   Created                  pg-1-initdb-46k5r   Created container: initdb
+2026-11-23T06:58:55Z   Pulled                   pg-1-initdb-46k5r   Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:58:56Z   Started                  pg-1-initdb-46k5r   Started container initdb
+2026-11-23T06:59:00Z   Completed                pg-1-initdb         Job completed
+2026-11-23T06:59:01Z   Scheduled                pg-1                Successfully assigned default/pg-1 to cnpg-worker
+2026-11-23T06:59:04Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:59:05Z   Created                  pg-1                Created container: bootstrap-controller
+2026-11-23T06:59:06Z   Started                  pg-1                Started container bootstrap-controller
+2026-11-23T06:59:07Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:59:09Z   Started                  pg-1                Started container postgres
+2026-11-23T06:59:09Z   Created                  pg-1                Created container: postgres
+2026-11-23T06:59:14Z   CreatingInstance         pg                  Creating instance pg-2
+2026-11-23T06:59:15Z   Provisioning             pg-2                External provisioner is provisioning volume for claim "default/pg-2"
+2026-11-23T06:59:15Z   WaitForFirstConsumer     pg-2                waiting for first consumer to be created before binding
+2026-11-23T06:59:15Z   SuccessfulCreate         pg-2-join           Created pod: pg-2-join-t6hd9
+2026-11-23T06:59:17Z   ExternalProvisioning     pg-2                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T06:59:22Z   ProvisioningSucceeded    pg-2                Successfully provisioned volume pvc-6c63cc7e-2738-4995-a88a-f39b78fe64ab
+2026-11-23T06:59:23Z   Scheduled                pg-2-join-t6hd9     Successfully assigned default/pg-2-join-t6hd9 to cnpg-worker3
+2026-11-23T06:59:25Z   Pulled                   pg-2-join-t6hd9     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:59:26Z   Started                  pg-2-join-t6hd9     Started container bootstrap-controller
+2026-11-23T06:59:26Z   Created                  pg-2-join-t6hd9     Created container: bootstrap-controller
+2026-11-23T06:59:29Z   Pulled                   pg-2-join-t6hd9     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:59:30Z   Created                  pg-2-join-t6hd9     Created container: join
+2026-11-23T06:59:30Z   Started                  pg-2-join-t6hd9     Started container join
+2026-11-23T06:59:38Z   Scheduled                pg-2                Successfully assigned default/pg-2 to cnpg-worker3
+2026-11-23T06:59:38Z   Completed                pg-2-join           Job completed
+2026-11-23T06:59:41Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T06:59:42Z   Created                  pg-2                Created container: bootstrap-controller
+2026-11-23T06:59:43Z   Started                  pg-2                Started container bootstrap-controller
+2026-11-23T06:59:45Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T06:59:46Z   Created                  pg-2                Created container: postgres
+2026-11-23T06:59:47Z   Started                  pg-2                Started container postgres
+2026-11-23T06:59:49Z   Unhealthy                pg-2                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:00:00Z   CreatingInstance         pg                  Creating instance pg-3
+2026-11-23T07:00:00Z   SuccessfulCreate         pg-3-join           Created pod: pg-3-join-q27qn
+2026-11-23T07:00:00Z   WaitForFirstConsumer     pg-3                waiting for first consumer to be created before binding
+2026-11-23T07:00:01Z   Provisioning             pg-3                External provisioner is provisioning volume for claim "default/pg-3"
+2026-11-23T07:00:02Z   ExternalProvisioning     pg-3                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:00:08Z   ProvisioningSucceeded    pg-3                Successfully provisioned volume pvc-9fb941ad-df38-4ed4-8598-b9a076e07769
+2026-11-23T07:00:09Z   Scheduled                pg-3-join-q27qn     Successfully assigned default/pg-3-join-q27qn to cnpg-worker2
+2026-11-23T07:00:11Z   Created                  pg-3-join-q27qn     Created container: bootstrap-controller
+2026-11-23T07:00:11Z   Pulled                   pg-3-join-q27qn     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:00:12Z   Started                  pg-3-join-q27qn     Started container bootstrap-controller
+2026-11-23T07:00:15Z   Pulled                   pg-3-join-q27qn     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:00:16Z   Created                  pg-3-join-q27qn     Created container: join
+2026-11-23T07:00:16Z   Started                  pg-3-join-q27qn     Started container join
+2026-11-23T07:00:26Z   Completed                pg-3-join           Job completed
+2026-11-23T07:00:27Z   Scheduled                pg-3                Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T07:00:29Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:00:30Z   Created                  pg-3                Created container: bootstrap-controller
+2026-11-23T07:00:31Z   Started                  pg-3                Started container bootstrap-controller
+2026-11-23T07:01:08Z   Killing                  pg-1                Stopping container postgres
+2026-11-23T07:01:18Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:01:18Z   Unhealthy                pg-3                Liveness probe failed: Get "https://10.244.2.84:8000/healthz": dial tcp 10.244.2.84:8000: connect: connection refused
+2026-11-23T07:01:18Z   Unhealthy                pg-3                Readiness probe failed: Get "https://10.244.2.84:8000/readyz": dial tcp 10.244.2.84:8000: connect: connection refused
+2026-11-23T07:01:19Z   Created                  pg-3                Created container: postgres
+2026-11-23T07:01:20Z   Started                  pg-3                Started container postgres
+2026-11-23T07:02:18Z   Unhealthy                pg-3                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:02:21Z   Killing                  pg-2                Stopping container postgres
+2026-11-23T07:02:21Z   Killing                  pg-3                Stopping container postgres
+2026-11-23T07:05:19Z   Unhealthy                pg-2                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:05:31Z   CreatingRole             pg                  Creating Cluster Role
+2026-11-23T07:05:31Z   CreatingServiceAccount   pg                  Creating ServiceAccount
+2026-11-23T07:05:34Z   WaitForFirstConsumer     pg-1                waiting for first consumer to be created before binding
+2026-11-23T07:05:34Z   CreatingInstance         pg                  Primary instance (initdb)
+2026-11-23T07:05:35Z   ExternalProvisioning     pg-1                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:05:35Z   SuccessfulCreate         pg-1-initdb         Created pod: pg-1-initdb-28dxd
+2026-11-23T07:05:35Z   Provisioning             pg-1                External provisioner is provisioning volume for claim "default/pg-1"
+2026-11-23T07:05:43Z   ProvisioningSucceeded    pg-1                Successfully provisioned volume pvc-b8c0b1a6-c968-4266-b435-0c785d12e47a
+2026-11-23T07:05:44Z   Scheduled                pg-1-initdb-28dxd   Successfully assigned default/pg-1-initdb-28dxd to cnpg-worker
+2026-11-23T07:05:45Z   Pulled                   pg-1-initdb-28dxd   Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:05:46Z   Created                  pg-1-initdb-28dxd   Created container: bootstrap-controller
+2026-11-23T07:05:47Z   Started                  pg-1-initdb-28dxd   Started container bootstrap-controller
+2026-11-23T07:05:49Z   Pulled                   pg-1-initdb-28dxd   Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:05:51Z   Started                  pg-1-initdb-28dxd   Started container initdb
+2026-11-23T07:05:51Z   Created                  pg-1-initdb-28dxd   Created container: initdb
+2026-11-23T07:05:56Z   Completed                pg-1-initdb         Job completed
+2026-11-23T07:05:57Z   Scheduled                pg-1                Successfully assigned default/pg-1 to cnpg-worker
+2026-11-23T07:05:59Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:06:00Z   Created                  pg-1                Created container: bootstrap-controller
+2026-11-23T07:06:01Z   Started                  pg-1                Started container bootstrap-controller
+2026-11-23T07:06:02Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:06:03Z   Created                  pg-1                Created container: postgres
+2026-11-23T07:06:03Z   Started                  pg-1                Started container postgres
+2026-11-23T07:06:09Z   CreatingInstance         pg                  Creating instance pg-2
+2026-11-23T07:06:10Z   WaitForFirstConsumer     pg-2                waiting for first consumer to be created before binding
+2026-11-23T07:06:10Z   SuccessfulCreate         pg-2-join           Created pod: pg-2-join-8djkt
+2026-11-23T07:06:10Z   Provisioning             pg-2                External provisioner is provisioning volume for claim "default/pg-2"
+2026-11-23T07:06:11Z   ExternalProvisioning     pg-2                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:06:16Z   ProvisioningSucceeded    pg-2                Successfully provisioned volume pvc-d91c6a6f-2c12-4274-a180-5c802c0d876c
+2026-11-23T07:06:17Z   Scheduled                pg-2-join-8djkt     Successfully assigned default/pg-2-join-8djkt to cnpg-worker3
+2026-11-23T07:06:20Z   Created                  pg-2-join-8djkt     Created container: bootstrap-controller
+2026-11-23T07:06:20Z   Pulled                   pg-2-join-8djkt     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:06:21Z   Started                  pg-2-join-8djkt     Started container bootstrap-controller
+2026-11-23T07:06:25Z   Pulled                   pg-2-join-8djkt     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:06:27Z   Created                  pg-2-join-8djkt     Created container: join
+2026-11-23T07:06:27Z   Started                  pg-2-join-8djkt     Started container join
+2026-11-23T07:06:34Z   Completed                pg-2-join           Job completed
+2026-11-23T07:06:35Z   Scheduled                pg-2                Successfully assigned default/pg-2 to cnpg-worker3
+2026-11-23T07:06:37Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:06:38Z   Created                  pg-2                Created container: bootstrap-controller
+2026-11-23T07:06:38Z   Started                  pg-2                Started container bootstrap-controller
+2026-11-23T07:06:41Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:06:42Z   Started                  pg-2                Started container postgres
+2026-11-23T07:06:42Z   Created                  pg-2                Created container: postgres
+2026-11-23T07:06:47Z   CreatingInstance         pg                  Creating instance pg-3
+2026-11-23T07:06:48Z   Provisioning             pg-3                External provisioner is provisioning volume for claim "default/pg-3"
+2026-11-23T07:06:48Z   WaitForFirstConsumer     pg-3                waiting for first consumer to be created before binding
+2026-11-23T07:06:48Z   SuccessfulCreate         pg-3-join           Created pod: pg-3-join-t5ljc
+2026-11-23T07:06:50Z   ExternalProvisioning     pg-3                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:06:56Z   ProvisioningSucceeded    pg-3                Successfully provisioned volume pvc-2db24d8a-35ec-4891-b97c-ef198386dba0
+2026-11-23T07:06:57Z   Scheduled                pg-3-join-t5ljc     Successfully assigned default/pg-3-join-t5ljc to cnpg-worker2
+2026-11-23T07:06:59Z   Pulled                   pg-3-join-t5ljc     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:06:59Z   Created                  pg-3-join-t5ljc     Created container: bootstrap-controller
+2026-11-23T07:07:00Z   Started                  pg-3-join-t5ljc     Started container bootstrap-controller
+2026-11-23T07:07:03Z   Pulled                   pg-3-join-t5ljc     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:07:04Z   Created                  pg-3-join-t5ljc     Created container: join
+2026-11-23T07:07:04Z   Started                  pg-3-join-t5ljc     Started container join
+2026-11-23T07:07:14Z   Completed                pg-3-join           Job completed
+2026-11-23T07:07:15Z   Scheduled                pg-3                Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T07:07:17Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:07:18Z   Created                  pg-3                Created container: bootstrap-controller
+2026-11-23T07:07:19Z   Started                  pg-3                Started container bootstrap-controller
+2026-11-23T07:07:26Z   Unhealthy                pg-3                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:07:58Z   Killing                  pg-1                Stopping container postgres
+2026-11-23T07:08:07Z   Unhealthy                pg-3                Readiness probe failed: Get "https://10.244.2.88:8000/readyz": dial tcp 10.244.2.88:8000: connect: connection refused
+2026-11-23T07:08:08Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:08:09Z   Created                  pg-3                Created container: postgres
+2026-11-23T07:08:09Z   Started                  pg-3                Started container postgres
+2026-11-23T07:09:06Z   Unhealthy                pg-3                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:09:11Z   Killing                  pg-3                Stopping container postgres
+2026-11-23T07:09:11Z   Killing                  pg-2                Stopping container postgres
+2026-11-23T07:12:07Z   Unhealthy                pg-2                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:12:17Z   CreatingServiceAccount   pg                  Creating ServiceAccount
+2026-11-23T07:12:18Z   CreatingRole             pg                  Creating Cluster Role
+2026-11-23T07:12:20Z   CreatingInstance         pg                  Primary instance (initdb)
+2026-11-23T07:12:20Z   WaitForFirstConsumer     pg-1                waiting for first consumer to be created before binding
+2026-11-23T07:12:21Z   SuccessfulCreate         pg-1-initdb         Created pod: pg-1-initdb-ftwt9
+2026-11-23T07:12:21Z   Provisioning             pg-1                External provisioner is provisioning volume for claim "default/pg-1"
+2026-11-23T07:12:21Z   ExternalProvisioning     pg-1                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:12:28Z   ProvisioningSucceeded    pg-1                Successfully provisioned volume pvc-0b2fe4a0-a4ad-4974-a6be-8aaeba12cdf7
+2026-11-23T07:12:29Z   Scheduled                pg-1-initdb-ftwt9   Successfully assigned default/pg-1-initdb-ftwt9 to cnpg-worker
+2026-11-23T07:12:31Z   Pulled                   pg-1-initdb-ftwt9   Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:12:32Z   Started                  pg-1-initdb-ftwt9   Started container bootstrap-controller
+2026-11-23T07:12:32Z   Created                  pg-1-initdb-ftwt9   Created container: bootstrap-controller
+2026-11-23T07:12:36Z   Pulled                   pg-1-initdb-ftwt9   Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:12:37Z   Created                  pg-1-initdb-ftwt9   Created container: initdb
+2026-11-23T07:12:37Z   Started                  pg-1-initdb-ftwt9   Started container initdb
+2026-11-23T07:12:42Z   Completed                pg-1-initdb         Job completed
+2026-11-23T07:12:43Z   Scheduled                pg-1                Successfully assigned default/pg-1 to cnpg-worker
+2026-11-23T07:12:45Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:12:46Z   Created                  pg-1                Created container: bootstrap-controller
+2026-11-23T07:12:46Z   Started                  pg-1                Started container bootstrap-controller
+2026-11-23T07:12:50Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:12:51Z   Created                  pg-1                Created container: postgres
+2026-11-23T07:12:51Z   Started                  pg-1                Started container postgres
+2026-11-23T07:12:54Z   Unhealthy                pg-1                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:13:05Z   SuccessfulCreate         pg-2-join           Created pod: pg-2-join-w84rg
+2026-11-23T07:13:05Z   WaitForFirstConsumer     pg-2                waiting for first consumer to be created before binding
+2026-11-23T07:13:05Z   CreatingInstance         pg                  Creating instance pg-2
+2026-11-23T07:13:06Z   Provisioning             pg-2                External provisioner is provisioning volume for claim "default/pg-2"
+2026-11-23T07:13:06Z   ExternalProvisioning     pg-2                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:13:13Z   ProvisioningSucceeded    pg-2                Successfully provisioned volume pvc-380746b4-caf2-450f-a49a-25282e3e719d
+2026-11-23T07:13:14Z   Scheduled                pg-2-join-w84rg     Successfully assigned default/pg-2-join-w84rg to cnpg-worker3
+2026-11-23T07:13:15Z   Pulled                   pg-2-join-w84rg     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:13:16Z   Created                  pg-2-join-w84rg     Created container: bootstrap-controller
+2026-11-23T07:13:17Z   Started                  pg-2-join-w84rg     Started container bootstrap-controller
+2026-11-23T07:13:21Z   Pulled                   pg-2-join-w84rg     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:13:22Z   Started                  pg-2-join-w84rg     Started container join
+2026-11-23T07:13:22Z   Created                  pg-2-join-w84rg     Created container: join
+2026-11-23T07:13:30Z   Completed                pg-2-join           Job completed
+2026-11-23T07:13:31Z   Scheduled                pg-2                Successfully assigned default/pg-2 to cnpg-worker3
+2026-11-23T07:13:34Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:13:35Z   Created                  pg-2                Created container: bootstrap-controller
+2026-11-23T07:13:35Z   Started                  pg-2                Started container bootstrap-controller
+2026-11-23T07:13:44Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:13:45Z   Created                  pg-2                Created container: postgres
+2026-11-23T07:13:45Z   Started                  pg-2                Started container postgres
+2026-11-23T07:13:53Z   SuccessfulCreate         pg-3-join           Created pod: pg-3-join-df6pr
+2026-11-23T07:13:53Z   FailedScheduling         pg-3-join-df6pr     0/4 nodes are available: persistentvolumeclaim "pg-3" not found. not found
+2026-11-23T07:13:53Z   WaitForPodScheduled      pg-3                waiting for pod pg-3-join-df6pr to be scheduled
+2026-11-23T07:13:53Z   CreatingInstance         pg                  Creating instance pg-3
+2026-11-23T07:13:54Z   ExternalProvisioning     pg-3                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:13:54Z   Provisioning             pg-3                External provisioner is provisioning volume for claim "default/pg-3"
+2026-11-23T07:14:02Z   ProvisioningSucceeded    pg-3                Successfully provisioned volume pvc-7e1b64b0-bbfd-41e1-8a2a-b5405db82b17
+2026-11-23T07:14:03Z   Scheduled                pg-3-join-df6pr     Successfully assigned default/pg-3-join-df6pr to cnpg-worker2
+2026-11-23T07:14:04Z   Pulled                   pg-3-join-df6pr     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:14:05Z   Created                  pg-3-join-df6pr     Created container: bootstrap-controller
+2026-11-23T07:14:06Z   Started                  pg-3-join-df6pr     Started container bootstrap-controller
+2026-11-23T07:14:09Z   Pulled                   pg-3-join-df6pr     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:14:10Z   Created                  pg-3-join-df6pr     Created container: join
+2026-11-23T07:14:10Z   Started                  pg-3-join-df6pr     Started container join
+2026-11-23T07:14:19Z   Completed                pg-3-join           Job completed
+2026-11-23T07:14:20Z   Scheduled                pg-3                Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T07:14:22Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:14:23Z   Created                  pg-3                Created container: bootstrap-controller
+2026-11-23T07:14:23Z   Started                  pg-3                Started container bootstrap-controller
+2026-11-23T07:15:00Z   Killing                  pg-1                Stopping container postgres
+2026-11-23T07:15:11Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:15:12Z   Started                  pg-3                Started container postgres
+2026-11-23T07:15:12Z   Created                  pg-3                Created container: postgres
+2026-11-23T07:16:11Z   Unhealthy                pg-3                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:16:14Z   Killing                  pg-3                Stopping container postgres
+2026-11-23T07:16:14Z   Killing                  pg-2                Stopping container postgres
+2026-11-23T07:19:12Z   Unhealthy                pg-2                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:19:24Z   CreatingServiceAccount   pg                  Creating ServiceAccount
+2026-11-23T07:19:25Z   CreatingRole             pg                  Creating Cluster Role
+2026-11-23T07:19:27Z   CreatingInstance         pg                  Primary instance (initdb)
+2026-11-23T07:19:27Z   SuccessfulCreate         pg-1-initdb         Created pod: pg-1-initdb-8sctg
+2026-11-23T07:19:27Z   WaitForFirstConsumer     pg-1                waiting for first consumer to be created before binding
+2026-11-23T07:19:28Z   Provisioning             pg-1                External provisioner is provisioning volume for claim "default/pg-1"
+2026-11-23T07:19:32Z   ExternalProvisioning     pg-1                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:19:35Z   ProvisioningSucceeded    pg-1                Successfully provisioned volume pvc-79ece84d-293a-417c-8f7e-84277845ea14
+2026-11-23T07:19:36Z   Scheduled                pg-1-initdb-8sctg   Successfully assigned default/pg-1-initdb-8sctg to cnpg-worker
+2026-11-23T07:19:38Z   Pulled                   pg-1-initdb-8sctg   Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:19:39Z   Started                  pg-1-initdb-8sctg   Started container bootstrap-controller
+2026-11-23T07:19:39Z   Created                  pg-1-initdb-8sctg   Created container: bootstrap-controller
+2026-11-23T07:19:41Z   Pulled                   pg-1-initdb-8sctg   Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:19:42Z   Started                  pg-1-initdb-8sctg   Started container initdb
+2026-11-23T07:19:42Z   Created                  pg-1-initdb-8sctg   Created container: initdb
+2026-11-23T07:19:48Z   Completed                pg-1-initdb         Job completed
+2026-11-23T07:19:49Z   Scheduled                pg-1                Successfully assigned default/pg-1 to cnpg-worker
+2026-11-23T07:19:51Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:19:52Z   Created                  pg-1                Created container: bootstrap-controller
+2026-11-23T07:19:53Z   Started                  pg-1                Started container bootstrap-controller
+2026-11-23T07:19:54Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:19:55Z   Created                  pg-1                Created container: postgres
+2026-11-23T07:19:56Z   Started                  pg-1                Started container postgres
+2026-11-23T07:20:01Z   CreatingInstance         pg                  Creating instance pg-2
+2026-11-23T07:20:01Z   SuccessfulCreate         pg-2-join           Created pod: pg-2-join-62p4r
+2026-11-23T07:20:01Z   WaitForFirstConsumer     pg-2                waiting for first consumer to be created before binding
+2026-11-23T07:20:02Z   Provisioning             pg-2                External provisioner is provisioning volume for claim "default/pg-2"
+2026-11-23T07:20:02Z   ExternalProvisioning     pg-2                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:20:08Z   ProvisioningSucceeded    pg-2                Successfully provisioned volume pvc-64bbc23e-1e30-4ccf-ae37-379ca8fff924
+2026-11-23T07:20:10Z   Scheduled                pg-2-join-62p4r     Successfully assigned default/pg-2-join-62p4r to cnpg-worker3
+2026-11-23T07:20:12Z   Pulled                   pg-2-join-62p4r     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:20:13Z   Created                  pg-2-join-62p4r     Created container: bootstrap-controller
+2026-11-23T07:20:13Z   Started                  pg-2-join-62p4r     Started container bootstrap-controller
+2026-11-23T07:20:18Z   Pulled                   pg-2-join-62p4r     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:20:19Z   Created                  pg-2-join-62p4r     Created container: join
+2026-11-23T07:20:19Z   Started                  pg-2-join-62p4r     Started container join
+2026-11-23T07:20:26Z   Completed                pg-2-join           Job completed
+2026-11-23T07:20:27Z   Scheduled                pg-2                Successfully assigned default/pg-2 to cnpg-worker3
+2026-11-23T07:20:30Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:20:31Z   Started                  pg-2                Started container bootstrap-controller
+2026-11-23T07:20:31Z   Created                  pg-2                Created container: bootstrap-controller
+2026-11-23T07:20:35Z   Created                  pg-2                Created container: postgres
+2026-11-23T07:20:35Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:20:36Z   Started                  pg-2                Started container postgres
+2026-11-23T07:20:40Z   CreatingInstance         pg                  Creating instance pg-3
+2026-11-23T07:20:40Z   WaitForFirstConsumer     pg-3                waiting for first consumer to be created before binding
+2026-11-23T07:20:40Z   SuccessfulCreate         pg-3-join           Created pod: pg-3-join-x5q28
+2026-11-23T07:20:41Z   Provisioning             pg-3                External provisioner is provisioning volume for claim "default/pg-3"
+2026-11-23T07:20:47Z   ExternalProvisioning     pg-3                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:20:48Z   ProvisioningSucceeded    pg-3                Successfully provisioned volume pvc-df02dc5f-f2e8-452f-aa47-4a7a7c3a6371
+2026-11-23T07:20:49Z   Scheduled                pg-3-join-x5q28     Successfully assigned default/pg-3-join-x5q28 to cnpg-worker2
+2026-11-23T07:20:51Z   Pulled                   pg-3-join-x5q28     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:20:52Z   Created                  pg-3-join-x5q28     Created container: bootstrap-controller
+2026-11-23T07:20:52Z   Started                  pg-3-join-x5q28     Started container bootstrap-controller
+2026-11-23T07:20:54Z   Pulled                   pg-3-join-x5q28     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:20:55Z   Started                  pg-3-join-x5q28     Started container join
+2026-11-23T07:20:55Z   Created                  pg-3-join-x5q28     Created container: join
+2026-11-23T07:21:05Z   Completed                pg-3-join           Job completed
+2026-11-23T07:21:05Z   Scheduled                pg-3                Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T07:21:08Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:21:09Z   Created                  pg-3                Created container: bootstrap-controller
+2026-11-23T07:21:09Z   Started                  pg-3                Started container bootstrap-controller
+2026-11-23T07:21:49Z   Killing                  pg-1                Stopping container postgres
+2026-11-23T07:21:50Z   Unhealthy                pg-1                Readiness probe failed: Get "https://10.244.3.96:8000/readyz": dial tcp 10.244.3.96:8000: connect: connection refused
+2026-11-23T07:21:57Z   Unhealthy                pg-3                Readiness probe failed: Get "https://10.244.2.96:8000/readyz": dial tcp 10.244.2.96:8000: connect: connection refused
+2026-11-23T07:21:58Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:22:00Z   Created                  pg-3                Created container: postgres
+2026-11-23T07:22:00Z   Started                  pg-3                Started container postgres
+2026-11-23T07:22:56Z   Unhealthy                pg-3                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:23:03Z   Killing                  pg-2                Stopping container postgres
+2026-11-23T07:23:03Z   Killing                  pg-3                Stopping container postgres
+2026-11-23T07:25:59Z   Unhealthy                pg-2                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:26:08Z   CreatingServiceAccount   pg                  Creating ServiceAccount
+2026-11-23T07:26:08Z   CreatingRole             pg                  Creating Cluster Role
+2026-11-23T07:26:11Z   WaitForFirstConsumer     pg-1                waiting for first consumer to be created before binding
+2026-11-23T07:26:11Z   CreatingInstance         pg                  Primary instance (initdb)
+2026-11-23T07:26:12Z   Provisioning             pg-1                External provisioner is provisioning volume for claim "default/pg-1"
+2026-11-23T07:26:12Z   SuccessfulCreate         pg-1-initdb         Created pod: pg-1-initdb-k8f5m
+2026-11-23T07:26:17Z   ExternalProvisioning     pg-1                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:26:20Z   ProvisioningSucceeded    pg-1                Successfully provisioned volume pvc-51592265-1696-414f-9da3-8e6eb2647fd7
+2026-11-23T07:26:21Z   Scheduled                pg-1-initdb-k8f5m   Successfully assigned default/pg-1-initdb-k8f5m to cnpg-worker
+2026-11-23T07:26:23Z   Pulled                   pg-1-initdb-k8f5m   Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:26:24Z   Created                  pg-1-initdb-k8f5m   Created container: bootstrap-controller
+2026-11-23T07:26:25Z   Started                  pg-1-initdb-k8f5m   Started container bootstrap-controller
+2026-11-23T07:26:26Z   Pulled                   pg-1-initdb-k8f5m   Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:26:27Z   Created                  pg-1-initdb-k8f5m   Created container: initdb
+2026-11-23T07:26:27Z   Started                  pg-1-initdb-k8f5m   Started container initdb
+2026-11-23T07:26:32Z   Scheduled                pg-1                Successfully assigned default/pg-1 to cnpg-worker
+2026-11-23T07:26:32Z   Completed                pg-1-initdb         Job completed
+2026-11-23T07:26:34Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:26:35Z   Created                  pg-1                Created container: bootstrap-controller
+2026-11-23T07:26:36Z   Started                  pg-1                Started container bootstrap-controller
+2026-11-23T07:26:37Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:26:39Z   Started                  pg-1                Started container postgres
+2026-11-23T07:26:39Z   Created                  pg-1                Created container: postgres
+2026-11-23T07:26:44Z   CreatingInstance         pg                  Creating instance pg-2
+2026-11-23T07:26:45Z   Provisioning             pg-2                External provisioner is provisioning volume for claim "default/pg-2"
+2026-11-23T07:26:45Z   WaitForFirstConsumer     pg-2                waiting for first consumer to be created before binding
+2026-11-23T07:26:45Z   SuccessfulCreate         pg-2-join           Created pod: pg-2-join-bvskg
+2026-11-23T07:26:47Z   ExternalProvisioning     pg-2                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:26:52Z   ProvisioningSucceeded    pg-2                Successfully provisioned volume pvc-45ebebb1-2b8c-43c1-ae87-b091e0892f0d
+2026-11-23T07:26:53Z   Scheduled                pg-2-join-bvskg     Successfully assigned default/pg-2-join-bvskg to cnpg-worker3
+2026-11-23T07:26:56Z   Created                  pg-2-join-bvskg     Created container: bootstrap-controller
+2026-11-23T07:26:56Z   Pulled                   pg-2-join-bvskg     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:26:58Z   Started                  pg-2-join-bvskg     Started container bootstrap-controller
+2026-11-23T07:26:59Z   Pulled                   pg-2-join-bvskg     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:27:01Z   Created                  pg-2-join-bvskg     Created container: join
+2026-11-23T07:27:01Z   Started                  pg-2-join-bvskg     Started container join
+2026-11-23T07:27:11Z   Completed                pg-2-join           Job completed
+2026-11-23T07:27:12Z   Scheduled                pg-2                Successfully assigned default/pg-2 to cnpg-worker3
+2026-11-23T07:27:14Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:27:16Z   Created                  pg-2                Created container: bootstrap-controller
+2026-11-23T07:27:17Z   Started                  pg-2                Started container bootstrap-controller
+2026-11-23T07:27:18Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:27:19Z   Started                  pg-2                Started container postgres
+2026-11-23T07:27:19Z   Created                  pg-2                Created container: postgres
+2026-11-23T07:27:24Z   CreatingInstance         pg                  Creating instance pg-3
+2026-11-23T07:27:25Z   WaitForFirstConsumer     pg-3                waiting for first consumer to be created before binding
+2026-11-23T07:27:25Z   SuccessfulCreate         pg-3-join           Created pod: pg-3-join-85wdl
+2026-11-23T07:27:32Z   ExternalProvisioning     pg-3                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:27:33Z   Provisioning             pg-3                External provisioner is provisioning volume for claim "default/pg-3"
+2026-11-23T07:27:34Z   Scheduled                pg-3-join-85wdl     Successfully assigned default/pg-3-join-85wdl to cnpg-worker2
+2026-11-23T07:27:37Z   Pulled                   pg-3-join-85wdl     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:27:38Z   Created                  pg-3-join-85wdl     Created container: bootstrap-controller
+2026-11-23T07:27:39Z   Started                  pg-3-join-85wdl     Started container bootstrap-controller
+2026-11-23T07:27:44Z   Pulled                   pg-3-join-85wdl     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:27:44Z   ProvisioningSucceeded    pg-3                Successfully provisioned volume pvc-192b6687-7b5b-40b0-b556-69007c1f7ce4
+2026-11-23T07:27:45Z   Created                  pg-3-join-85wdl     Created container: join
+2026-11-23T07:27:45Z   Started                  pg-3-join-85wdl     Started container join
+2026-11-23T07:27:54Z   Completed                pg-3-join           Job completed
+2026-11-23T07:27:55Z   Scheduled                pg-3                Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T07:27:57Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:27:58Z   Created                  pg-3                Created container: bootstrap-controller
+2026-11-23T07:27:59Z   Started                  pg-3                Started container bootstrap-controller
+2026-11-23T07:28:42Z   Killing                  pg-1                Stopping container postgres
+2026-11-23T07:28:46Z   Unhealthy                pg-3                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:28:51Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:28:53Z   Created                  pg-3                Created container: postgres
+2026-11-23T07:28:53Z   Started                  pg-3                Started container postgres
+2026-11-23T07:29:46Z   Unhealthy                pg-3                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:29:55Z   Killing                  pg-3                Stopping container postgres
+2026-11-23T07:29:55Z   Killing                  pg-2                Stopping container postgres
+2026-11-23T07:32:53Z   Unhealthy                pg-2                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:33:02Z   CreatingServiceAccount   pg                  Creating ServiceAccount
+2026-11-23T07:33:02Z   CreatingRole             pg                  Creating Cluster Role
+2026-11-23T07:33:04Z   WaitForFirstConsumer     pg-1                waiting for first consumer to be created before binding
+2026-11-23T07:33:04Z   CreatingInstance         pg                  Primary instance (initdb)
+2026-11-23T07:33:05Z   SuccessfulCreate         pg-1-initdb         Created pod: pg-1-initdb-j7fmp
+2026-11-23T07:33:05Z   ExternalProvisioning     pg-1                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:33:05Z   Provisioning             pg-1                External provisioner is provisioning volume for claim "default/pg-1"
+2026-11-23T07:33:13Z   ProvisioningSucceeded    pg-1                Successfully provisioned volume pvc-e8bf1b8c-0bc2-4639-9ddb-794f0ca93a13
+2026-11-23T07:33:14Z   Scheduled                pg-1-initdb-j7fmp   Successfully assigned default/pg-1-initdb-j7fmp to cnpg-worker
+2026-11-23T07:33:16Z   Pulled                   pg-1-initdb-j7fmp   Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:33:17Z   Started                  pg-1-initdb-j7fmp   Started container bootstrap-controller
+2026-11-23T07:33:17Z   Created                  pg-1-initdb-j7fmp   Created container: bootstrap-controller
+2026-11-23T07:33:22Z   Pulled                   pg-1-initdb-j7fmp   Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:33:23Z   Created                  pg-1-initdb-j7fmp   Created container: initdb
+2026-11-23T07:33:24Z   Started                  pg-1-initdb-j7fmp   Started container initdb
+2026-11-23T07:33:28Z   Completed                pg-1-initdb         Job completed
+2026-11-23T07:33:29Z   Scheduled                pg-1                Successfully assigned default/pg-1 to cnpg-worker
+2026-11-23T07:33:31Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:33:33Z   Created                  pg-1                Created container: bootstrap-controller
+2026-11-23T07:33:34Z   Started                  pg-1                Started container bootstrap-controller
+2026-11-23T07:33:35Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:33:36Z   Started                  pg-1                Started container postgres
+2026-11-23T07:33:36Z   Created                  pg-1                Created container: postgres
+2026-11-23T07:33:41Z   CreatingInstance         pg                  Creating instance pg-2
+2026-11-23T07:33:42Z   Provisioning             pg-2                External provisioner is provisioning volume for claim "default/pg-2"
+2026-11-23T07:33:42Z   SuccessfulCreate         pg-2-join           Created pod: pg-2-join-gwbgk
+2026-11-23T07:33:42Z   WaitForFirstConsumer     pg-2                waiting for first consumer to be created before binding
+2026-11-23T07:33:47Z   ExternalProvisioning     pg-2                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:33:48Z   ProvisioningSucceeded    pg-2                Successfully provisioned volume pvc-9f578cbd-d0ab-48a7-b959-8edf7a88227a
+2026-11-23T07:33:49Z   Scheduled                pg-2-join-gwbgk     Successfully assigned default/pg-2-join-gwbgk to cnpg-worker3
+2026-11-23T07:33:51Z   Pulled                   pg-2-join-gwbgk     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:33:52Z   Created                  pg-2-join-gwbgk     Created container: bootstrap-controller
+2026-11-23T07:33:53Z   Started                  pg-2-join-gwbgk     Started container bootstrap-controller
+2026-11-23T07:33:56Z   Pulled                   pg-2-join-gwbgk     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:33:57Z   Started                  pg-2-join-gwbgk     Started container join
+2026-11-23T07:33:57Z   Created                  pg-2-join-gwbgk     Created container: join
+2026-11-23T07:34:05Z   Completed                pg-2-join           Job completed
+2026-11-23T07:34:06Z   Scheduled                pg-2                Successfully assigned default/pg-2 to cnpg-worker3
+2026-11-23T07:34:09Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:34:10Z   Created                  pg-2                Created container: bootstrap-controller
+2026-11-23T07:34:11Z   Started                  pg-2                Started container bootstrap-controller
+2026-11-23T07:34:12Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:34:13Z   Created                  pg-2                Created container: postgres
+2026-11-23T07:34:14Z   Started                  pg-2                Started container postgres
+2026-11-23T07:34:18Z   WaitForFirstConsumer     pg-3                waiting for first consumer to be created before binding
+2026-11-23T07:34:18Z   CreatingInstance         pg                  Creating instance pg-3
+2026-11-23T07:34:18Z   SuccessfulCreate         pg-3-join           Created pod: pg-3-join-5t85l
+2026-11-23T07:34:19Z   Provisioning             pg-3                External provisioner is provisioning volume for claim "default/pg-3"
+2026-11-23T07:34:19Z   ExternalProvisioning     pg-3                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:34:25Z   ProvisioningSucceeded    pg-3                Successfully provisioned volume pvc-a44eaa87-c742-4273-a8d7-9eb74bd31814
+2026-11-23T07:34:26Z   Scheduled                pg-3-join-5t85l     Successfully assigned default/pg-3-join-5t85l to cnpg-worker2
+2026-11-23T07:34:28Z   Pulled                   pg-3-join-5t85l     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:34:29Z   Started                  pg-3-join-5t85l     Started container bootstrap-controller
+2026-11-23T07:34:29Z   Created                  pg-3-join-5t85l     Created container: bootstrap-controller
+2026-11-23T07:34:33Z   Pulled                   pg-3-join-5t85l     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:34:34Z   Created                  pg-3-join-5t85l     Created container: join
+2026-11-23T07:34:34Z   Started                  pg-3-join-5t85l     Started container join
+2026-11-23T07:34:44Z   Completed                pg-3-join           Job completed
+2026-11-23T07:34:45Z   Scheduled                pg-3                Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T07:34:47Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:34:48Z   Created                  pg-3                Created container: bootstrap-controller
+2026-11-23T07:34:49Z   Started                  pg-3                Started container bootstrap-controller
+2026-11-23T07:35:26Z   Killing                  pg-1                Stopping container postgres
+2026-11-23T07:35:33Z   NodeNotSchedulable       cnpg-worker         Node cnpg-worker status is now: NodeNotSchedulable
+2026-11-23T07:35:35Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:35:36Z   Started                  pg-3                Started container postgres
+2026-11-23T07:35:36Z   Created                  pg-3                Created container: postgres
+2026-11-23T07:36:35Z   Unhealthy                pg-3                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:36:39Z   Killing                  pg-3                Stopping container postgres
+2026-11-23T07:36:39Z   Killing                  pg-2                Stopping container postgres
+2026-11-23T07:36:44Z   NodeSchedulable          cnpg-worker         Node cnpg-worker status is now: NodeSchedulable
+2026-11-23T07:39:37Z   Unhealthy                pg-2                Readiness probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:39:46Z   CreatingServiceAccount   pg                  Creating ServiceAccount
+2026-11-23T07:39:46Z   CreatingRole             pg                  Creating Cluster Role
+2026-11-23T07:39:48Z   WaitForFirstConsumer     pg-1                waiting for first consumer to be created before binding
+2026-11-23T07:39:48Z   CreatingInstance         pg                  Primary instance (initdb)
+2026-11-23T07:39:49Z   SuccessfulCreate         pg-1-initdb         Created pod: pg-1-initdb-ksfwr
+2026-11-23T07:39:50Z   ExternalProvisioning     pg-1                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:39:50Z   Provisioning             pg-1                External provisioner is provisioning volume for claim "default/pg-1"
+2026-11-23T07:39:56Z   ProvisioningSucceeded    pg-1                Successfully provisioned volume pvc-f157e91c-2481-4181-bb0d-c060cdd2808e
+2026-11-23T07:39:58Z   Scheduled                pg-1-initdb-ksfwr   Successfully assigned default/pg-1-initdb-ksfwr to cnpg-worker
+2026-11-23T07:40:00Z   Pulled                   pg-1-initdb-ksfwr   Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:40:00Z   Created                  pg-1-initdb-ksfwr   Created container: bootstrap-controller
+2026-11-23T07:40:01Z   Started                  pg-1-initdb-ksfwr   Started container bootstrap-controller
+2026-11-23T07:40:02Z   Pulled                   pg-1-initdb-ksfwr   Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:40:04Z   Created                  pg-1-initdb-ksfwr   Created container: initdb
+2026-11-23T07:40:04Z   Started                  pg-1-initdb-ksfwr   Started container initdb
+2026-11-23T07:40:08Z   Completed                pg-1-initdb         Job completed
+2026-11-23T07:40:09Z   Scheduled                pg-1                Successfully assigned default/pg-1 to cnpg-worker
+2026-11-23T07:40:12Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:40:13Z   Created                  pg-1                Created container: bootstrap-controller
+2026-11-23T07:40:14Z   Started                  pg-1                Started container bootstrap-controller
+2026-11-23T07:40:15Z   Pulled                   pg-1                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:40:17Z   Started                  pg-1                Started container postgres
+2026-11-23T07:40:17Z   Created                  pg-1                Created container: postgres
+2026-11-23T07:40:21Z   CreatingInstance         pg                  Creating instance pg-2
+2026-11-23T07:40:22Z   Provisioning             pg-2                External provisioner is provisioning volume for claim "default/pg-2"
+2026-11-23T07:40:22Z   SuccessfulCreate         pg-2-join           Created pod: pg-2-join-ccwpp
+2026-11-23T07:40:22Z   WaitForFirstConsumer     pg-2                waiting for first consumer to be created before binding
+2026-11-23T07:40:32Z   ExternalProvisioning     pg-2                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:40:36Z   ProvisioningSucceeded    pg-2                Successfully provisioned volume pvc-bfd95ad4-7a83-4261-94b6-1f8d16999b2e
+2026-11-23T07:40:37Z   Scheduled                pg-2-join-ccwpp     Successfully assigned default/pg-2-join-ccwpp to cnpg-worker3
+2026-11-23T07:40:40Z   Pulled                   pg-2-join-ccwpp     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:40:41Z   Created                  pg-2-join-ccwpp     Created container: bootstrap-controller
+2026-11-23T07:40:42Z   Started                  pg-2-join-ccwpp     Started container bootstrap-controller
+2026-11-23T07:40:45Z   Pulled                   pg-2-join-ccwpp     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:40:46Z   Created                  pg-2-join-ccwpp     Created container: join
+2026-11-23T07:40:47Z   Started                  pg-2-join-ccwpp     Started container join
+2026-11-23T07:40:55Z   Completed                pg-2-join           Job completed
+2026-11-23T07:40:55Z   Scheduled                pg-2                Successfully assigned default/pg-2 to cnpg-worker3
+2026-11-23T07:40:58Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:40:59Z   Created                  pg-2                Created container: bootstrap-controller
+2026-11-23T07:41:00Z   Started                  pg-2                Started container bootstrap-controller
+2026-11-23T07:41:03Z   Pulled                   pg-2                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:41:05Z   Created                  pg-2                Created container: postgres
+2026-11-23T07:41:05Z   Started                  pg-2                Started container postgres
+2026-11-23T07:41:06Z   Unhealthy                pg-2                Startup probe failed: HTTP probe failed with statuscode: 500
+2026-11-23T07:41:17Z   CreatingInstance         pg                  Creating instance pg-3
+2026-11-23T07:41:17Z   WaitForFirstConsumer     pg-3                waiting for first consumer to be created before binding
+2026-11-23T07:41:18Z   SuccessfulCreate         pg-3-join           Created pod: pg-3-join-8mcm7
+2026-11-23T07:41:18Z   Provisioning             pg-3                External provisioner is provisioning volume for claim "default/pg-3"
+2026-11-23T07:41:19Z   ExternalProvisioning     pg-3                Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+2026-11-23T07:41:25Z   ProvisioningSucceeded    pg-3                Successfully provisioned volume pvc-e5305cad-d58e-4f78-b2f5-42514f6b2c30
+2026-11-23T07:41:26Z   Scheduled                pg-3-join-8mcm7     Successfully assigned default/pg-3-join-8mcm7 to cnpg-worker2
+2026-11-23T07:41:28Z   Created                  pg-3-join-8mcm7     Created container: bootstrap-controller
+2026-11-23T07:41:28Z   Pulled                   pg-3-join-8mcm7     Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:41:29Z   Started                  pg-3-join-8mcm7     Started container bootstrap-controller
+2026-11-23T07:41:33Z   Pulled                   pg-3-join-8mcm7     Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:41:34Z   Started                  pg-3-join-8mcm7     Started container join
+2026-11-23T07:41:34Z   Created                  pg-3-join-8mcm7     Created container: join
+2026-11-23T07:41:44Z   Completed                pg-3-join           Job completed
+2026-11-23T07:41:45Z   Scheduled                pg-3                Successfully assigned default/pg-3 to cnpg-worker2
+2026-11-23T07:41:47Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/cloudnative-pg:1.30.2" already present on machine
+2026-11-23T07:41:48Z   Created                  pg-3                Created container: bootstrap-controller
+2026-11-23T07:41:49Z   Started                  pg-3                Started container bootstrap-controller
+2026-11-23T07:41:50Z   Pulled                   pg-3                Container image "ghcr.io/cloudnative-pg/postgresql:17" already present on machine
+2026-11-23T07:41:51Z   Created                  pg-3                Created container: postgres
+2026-11-23T07:41:51Z   Started                  pg-3                Started container postgres
+2026-11-23T07:42:26Z   Killing                  pg-1                Stopping container postgres

@@ -1,0 +1,25 @@
+Cluster Summary
+Switchover in progress
+Name                     default/pg
+PostgreSQL Image:        ghcr.io/cloudnative-pg/postgresql:17
+Primary instance:        pg-2 (switching to pending)
+Primary promotion time:  2026-11-23 03:05:14 +0000 UTC (5m20s)
+Status:                  Failing over Initiating a failover from pg-2
+Instances:               3
+Ready instances:         2
+Size:                    container not found
+
+Continuous Backup not configured
+
+Physical backups
+Primary instance not found
+
+Streaming Replication status
+Primary instance not found
+
+Instances status
+Name  Current LSN  Replication role      Status  QoS        Manager Version  Node
+----  -----------  ----------------      ------  ---        ---------------  ----
+pg-3  0/2F267718   Standby (file based)  OK      Burstable  1.30.2           cnpg-worker2
+pg-1  0/2F24B3A8   Standby (file based)  OK      Burstable  1.30.2           cnpg-worker3
+

@@ -1,0 +1,47 @@
+16:16:55 63924 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): secondary ➜ secondary
+16:16:55 63924 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+16:17:04 63924 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+16:17:17 63924 INFO  Monitor assigned new state "report_lsn"
+16:17:17 63924 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+16:17:17 63924 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+16:17:17 63924 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+16:17:17 63923 INFO  Stopping pg_autoctl postgres service
+16:17:17 63923 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+16:17:17 63924 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+16:17:17 63924 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+16:17:17 63924 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+16:17:18 65051 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+16:17:18 63923 WARN  PostgreSQL was not running, restarted with pid 65051
+16:17:18 63924 INFO  Transition complete: current state is now "report_lsn"
+16:17:19 63924 INFO  Monitor assigned new state "prepare_promotion"
+16:17:19 63924 INFO  FSM transition from "report_lsn" to "prepare_promotion": Stop traffic to primary, wait for it to finish draining.
+16:17:19 63924 INFO  Transition complete: current state is now "prepare_promotion"
+16:17:19 63924 INFO  Monitor assigned new state "stop_replication"
+16:17:19 63924 INFO  FSM transition from "prepare_promotion" to "stop_replication": Prevent against split-brain situations.
+16:17:19 63924 INFO  Prevent writes to the promoted standby while the primary is not demoted yet, by making the service incompatible with target_session_attrs = read-write
+16:17:19 63924 INFO  Setting default_transaction_read_only to on
+16:17:19 63924 INFO  Reloading Postgres configuration and HBA rules
+16:17:19 63924 INFO  Promoting postgres
+16:17:19 63924 INFO  Waiting for postgres to promote
+16:17:20 63924 INFO  Cleaning-up Postgres replication settings
+16:17:20 63924 INFO  Disabling synchronous replication
+16:17:20 63924 INFO  Reloading Postgres configuration and HBA rules
+16:17:20 63924 INFO  Transition complete: current state is now "stop_replication"
+16:17:30 63924 INFO  New state for node 3 "n3" (127.0.0.1:6483): join_secondary ➜ join_secondary
+16:17:50 63924 INFO  Monitor assigned new state "wait_primary"
+16:17:50 63924 INFO  FSM transition from "stop_replication" to "wait_primary": Confirmed promotion with the monitor
+16:17:50 63924 INFO  Setting default_transaction_read_only to off
+16:17:50 63924 INFO  Reloading Postgres configuration and HBA rules
+16:17:50 63924 INFO  Fetched current list of 2 other nodes from the monitor to update HBA rules, including 2 changes.
+16:17:50 63924 INFO  Ensuring HBA rules for node 1 "n1" (127.0.0.1:6481)
+16:17:50 63924 INFO  Ensuring HBA rules for node 3 "n3" (127.0.0.1:6483)
+16:17:50 63924 INFO  Reloading Postgres configuration and HBA rules
+16:17:50 63924 INFO  Transition complete: current state is now "wait_primary"
+16:17:50 63924 INFO  New state for node 3 "n3" (127.0.0.1:6483): secondary ➜ secondary
+16:17:50 63924 INFO  Monitor assigned new state "primary"
+16:17:50 63924 INFO  FSM transition from "wait_primary" to "primary": A healthy secondary appeared
+16:17:50 63924 INFO  Setting synchronous_standby_names to ''
+16:17:50 63924 INFO  Reloading Postgres configuration and HBA rules
+16:17:50 63924 INFO  Transition complete: current state is now "primary"
+16:17:50 63924 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): wait_primary ➜ primary
+16:17:50 63924 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): primary ➜ primary

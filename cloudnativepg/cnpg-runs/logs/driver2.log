@@ -1,0 +1,3 @@
+2026-11-22T23:21:31 D-10MB-r01 valid=0 rig exception: DuplicateTable('relation "t_d_10mb_r01" already exists\n') outcome= lost= gap=
+2026-11-22T23:27:27 D-10MB-r02 valid=1  outcome=promoted_silent lost= gap=10516344
+2026-11-22T23:33:21 D-10MB-r03 valid=1  outcome=promoted_silent lost= gap=10496280

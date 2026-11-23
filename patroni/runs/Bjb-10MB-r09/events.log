@@ -1,0 +1,6 @@
+    3.07s leader=pg1 replicas=['pg2', 'pg3'] candidate=None
+    6.13s pre-stall gap (candidates) bytes={'pg2': 49428792, 'pg3': 49457672} tps_total=79.0
+    6.13s phase jitter 0.96s before stall
+    7.11s replication stall on primary proxy: stall conns=4 fwd_c2u=12669083 fwd_u2c=22226768880
+    7.36s VERIFIED gap: primary_lsn=3820431776 recv={'pg2': 3774873600, 'pg3': 3774873600} gap={'pg2': 45558176, 'pg3': 45558176} candidate_gap=45558176 ratio=4.345
+    7.36s EXCEPTION RuntimeError: off-target

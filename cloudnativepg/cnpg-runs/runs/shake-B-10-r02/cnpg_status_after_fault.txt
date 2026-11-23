@@ -1,0 +1,23 @@
+Cluster Summary
+Name                     default/pg
+System ID:               7711161735840296989
+PostgreSQL Image:        ghcr.io/cloudnative-pg/postgresql:17
+Primary instance:        pg-3
+Primary promotion time:  2026-11-23 00:48:31 +0000 UTC (1s)
+Status:                  Failing over Failing over from pg-1 to pg-3
+Instances:               3
+Ready instances:         2
+Size:                    container not found
+Current Write LSN:       0/63D8B20 (Timeline: 2 - WAL File: 000000020000000000000006)
+
+Continuous Backup not configured
+
+Streaming Replication status
+Not available yet
+
+Instances status
+Name  Current LSN  Replication role      Status  QoS        Manager Version  Node
+----  -----------  ----------------      ------  ---        ---------------  ----
+pg-3  0/63D8B20    Primary               OK      Burstable  1.30.2           cnpg-worker2
+pg-2  0/63AC318    Standby (file based)  OK      Burstable  1.30.2           cnpg-worker
+

@@ -1,0 +1,22 @@
+18:14:29 86660 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+18:14:42 86660 ERROR Monitor ERROR:  deadlock detected
+18:14:42 86660 ERROR Monitor DETAIL:  Process 87813 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 87812.
+18:14:42 86660 ERROR Monitor Process 87812 waits for ShareLock on transaction 1098; blocked by process 87813.
+18:14:42 86660 ERROR Monitor HINT:  See server log for query details.
+18:14:42 86660 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+18:14:42 86660 ERROR SQL params: 'default', '2', '0', 'secondary', 'true', '1', '0/5405CD0', ''
+18:14:42 86660 ERROR Failed to get node state for node 2 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/5405CD0", see previous lines for details
+18:14:42 86660 ERROR Failed to get the goal state from the monitor
+18:14:43 86660 INFO  Successfully got the goal state from the monitor
+18:14:43 86660 INFO  Monitor assigned new state "report_lsn"
+18:14:43 86660 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+18:14:43 86660 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+18:14:43 86660 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+18:14:44 86659 INFO  Stopping pg_autoctl postgres service
+18:14:44 86659 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+18:14:44 86660 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+18:14:44 86660 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+18:14:44 86660 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+18:14:44 87849 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+18:14:44 86660 INFO  Transition complete: current state is now "report_lsn"
+18:14:44 86659 WARN  PostgreSQL was not running, restarted with pid 87849

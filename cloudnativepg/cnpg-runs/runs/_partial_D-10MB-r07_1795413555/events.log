@@ -1,0 +1,20 @@
+1795413344.222 + 422.77s NOT healthy after 420s; diagnostics saved; rebuilding
+1795413344.222 + 422.77s REBUILD cluster pg
+1795413356.592 + 435.14s cluster.postgresql.cnpg.io/pg created
+1795413490.931 + 569.48s primary pg-1 10.244.1.30 on cnpg-worker3; replicas pg-2=10.244.3.52@cnpg-worker, pg-3=10.244.2.51@cnpg-worker2; failoverDelay=0
+1795413496.911 + 575.46s writers started (base 78.3 txn/s total); jitter done
+1795413496.917 + 575.47s pre-stall snapshot: {'pg-2': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}, 'pg-3': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}}
+1795413497.774 + 576.33s stall rules applied on cnpg-worker3: 4 rules
+1795413502.779 + 581.33s growing: {'pg-2': 3884168, 'pg-3': 3697472}
+1795413507.792 + 586.34s growing: {'pg-2': 7598792, 'pg-3': 7412096}
+1795413512.278 + 590.83s gap reached {'pg-2': 10699792, 'pg-3': 10513096} in 15.29s; writers stopped
+1795413512.605 + 591.16s VERIFIED primary_lsn=115266160 recv={'pg-2': 104566368, 'pg-3': 104753064} replay={'pg-2': 104566368, 'pg-3': 104753064} gaps={'pg-2': 10699792, 'pg-3': 10513096} ratio=1.003
+1795413513.225 + 591.78s operator view (kubectl cnpg status, pre-fault): {'pg-1': ('Primary', 115266160), 'pg-3': ('Standby (file based)', 104753064), 'pg-2': ('Standby (file based)', 104566368)}
+1795413514.272 + 592.82s delete pod: pod "pg-1" force deleted from default namespace | Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+1795413514.272 + 592.82s FAULT: node cordoned, primary pod force-deleted; stall rules stay in place
+1795413518.222 + 596.77s pg_promote failed: recovery is not in progress
+HINT:  Recovery control functions can only be executed during recovery.
+
+1795413518.473 + 597.03s targetPrimary=pg-3 phase=Failing over
+1795413518.779 + 597.33s decision: promoted=pg-3 after 5.6s
+1795413519.949 + 598.50s survivors at promotion: 429 of 1584 acked; lost 1155; fork 0/63E67A8; tli 2

@@ -1,0 +1,87 @@
+2026-11-22 12:36:15,565 INFO: Lock owner: pg2; I am pg3
+2026-11-22 12:36:15,571 INFO: Local timeline=22 lsn=0/5E3042E8
+2026-11-22 12:36:18,573 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6452 failed: timeout expired
+
+2026-11-22 12:36:18,594 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:36:25,566 INFO: Lock owner: pg2; I am pg3
+2026-11-22 12:36:25,576 INFO: Local timeline=22 lsn=0/5E3042E8
+2026-11-22 12:36:28,580 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6452 failed: timeout expired
+
+2026-11-22 12:36:28,585 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:36:36,071 INFO: Lock owner: pg2; I am pg3
+2026-11-22 12:36:36,083 INFO: Local timeline=22 lsn=0/5E3042E8
+2026-11-22 12:36:39,086 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6452 failed: timeout expired
+
+2026-11-22 12:36:39,092 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:36:46,076 INFO: Lock owner: pg2; I am pg3
+2026-11-22 12:36:46,085 INFO: Local timeline=22 lsn=0/5E3042E8
+2026-11-22 12:36:49,089 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6452 failed: timeout expired
+
+2026-11-22 12:36:49,095 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:36:55,960 INFO: Cleaning up failover key after acquiring leader lock...
+2026-11-22 12:36:55,972 INFO: promoted self to leader by acquiring session lock
+server promoting
+2026-11-22 12:36:55.980 PST [69273] LOG:  received promote request
+2026-11-22 12:36:55.980 PST [87379] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 12:36:55,977 INFO: Lock owner: pg3; I am pg3
+2026-11-22 12:36:55,980 INFO: updated leader lock during promote
+2026-11-22 12:36:55.981 PST [69273] LOG:  invalid record length at 0/5E3042E8: expected at least 24, got 0
+2026-11-22 12:36:55.981 PST [69273] LOG:  redo done at 0/5E3042C0 system usage: CPU: user: 1.93 s, system: 2.31 s, elapsed: 2546.33 s
+2026-11-22 12:36:55.981 PST [69273] LOG:  last completed transaction was at log time 2026-11-22 12:36:15.54938-08
+2026-11-22 12:36:55.983 PST [69273] LOG:  selected new timeline ID: 23
+2026-11-22 12:36:55.998 PST [69273] LOG:  archive recovery complete
+2026-11-22 12:36:56.003 PST [69269] LOG:  database system is ready to accept connections
+2026-11-22 12:36:57,060 INFO: no action. I am (pg3), the leader with the lock
+2026-11-22 12:36:57.065 PST [69271] LOG:  restartpoint complete: wrote 996 buffers (6.1%); 0 WAL file(s) added, 0 removed, 27 recycled; write=147.745 s, sync=0.001 s, total=147.771 s; sync files=26, longest=0.001 s, average=0.001 s; distance=393216 kB, estimate=393216 kB; lsn=0/56000130, redo lsn=0/560000D8
+2026-11-22 12:36:57.065 PST [69271] LOG:  recovery restart point at 0/560000D8
+2026-11-22 12:36:57.065 PST [69271] DETAIL:  Last completed transaction was at log time 2026-11-22 12:36:15.54938-08.
+2026-11-22 12:36:57.065 PST [69271] LOG:  checkpoint starting: immediate force wait
+2026-11-22 12:36:57.078 PST [69271] LOG:  checkpoint complete: wrote 291 buffers (1.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.011 s, sync=0.002 s, total=0.013 s; sync files=23, longest=0.001 s, average=0.001 s; distance=134160 kB, estimate=367310 kB; lsn=0/5E3043B0, redo lsn=0/5E304358

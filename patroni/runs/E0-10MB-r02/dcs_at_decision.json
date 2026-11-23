@@ -1,0 +1,11 @@
+{
+ "/service/pilot/config": "{\"ttl\":30,\"loop_wait\":10,\"retry_timeout\":10,\"maximum_lag_on_failover\":1048576,\"primary_start_timeout\":300,\"synchronous_mode\":false,\"postgresql\":{\"use_pg_rewind\":true}}",
+ "/service/pilot/failover": "{}",
+ "/service/pilot/history": "[[1,52658968,\"no recovery target specified\",\"2026-11-22T13:22:27.066664-08:00\",\"pg3\"]]",
+ "/service/pilot/initialize": "7711108976268041395",
+ "/service/pilot/leader": "pg3",
+ "/service/pilot/members/pg1": "{\"conn_url\":\"postgres://127.0.0.1:6451/postgres\",\"api_url\":\"http://127.0.0.1:9008/patroni\",\"state\":\"running\",\"role\":\"replica\",\"version\":\"4.1.5\",\"xlog_location\":54943784,\"replay_lsn\":54943784,\"receive_lsn\":54943784,\"replication_state\":\"streaming\",\"timeline\":2}",
+ "/service/pilot/members/pg2": "{\"conn_url\":\"postgres://127.0.0.1:6452/postgres\",\"api_url\":\"http://127.0.0.1:9009/patroni\",\"state\":\"running\",\"role\":\"replica\",\"version\":\"4.1.5\",\"xlog_location\":54943784,\"replay_lsn\":54943784,\"receive_lsn\":54943784,\"replication_state\":\"streaming\",\"timeline\":2}",
+ "/service/pilot/members/pg3": "{\"conn_url\":\"postgres://127.0.0.1:6453/postgres\",\"api_url\":\"http://127.0.0.1:9010/patroni\",\"state\":\"running\",\"role\":\"primary\",\"version\":\"4.1.5\",\"xlog_location\":65023832,\"timeline\":2}",
+ "/service/pilot/status": "{\"optime\":65023832,\"slots\":{\"pg1\":54943784,\"pg2\":54943784,\"pg3\":65023832},\"retain_slots\":[\"pg1\",\"pg2\",\"pg3\"]}"
+}

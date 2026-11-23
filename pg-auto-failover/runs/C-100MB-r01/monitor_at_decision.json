@@ -1,0 +1,35 @@
+[
+ {
+  "nodename": "n1",
+  "reported": "primary",
+  "goal": "primary",
+  "reportedlsn": "0/B4BE8C8",
+  "health": 1,
+  "reporttime": "2026-11-22 18:08:58.656214-08",
+  "prio": 50,
+  "quorum": false,
+  "pgisrunning": true
+ },
+ {
+  "nodename": "n2",
+  "reported": "secondary",
+  "goal": "secondary",
+  "reportedlsn": "0/5332738",
+  "health": 1,
+  "reporttime": "2026-11-22 18:08:59.726251-08",
+  "prio": 50,
+  "quorum": false,
+  "pgisrunning": true
+ },
+ {
+  "nodename": "n3",
+  "reported": "secondary",
+  "goal": "secondary",
+  "reportedlsn": "0/5332738",
+  "health": 1,
+  "reporttime": "2026-11-22 18:08:59.726248-08",
+  "prio": 50,
+  "quorum": false,
+  "pgisrunning": true
+ }
+]

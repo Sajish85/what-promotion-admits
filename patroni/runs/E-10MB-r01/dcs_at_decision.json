@@ -1,0 +1,9 @@
+{
+ "/service/pilot/config": "{\"ttl\":30,\"loop_wait\":10,\"retry_timeout\":10,\"maximum_lag_on_failover\":1048576,\"primary_start_timeout\":300,\"synchronous_mode\":false,\"postgresql\":{\"use_pg_rewind\":true}}",
+ "/service/pilot/initialize": "7711115187394724740",
+ "/service/pilot/leader": "pg1",
+ "/service/pilot/members/pg1": "{\"conn_url\":\"postgres://127.0.0.1:6451/postgres\",\"api_url\":\"http://127.0.0.1:9008/patroni\",\"state\":\"running\",\"role\":\"primary\",\"version\":\"4.1.5\",\"xlog_location\":74489568,\"timeline\":1}",
+ "/service/pilot/members/pg2": "{\"conn_url\":\"postgres://127.0.0.1:6452/postgres\",\"api_url\":\"http://127.0.0.1:9009/patroni\",\"state\":\"running\",\"role\":\"replica\",\"version\":\"4.1.5\",\"xlog_location\":69757776,\"replay_lsn\":69757776,\"receive_lsn\":69757776,\"replication_state\":\"streaming\",\"timeline\":1}",
+ "/service/pilot/members/pg3": "{\"conn_url\":\"postgres://127.0.0.1:6453/postgres\",\"api_url\":\"http://127.0.0.1:9010/patroni\",\"state\":\"running\",\"role\":\"replica\",\"version\":\"4.1.5\",\"xlog_location\":67430608,\"replay_lsn\":67430608,\"receive_lsn\":67430608,\"replication_state\":\"streaming\",\"timeline\":1}",
+ "/service/pilot/status": "{\"optime\":74489568,\"slots\":{\"pg2\":69757776,\"pg3\":69757776,\"pg1\":74489568},\"retain_slots\":[\"pg1\",\"pg2\",\"pg3\"]}"
+}

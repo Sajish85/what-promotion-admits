@@ -1,0 +1,49 @@
+21:03:07 72176 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+21:03:07 72176 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+21:03:07 72176 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+21:03:07 72176 ERROR Failed to get the goal state from the monitor
+21:03:09 72176 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+21:03:11 72176 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+21:03:11 72176 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 2 attempts in 4007 ms, pg_autoctl stops retrying now
+21:03:11 72176 WARN  Lost connection.
+21:03:13 72176 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+21:03:13 72176 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+21:03:13 72176 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+21:03:13 72176 ERROR Failed to get the goal state from the monitor
+21:03:15 72176 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+21:03:15 72176 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+21:03:15 72176 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2000 ms, pg_autoctl stops retrying now
+21:03:15 72176 WARN  Lost connection.
+21:03:17 72176 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+21:03:17 72176 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+21:03:17 72176 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+21:03:17 72176 ERROR Failed to get the goal state from the monitor
+21:03:19 72176 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+21:03:19 72176 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+21:03:19 72176 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+21:03:19 72176 WARN  Lost connection.
+21:03:21 72176 INFO  Successfully got the goal state from the monitor
+21:03:31 72176 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ primary
+21:03:41 72176 ERROR Monitor ERROR:  deadlock detected
+21:03:41 72176 ERROR Monitor DETAIL:  Process 73200 waits for ShareLock on transaction 1084; blocked by process 73201.
+21:03:41 72176 ERROR Monitor Process 73201 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 73200.
+21:03:41 72176 ERROR Monitor HINT:  See server log for query details.
+21:03:41 72176 ERROR Monitor CONTEXT:  while updating tuple (0,21) in relation "node"
+21:03:41 72176 ERROR Monitor SQL statement "UPDATE pgautofailover.node SET goalstate = $1, statechangetime = now() WHERE nodeid = $2"
+21:03:41 72176 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+21:03:41 72176 ERROR SQL params: 'default', '3', '0', 'secondary', 'true', '1', '0/53E7790', ''
+21:03:41 72176 ERROR Failed to get node state for node 3 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/53E7790", see previous lines for details
+21:03:41 72176 ERROR Failed to get the goal state from the monitor
+21:03:42 72176 INFO  Successfully got the goal state from the monitor
+21:03:42 72176 INFO  Monitor assigned new state "report_lsn"
+21:03:42 72176 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+21:03:42 72176 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+21:03:42 72176 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+21:03:42 72175 INFO  Stopping pg_autoctl postgres service
+21:03:42 72175 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+21:03:42 72176 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+21:03:42 72176 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+21:03:42 72176 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+21:03:43 73245 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+21:03:43 72175 WARN  PostgreSQL was not running, restarted with pid 73245
+21:03:43 72176 INFO  Transition complete: current state is now "report_lsn"

@@ -1,0 +1,44 @@
+2026-11-22 12:23:26,493 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:23:36,439 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:23:37.641 PST [69271] LOG:  restartpoint complete: wrote 1011 buffers (6.2%); 0 WAL file(s) added, 13 removed, 19 recycled; write=248.427 s, sync=0.002 s, total=248.463 s; sync files=26, longest=0.001 s, average=0.001 s; distance=278528 kB, estimate=278528 kB; lsn=0/1E000130, redo lsn=0/1E0000D8
+2026-11-22 12:23:37.641 PST [69271] LOG:  recovery restart point at 0/1E0000D8
+2026-11-22 12:23:37.641 PST [69271] DETAIL:  Last completed transaction was at log time 2026-11-22 12:23:28.13107-08.
+2026-11-22 12:23:46,945 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:23:56,941 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 12:24:06,491 INFO: My wal position exceeds maximum replication lag
+server signaled
+2026-11-22 12:24:06.507 PST [69269] LOG:  received SIGHUP, reloading configuration files
+2026-11-22 12:24:06.508 PST [69269] LOG:  parameter "primary_conninfo" removed from configuration file, reset to default
+2026-11-22 12:24:06.508 PST [69269] LOG:  parameter "primary_slot_name" removed from configuration file, reset to default
+2026-11-22 12:24:06.510 PST [69273] LOG:  WAL receiver process shutdown requested
+2026-11-22 12:24:06.511 PST [81952] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 12:24:06.512 PST [69273] LOG:  invalid record length at 0/2F3F3FF0: expected at least 24, got 0
+2026-11-22 12:24:06.512 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:06.512 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:06,527 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:24:11.513 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:16,492 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:24:16,512 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:24:16.515 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:21.516 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:26,484 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:24:26,497 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:24:26.517 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:29.513 PST [69271] LOG:  restartpoint starting: time
+2026-11-22 12:24:31.517 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:36,490 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:24:36,507 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:24:36.518 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:41.518 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:46,489 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:24:46,501 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:24:46.518 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:51.520 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:24:56,489 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:24:56,498 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:24:56.522 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:25:01.523 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:25:06,491 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:25:06,505 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:25:06.525 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000
+2026-11-22 12:25:11.526 PST [69273] LOG:  waiting for WAL to become available at 0/2F002000

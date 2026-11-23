@@ -1,0 +1,20 @@
+1795422190.011 +   1.39s healthy after 0s
+1795422190.224 +   1.61s primary pg-1 10.244.3.132 on cnpg-worker; replicas pg-2=10.244.1.111@cnpg-worker3, pg-3=10.244.2.134@cnpg-worker2; failoverDelay=300
+1795422195.638 +   7.02s writers started (base 782.6 txn/s total); jitter done
+1795422195.640 +   7.02s pre-stall snapshot: {'pg-2': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}, 'pg-3': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}}
+1795422196.466 +   7.85s stall rules applied on cnpg-worker: 4 rules
+1795422201.484 +  12.87s growing: {'pg-2': 40091752, 'pg-3': 37400432}
+1795422206.500 +  17.88s growing: {'pg-2': 75096024, 'pg-3': 72404704}
+1795422211.175 +  22.56s gap reached {'pg-2': 107597160, 'pg-3': 104905840} in 15.52s; writers stopped
+1795422211.545 +  22.93s VERIFIED primary_lsn=239724952 recv={'pg-2': 132110016, 'pg-3': 134801336} replay={'pg-2': 132110016, 'pg-3': 134801336} gaps={'pg-2': 107614936, 'pg-3': 104923616} ratio=1.001
+1795422212.013 +  23.40s operator view (kubectl cnpg status, pre-fault): {'pg-1': ('Primary', 239724952), 'pg-3': ('Standby (file based)', 134801336), 'pg-2': ('Standby (file based)', 132110016)}
+1795422212.943 +  24.33s delete pod: pod "pg-1" force deleted from default namespace | Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+1795422212.943 +  24.33s FAULT: node cordoned, primary pod force-deleted; stall rules stay in place
+1795422217.388 +  28.77s pg_promote -> True in 0.70s
+1795422217.401 +  28.78s early read on candidate ok: 3803 rows, tli 2
+1795422217.401 +  28.78s decision: promoted=pg-3 after 5.4s
+1795422218.116 +  29.50s survivors at promotion: 3803 of 15546 acked; lost 11743; fork 0/808E7B8; tli 2
+1795422285.357 +  96.74s D: rebuilding cluster after run
+1795422285.357 +  96.74s REBUILD cluster pg
+1795422469.472 + 280.86s cluster.postgresql.cnpg.io/pg created
+1795422592.035 + 403.42s run complete

@@ -1,0 +1,22 @@
+2026-11-22 15:45:06 RESTART: SSH fixed; WSL2 kernel 5.10.16 present, no distro. Starting step 0.2 (install Ubuntu-24.04). Dell change log: wsl --install Ubuntu-24.04
+2026-11-22 15:45:59 DELL CHANGE: 'wsl --install -d Ubuntu' unsupported flags; 'wsl --update' failed 'Catastrophic failure' (no change). Falling back to wsl --import from Ubuntu 24.04 rootfs tarball into C:\wsluntu
+2026-11-22 15:52:44 DELL CHANGE: downloaded Ubuntu 24.04.5 WSL rootfs (sha256 verified vs releases.ubuntu.com SHA256SUMS) to C:\wsl\dl; wsl --import Ubuntu-24.04 C:\wsl\ubuntu (WSL2). NOTE: Dell rebooted unexpectedly (boot 17:46 Dell time) around the first import attempt (probably pending update from 'wsl --update'); sshd came back by itself; import re-run OK.
+2026-11-22 15:56:19 DELL CHANGE: scheduled task CNPGWslKeepalive (SYSTEM, onstart) runs 'wsl -d Ubuntu-24.04 -- /root/keep.sh' (starts dockerd + keeps WSL VM alive); installed docker.io 29.1.3, kind v0.33.0, kubectl v1.37.2, helm v3.22.1 in WSL
+2026-11-22 15:56:26 DELL CHANGE: scheduled task CNPGWslKeepalive deleted again (SYSTEM cannot see the user's WSL distro). Keepalive is a long-lived ssh session from the Mac instead.
+2026-11-22 15:58:05 DELL CHANGE: created %USERPROFILE%\.wslconfig (kernelCommandLine cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1; memory=28GB; swap=0) so kind can run on cgroup v2; wsl --shutdown to apply
+2026-11-22 16:01:14 NOTE: Dell hostname now reports 'Rig2' (brief said <rig2-hostname>); same IP/key, treated as owner rename. Not changed by me.
+2026-11-22 16:05:34 DELL CHANGE: LxssManager stuck STOP_PENDING after wsl --shutdown with kernelCommandLine override; .wslconfig changed to memory=24GB swap=0 (cmdline removed to isolate). REBOOTING Dell (shutdown /r) to clear it.
+2026-11-22 16:06:55 Dell rebooted OK; sshd back; WSL ok with .wslconfig memory=24GB swap=0 only (cgroup v1 kept; dockerd run with --default-cgroupns-mode=private instead).
+2026-11-22 16:14:30 kind cluster 'cnpg' up in WSL (1 cp + 3 workers, kindest/node v1.34.11, k8s v1.34.11, containerd 2.3.4, cgroup v1). Installing CNPG.
+2026-11-22 16:21:49 STEP0 DONE: CNPG operator 1.30.2 (helm chart cnpg/cloudnative-pg 0.29.2), plugin 1.30.2, cluster pg 3 instances PG 17.11 (ghcr.io/cloudnative-pg/postgresql:17), manual promote pg-1->pg-2 OK in ~9s
+2026-11-22 16:29:35 DEVIATION: Dell disk is a 7200rpm HDD (dd oflag=dsync 8k: ~93 ms/fsync, ~11/s) -> writers capped ~20 txn/s. Mounted tmpfs (5g) over /var/local-path-provisioner on the 3 kind workers; cluster rebuilt on tmpfs (PG settings still default, fsync on).
+2026-11-22 17:14:39 SHAKEDOWN done (shake-B-10-r01/r02, C r01, D r01, Bb r01 under runs/shake-*, not counted). Findings: B/C promote silently in ~5s/22s; D: candidate restarted by operator (demoted_after) and recovery took 227s; shake-B-r01 rebuilt cluster (recovery >420s, cause not captured). Starting full driver: B10,B100,Bb10,C10,C100,D10,D100 x10 valid.
+2026-11-22T19:56:15 CELL B 10MiB done: 10 valid of 10 attempts
+2026-11-22T20:52:27 CELL B 100MiB done: 10 valid of 10 attempts
+2026-11-22T21:43:42 CELL Bb 10MiB done: 10 valid of 10 attempts
+2026-11-22T22:35:01 CELL C 10MiB done: 10 valid of 10 attempts
+2026-11-22T23:21:12 CELL C 100MiB done: 10 valid of 10 attempts
+2026-11-22 21:21:34 Switched driver at the C100/D boundary: driver1 killed after 'CELL C 100MiB done'; partial D-10MB-r01 (just started, no CSV row) moved to runs/_partial_*; driver2 (harness fix: fork-LSN/timeline query waits until node leaves recovery; 12 earlier B/Bb runs lack fork-LSN because that query failed) runs D:10,D:100.
+2026-11-23T01:28:12 CELL D 10MiB done: 10 valid of 16 attempts
+2026-11-23T02:36:40 CELL D 100MiB done: 10 valid of 10 attempts
+2026-11-23 00:39:17 ALL CELLS DONE. 70 valid / 76 attempts (6 invalid D-10MB, 6 aborted partials). Recount 70/70 match. cnpg-report.md, cnpg-SETUP.md, cnpg-results.csv written. Dell left with kind+CNPG running, no stall rules, nodes uncordoned.

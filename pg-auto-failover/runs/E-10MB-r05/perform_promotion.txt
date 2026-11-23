@@ -1,0 +1,29 @@
+$ pg_autoctl perform promotion --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --name n2
+rc=0
+    Time | Name |  Node |      Host:Port |       Current State |      Assigned State
+---------+------+-------+----------------+---------------------+--------------------
+23:11:47 |   n2 |   0/2 | 127.0.0.1:6482 |           secondary |           secondary
+23:11:47 |   n1 |   0/1 | 127.0.0.1:6481 |             primary |            draining
+23:11:47 |   n1 |   0/1 | 127.0.0.1:6481 |             primary |            draining
+23:12:00 |   n2 |   0/2 | 127.0.0.1:6482 |           secondary |          report_lsn
+23:12:00 |   n3 |   0/3 | 127.0.0.1:6483 |           secondary |          report_lsn
+23:12:01 |   n3 |   0/3 | 127.0.0.1:6483 |          report_lsn |          report_lsn
+23:12:01 |   n2 |   0/2 | 127.0.0.1:6482 |          report_lsn |          report_lsn
+23:12:01 |   n2 |   0/2 | 127.0.0.1:6482 |          report_lsn |   prepare_promotion
+23:12:02 |   n2 |   0/2 | 127.0.0.1:6482 |   prepare_promotion |   prepare_promotion
+23:12:02 |   n2 |   0/2 | 127.0.0.1:6482 |   prepare_promotion |    stop_replication
+23:12:02 |   n1 |   0/1 | 127.0.0.1:6481 |             primary |      demote_timeout
+23:12:02 |   n3 |   0/3 | 127.0.0.1:6483 |          report_lsn |      join_secondary
+23:12:03 |   n3 |   0/3 | 127.0.0.1:6483 |      join_secondary |      join_secondary
+23:12:04 |   n2 |   0/2 | 127.0.0.1:6482 |    stop_replication |    stop_replication
+23:12:13 |   n3 |   0/3 | 127.0.0.1:6483 |      join_secondary |      join_secondary
+23:12:33 |   n2 |   0/2 | 127.0.0.1:6482 |    stop_replication |        wait_primary
+23:12:33 |   n1 |   0/1 | 127.0.0.1:6481 |             primary |             demoted
+23:12:33 |   n2 |   0/2 | 127.0.0.1:6482 |        wait_primary |        wait_primary
+23:12:33 |   n3 |   0/3 | 127.0.0.1:6483 |      join_secondary |           secondary
+23:12:33 |   n3 |   0/3 | 127.0.0.1:6483 |           secondary |           secondary
+23:12:33 |   n2 |   0/2 | 127.0.0.1:6482 |        wait_primary |             primary
+23:12:33 |   n2 |   0/2 | 127.0.0.1:6482 |             primary |             primary
+23:11:38 17735 INFO  Waiting 60 secs for a notification with state "primary" in formation "default" and group 0
+23:11:38 17735 INFO  Listening monitor notifications about state changes in formation "default" and group 0
+23:11:38 17735 INFO  Following table displays times when notifications are received

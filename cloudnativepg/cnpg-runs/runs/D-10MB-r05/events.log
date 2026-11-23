@@ -1,0 +1,2 @@
+1795412801.189 + 207.01s healthy after 206s
+1795412801.577 + 207.40s primary pg-2 10.244.3.47 on cnpg-worker; replicas pg-1=10.244.1.26@cnpg-worker3, pg-3=10.244.2.47@cnpg-worker2; failoverDelay=300

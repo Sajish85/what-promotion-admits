@@ -1,0 +1,4 @@
+NAME   READY   STATUS    RESTARTS   AGE     IP            NODE           NOMINATED NODE   READINESS GATES
+pg-1   1/1     Running   0          8m1s    10.244.1.35   cnpg-worker3   <none>           <none>
+pg-2   1/1     Running   0          7m19s   10.244.3.56   cnpg-worker    <none>           <none>
+pg-3   1/1     Running   0          6m24s   10.244.2.56   cnpg-worker2   <none>           <none>

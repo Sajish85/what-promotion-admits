@@ -1,0 +1,10 @@
+    3.10s leader=pg1 replicas=['pg2', 'pg3'] candidate=pg3
+    6.16s pre-stall gap (candidates) bytes={'pg3': 0} tps_total=789.9
+    6.19s replication stall on primary proxy: stall conns=4 fwd_c2u=343319 fwd_u2c=156790418
+   21.99s VERIFIED gap: primary_lsn=192369312 recv={'pg2': 87472816, 'pg3': 87472816} gap={'pg2': 104896496, 'pg3': 104896496} candidate_gap=104896496 ratio=1.000
+   22.00s KILL primary pg1: agent 2231 + postmaster 2247
+   22.48s Patroni view at decision: optime=144519504 cand=pg3 xlog=87472816 reported_lag=57046688 true=104896496
+   23.61s pg_promote -> True
+   23.63s PROMOTED pg3 after 1.6s; survivors=2283 fork_lsn=87472816
+   39.71s D: rebuild cluster (bypass leaves a diverged node; fresh cluster is the deterministic reset)
+   42.84s REBUILD cluster

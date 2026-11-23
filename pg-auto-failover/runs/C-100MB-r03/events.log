@@ -1,0 +1,13 @@
+    0.00s REBUILD rig
+  152.89s rebuild ok=True
+  152.90s leader=n1 replicas=['n2', 'n3'] candidate=n2
+  155.93s pre-stall gap bytes={'n2': -35264} tps_total=789.9
+  155.96s replication stall on primary proxy: stall conns=4 fwd_c2u=273111 fwd_u2c=124231984
+  171.57s VERIFIED gap: primary_lsn=192825928 recv={'n2': 87909392, 'n3': 87909392} gap={'n2': 104916536, 'n3': 104916536} candidate_gap=104916536 ratio=1.001
+  171.61s KILL primary n1: pg_autoctl tree [90502, 90511, 90512, 90528, 90529, 90530, 90531, 90533, 90534, 90535, 92318, 92532] + postmaster 90528
+  172.03s monitor view: primary_reported=0/B596050 cand_reported=0/53D6410 reported_lag=102497344 true=104916536
+  253.75s perform promotion rc=12 in 81.7s: ng monitor notifications about state changes in formation "default" and group 0
+18:19:48 93218 INFO  Following table displays times when notifications are received
+18:21:10 93218 ERROR Failed to receive monitor's notifications
+18:21:10 93218 ERROR Failed to wait until a new primary has been notified
+  321.78s NO PROMOTION within 150s

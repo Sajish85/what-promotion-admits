@@ -1,0 +1,6 @@
+2026-11-22 13:34:36,213 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 13:34:46,211 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 13:34:56,723 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 13:35:06,723 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 13:35:16,537 INFO: Got response from pg2 http://127.0.0.1:9009/patroni: {"state": "running", "postmaster_start_time": "2026-11-22 13:34:18.200456-08:00", "role": "replica", "server_version": 170012, "xlog": {"received_location": 155838912, "replayed_location": 155838912, "replayed_timestamp": "2026-11-22 13:34:31.572814-08:00", "paused": false}, "timeline": 14, "replication_state": "streaming", "cluster_unlocked": true, "dcs_last_seen": 1795383316, "database_system_identifier": "7711108976268041395", "patroni": {"version": "4.1.5", "scope": "pilot", "name": "pg2"}}
+2026-11-22 13:35:16,537 INFO: manual failover: to pg2, i am pg3

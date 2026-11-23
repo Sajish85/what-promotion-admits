@@ -1,0 +1,52 @@
+2026-11-22 13:00:43,729 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 13:00:53,725 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 13:01:02.097 PST [98088] LOG:  received promote request
+2026-11-22 13:01:02.097 PST [98121] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 13:01:02.097 PST [98088] LOG:  invalid record length at 0/423E408: expected at least 24, got 0
+2026-11-22 13:01:02.097 PST [98088] LOG:  redo done at 0/423E3E0 system usage: CPU: user: 0.01 s, system: 0.01 s, elapsed: 45.86 s
+2026-11-22 13:01:02.097 PST [98088] LOG:  last completed transaction was at log time 2026-11-22 13:00:45.260402-08
+2026-11-22 13:01:02.102 PST [98088] LOG:  selected new timeline ID: 2
+2026-11-22 13:01:02.129 PST [98088] LOG:  archive recovery complete
+2026-11-22 13:01:02.130 PST [98086] LOG:  checkpoint starting: force
+2026-11-22 13:01:02.131 PST [98085] LOG:  database system is ready to accept connections
+2026-11-22 13:01:04,204 INFO: Lock owner: pg1; I am pg3
+2026-11-22 13:01:04,208 INFO: Demoting self (immediate-nolock)
+2026-11-22 13:01:04.266 PST [98085] LOG:  received immediate shutdown request
+2026-11-22 13:01:04.268 PST [98085] LOG:  database system is shut down
+2026-11-22 13:01:04,275 INFO: demoting self because I do not have the lock and I was a leader
+2026-11-22 13:01:04.492 PST [98208] LOG:  starting PostgreSQL 17.12 (Postgres.app) on aarch64-apple-darwin23.6.0, compiled by Apple clang version 15.0.0 (clang-1500.3.9.4), 64-bit
+2026-11-22 13:01:04.492 PST [98208] LOG:  listening on IPv4 address "127.0.0.1", port 6443
+2026-11-22 13:01:04.493 PST [98208] LOG:  listening on Unix socket "$HOME/invention-hunt/pilots/failover-gate/cluster/pg3/.s.PGSQL.6443"
+2026-11-22 13:01:04,494 INFO: postmaster pid=98208
+2026-11-22 13:01:04.494 PST [98211] LOG:  database system was interrupted; last known up at 2026-11-22 13:01:02 PST
+2026-11-22 13:01:04.500 PST [98213] FATAL:  the database system is starting up
+localhost:6443 - rejecting connections
+2026-11-22 13:01:04.505 PST [98215] FATAL:  the database system is starting up
+localhost:6443 - rejecting connections
+2026-11-22 13:01:04.530 PST [98211] LOG:  entering standby mode
+2026-11-22 13:01:04.530 PST [98211] LOG:  redo starts at 0/2000028
+2026-11-22 13:01:04.533 PST [98211] LOG:  consistent recovery state reached at 0/423E440
+2026-11-22 13:01:04.533 PST [98211] LOG:  invalid record length at 0/423E498: expected at least 24, got 0
+2026-11-22 13:01:04.533 PST [98208] LOG:  database system is ready to accept read-only connections
+localhost:6443 - accepting connections
+2026-11-22 13:01:05,544 INFO: Lock owner: pg1; I am pg3
+2026-11-22 13:01:05,544 INFO: establishing a new patroni heartbeat connection to postgres
+2026-11-22 13:01:05,557 INFO: Local timeline=2 lsn=0/423E498
+2026-11-22 13:01:08,559 ERROR: Exception when working with leader
+Traceback (most recent call last):
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/rewind.py", line 83, in check_leader_is_not_in_recovery
+    with get_connection_cursor(**conn_kwargs) as cur:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/postgresql/connection.py", line 164, in get_connection_cursor
+    conn = psycopg.connect(**conn_kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/patroni/psycopg.py", line 150, in connect
+    ret = _connect(*args, **kwargs)
+  File "$HOME/tools/venv/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 6451 failed: timeout expired
+
+2026-11-22 13:01:08,585 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 13:01:16,047 INFO: Lock owner: pg1; I am pg3
+2026-11-22 13:01:16,054 INFO: Local timeline=2 lsn=0/423E498
+2026-11-22 13:01:18,230 INFO: establishing a new patroni restapi connection to postgres

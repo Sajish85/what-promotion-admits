@@ -1,0 +1,20 @@
+1795418897.251 +   1.44s healthy after 0s
+1795418897.643 +   1.83s primary pg-1 10.244.3.100 on cnpg-worker; replicas pg-2=10.244.1.79@cnpg-worker3, pg-3=10.244.2.101@cnpg-worker2; failoverDelay=300
+1795418905.357 +   9.54s writers started (base 782.6 txn/s total); jitter done
+1795418905.360 +   9.55s pre-stall snapshot: {'pg-2': {'gap': -17776, 'walreceiver': [('streaming', 'pg-rw', 5432)]}, 'pg-3': {'gap': -35576, 'walreceiver': [('streaming', 'pg-rw', 5432)]}}
+1795418906.284 +  10.47s stall rules applied on cnpg-worker: 4 rules
+1795418911.297 +  15.48s growing: {'pg-2': 40107264, 'pg-3': 37807128}
+1795418916.310 +  20.50s growing: {'pg-2': 75310920, 'pg-3': 73010784}
+1795418920.889 +  25.08s gap reached {'pg-2': 107161560, 'pg-3': 104861424} in 15.51s; writers stopped
+1795418921.252 +  25.44s VERIFIED primary_lsn=255622904 recv={'pg-2': 148461344, 'pg-3': 150761480} replay={'pg-2': 148461344, 'pg-3': 150761480} gaps={'pg-2': 107161560, 'pg-3': 104861424} ratio=1.0
+1795418921.735 +  25.92s operator view (kubectl cnpg status, pre-fault): {'pg-1': ('Primary', 255622904), 'pg-3': ('Standby (file based)', 150761480), 'pg-2': ('Standby (file based)', 148461344)}
+1795418922.506 +  26.69s delete pod: pod "pg-1" force deleted from default namespace | Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+1795418922.506 +  26.69s FAULT: node cordoned, primary pod force-deleted; stall rules stay in place
+1795418926.632 +  30.82s pg_promote -> True in 0.70s
+1795418926.637 +  30.82s early read on candidate ok: 5590 rows, tli 2
+1795418926.637 +  30.82s decision: promoted=pg-3 after 4.9s
+1795418927.594 +  31.78s survivors at promotion: 5590 of 17326 acked; lost 11736; fork 0/8FC7008; tli 2
+1795418995.189 +  99.38s D: rebuilding cluster after run
+1795418995.189 +  99.38s REBUILD cluster pg
+1795419179.100 + 283.29s cluster.postgresql.cnpg.io/pg created
+1795419301.800 + 405.99s run complete

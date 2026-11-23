@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/root/cnpg/bin/driver.py", line 20, in <module>
+    row = h.run_one(sc, tg, rid, f'{h.RUNS}/{rid}')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/cnpg/bin/harness.py", line 120, in run_one
+    q1(pc, f"create table {table}(id bigint primary key, w int, payload bytea)") if False else pc.cursor().execute(f"create table {table}(id bigint primary key, w int, payload bytea)")
+                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.DuplicateTable: relation "t_d_10mb_r05" already exists
+

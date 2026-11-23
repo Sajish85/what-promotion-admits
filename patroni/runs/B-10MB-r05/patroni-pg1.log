@@ -1,0 +1,44 @@
+2026-11-22 12:02:48,194 INFO: Lock owner: pg2; I am pg1
+2026-11-22 12:02:48,204 INFO: Local timeline=6 lsn=0/81F8948
+2026-11-22 12:02:48,216 INFO: primary_timeline=6
+2026-11-22 12:02:48,228 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:02:58,204 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:03:08,700 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:03:18,707 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:03:28,479 INFO: My wal position exceeds maximum replication lag
+server signaled
+2026-11-22 12:03:28.491 PST [69243] LOG:  received SIGHUP, reloading configuration files
+2026-11-22 12:03:28.493 PST [69243] LOG:  parameter "primary_conninfo" removed from configuration file, reset to default
+2026-11-22 12:03:28.493 PST [69243] LOG:  parameter "primary_slot_name" removed from configuration file, reset to default
+2026-11-22 12:03:28.495 PST [69247] LOG:  WAL receiver process shutdown requested
+2026-11-22 12:03:28.496 PST [72917] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 12:03:28.496 PST [69247] LOG:  invalid record length at 0/82441E8: expected at least 24, got 0
+2026-11-22 12:03:28.496 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:03:28.496 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:03:28,512 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:03:33.496 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:03:38,481 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:03:38.496 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:03:38,502 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:03:43.498 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:03:48,477 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:03:48,491 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:03:48.499 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:03:53.501 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:03:58,479 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:03:58,491 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:03:58.502 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:04:03.504 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:04:08,476 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:04:08,490 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:04:08.505 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:04:13.506 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:04:18,477 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:04:18,491 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:04:18.508 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:04:23.510 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:04:28,473 INFO: My wal position exceeds maximum replication lag
+2026-11-22 12:04:28,485 INFO: following a different leader because i am not the healthiest node
+2026-11-22 12:04:28.498 PST [69245] LOG:  restartpoint starting: time
+2026-11-22 12:04:28.510 PST [69247] LOG:  waiting for WAL to become available at 0/8002000
+2026-11-22 12:04:33.511 PST [69247] LOG:  waiting for WAL to become available at 0/8002000

@@ -1,0 +1,18 @@
+13:43:53 Ej-10MB-r01 VALID  promoted_silent gap= 10494536 lost= 1176 59s
+13:44:54 Ej-10MB-r02 VALID  promoted_silent gap= 10488088 lost= 1188 61s
+Traceback (most recent call last):
+  File "$HOME/invention-hunt/pilots/failover-gate/bin/writer.py", line 31, in <module>
+    f.write(f"{seq},{time.time():.6f},{outcome}\n")
+OSError: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "$HOME/invention-hunt/pilots/failover-gate/bin/writer.py", line 31, in <module>
+    f.write(f"{seq},{time.time():.6f},{outcome}\n")
+OSError: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "$HOME/invention-hunt/pilots/failover-gate/bin/writer.py", line 31, in <module>
+    f.write(f"{seq},{time.time():.6f},{outcome}\n")
+OSError: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "$HOME/invention-hunt/pilots/failover-gate/bin/writer.py", line 31, in <module>
+    f.write(f"{seq},{time.time():.6f},{outcome}\n")
+OSError: [Errno 28] No space left on device

@@ -1,0 +1,15 @@
+1795406780.932 +   1.32s healthy after 0s
+1795406781.147 +   1.53s primary pg-2 10.244.3.37 on cnpg-worker; replicas pg-1=10.244.1.24@cnpg-worker3, pg-3=10.244.2.39@cnpg-worker2; failoverDelay=300
+1795406787.589 +   7.98s writers started (base 78.3 txn/s total); jitter done
+1795406788.515 +   8.90s stall rules applied on cnpg-worker: 4 rules
+1795406803.378 +  23.76s gap reached {'pg-1': 10824880, 'pg-3': 10518424} in 15.72s; writers stopped
+1795406803.580 +  23.97s VERIFIED primary_lsn=971213592 recv={'pg-1': 960388712, 'pg-3': 960695168} replay={'pg-1': 960388712, 'pg-3': 960695168} gaps={'pg-1': 10824880, 'pg-3': 10518424} ratio=1.003
+1795406803.958 +  24.34s operator view (kubectl cnpg status, pre-fault): {'pg-2': ('Primary', 971213592), 'pg-3': ('Standby (file based)', 960695168), 'pg-1': ('Standby (file based)', 960388712)}
+1795406804.949 +  25.34s delete pod: pod "pg-2" force deleted from default namespace | Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+1795406804.949 +  25.34s FAULT: node cordoned, primary pod force-deleted; stall rules stay in place
+1795406808.488 +  28.87s promote cmd: Node pg-3 in cluster pg will be promoted | {"level":"info","ts":"2026-11-22T22:06:48.48215-06:00","msg":"Cluster has become unhealthy"}
+1795406808.636 +  29.02s targetPrimary=pg-3 phase=Switchover in progress
+1795406810.089 +  30.47s decision: promoted=pg-3 after 6.1s
+1795406811.039 +  31.43s survivors at promotion: 471 of 1652 acked; lost 1181; fork 0/39430B80; tli 36
+1795407113.112 + 333.50s healthy after 299s
+1795407113.341 + 333.73s run complete

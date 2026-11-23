@@ -1,0 +1,16 @@
+$ pg_autoctl perform promotion --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --name n3
+rc=12
+    Time | Name |  Node |      Host:Port |       Current State |      Assigned State
+---------+------+-------+----------------+---------------------+--------------------
+18:57:39 |   n3 |   0/3 | 127.0.0.1:6483 |           secondary |           secondary
+18:57:39 |   n1 |   0/1 | 127.0.0.1:6481 |             primary |            draining
+18:57:39 |   n1 |   0/1 | 127.0.0.1:6481 |             primary |            draining
+18:57:54 |   n2 |   0/2 | 127.0.0.1:6482 |           secondary |          report_lsn
+18:57:54 |   n3 |   0/3 | 127.0.0.1:6483 |           secondary |          report_lsn
+18:57:55 |   n3 |   0/3 | 127.0.0.1:6483 |          report_lsn |          report_lsn
+18:57:56 |   n2 |   0/2 | 127.0.0.1:6482 |          report_lsn |          report_lsn
+18:57:33 34133 INFO  Waiting 60 secs for a notification with state "primary" in formation "default" and group 0
+18:57:33 34133 INFO  Listening monitor notifications about state changes in formation "default" and group 0
+18:57:33 34133 INFO  Following table displays times when notifications are received
+18:58:56 34133 ERROR Failed to receive monitor's notifications
+18:58:56 34133 ERROR Failed to wait until a new primary has been notified

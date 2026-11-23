@@ -1,0 +1,14 @@
+    0.00s REBUILD rig
+  148.39s rebuild ok=True
+  148.39s leader=n1 replicas=['n2', 'n3'] candidate=n3
+  151.43s pre-stall gap bytes={'n3': 0} tps_total=79.0
+  151.46s monitor-path cut (candidate keeper->monitor): stall conns=2 fwd_c2u=14611 fwd_u2c=48240
+  151.47s replication stall on primary proxy: stall conns=4 fwd_c2u=42704 fwd_u2c=87700659
+  166.79s VERIFIED gap: primary_lsn=79893488 recv={'n2': 69380584, 'n3': 69380584} gap={'n2': 10512904, 'n3': 10512904} candidate_gap=10512904 ratio=1.003
+  166.81s monitor-path restore: pass conns=3 fwd_c2u=14611 fwd_u2c=48240
+  166.83s KILL primary n1: pg_autoctl tree [22386, 22395, 22396, 22412, 22413, 22414, 22415, 22417, 22418, 22419, 24165, 24351] + postmaster 22412
+  167.25s monitor view: primary_reported=0/4C28A30 cand_reported=0/41980A8 reported_lag=11078024 true=10512904
+  221.68s perform promotion rc=0 in 54.4s: 19:11 24879 INFO  Waiting 60 secs for a notification with state "primary" in formation "default" and group 0
+23:19:11 24879 INFO  Listening monitor notifications about state changes in formation "default" and group 0
+23:19:11 24879 INFO  Following table displays times when notifications are received
+  221.69s PROMOTED n3 after 54.9s; survivors=240 fork_lsn=69380584

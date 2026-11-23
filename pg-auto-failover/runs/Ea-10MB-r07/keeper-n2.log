@@ -1,0 +1,38 @@
+17:56:12 67659 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ primary
+17:56:24 67659 ERROR Monitor ERROR:  deadlock detected
+17:56:24 67659 ERROR Monitor DETAIL:  Process 68829 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 68828.
+17:56:24 67659 ERROR Monitor Process 68828 waits for ShareLock on transaction 1077; blocked by process 68829.
+17:56:24 67659 ERROR Monitor HINT:  See server log for query details.
+17:56:24 67659 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+17:56:24 67659 ERROR SQL params: 'default', '2', '0', 'secondary', 'true', '1', '0/422A9E8', ''
+17:56:24 67659 ERROR Failed to get node state for node 2 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/422A9E8", see previous lines for details
+17:56:24 67659 ERROR Failed to get the goal state from the monitor
+17:56:25 67659 INFO  Successfully got the goal state from the monitor
+17:56:25 67659 INFO  Monitor assigned new state "report_lsn"
+17:56:25 67659 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+17:56:25 67659 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+17:56:25 67659 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+17:56:25 67658 INFO  Stopping pg_autoctl postgres service
+17:56:25 67658 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+17:56:26 67659 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+17:56:26 67659 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+17:56:26 67659 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+17:56:26 68865 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+17:56:26 67659 INFO  Transition complete: current state is now "report_lsn"
+17:56:26 67658 WARN  PostgreSQL was not running, restarted with pid 68865
+17:56:26 67659 INFO  New state for node 3 "n3" (127.0.0.1:6483): report_lsn ➜ report_lsn
+17:56:26 67659 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): report_lsn ➜ prepare_promotion
+17:56:26 67659 INFO  Monitor assigned new state "prepare_promotion"
+17:56:26 67659 INFO  FSM transition from "report_lsn" to "prepare_promotion": Stop traffic to primary, wait for it to finish draining.
+17:56:26 67659 INFO  Transition complete: current state is now "prepare_promotion"
+17:56:26 67659 INFO  Monitor assigned new state "stop_replication"
+17:56:26 67659 INFO  FSM transition from "prepare_promotion" to "stop_replication": Prevent against split-brain situations.
+17:56:26 67659 INFO  Prevent writes to the promoted standby while the primary is not demoted yet, by making the service incompatible with target_session_attrs = read-write
+17:56:26 67659 INFO  Setting default_transaction_read_only to on
+17:56:26 67659 INFO  Reloading Postgres configuration and HBA rules
+17:56:26 67659 INFO  Promoting postgres
+17:56:26 67659 INFO  Waiting for postgres to promote
+17:56:27 67659 INFO  Cleaning-up Postgres replication settings
+17:56:27 67659 INFO  Disabling synchronous replication
+17:56:27 67659 INFO  Reloading Postgres configuration and HBA rules
+17:56:27 67659 INFO  Transition complete: current state is now "stop_replication"

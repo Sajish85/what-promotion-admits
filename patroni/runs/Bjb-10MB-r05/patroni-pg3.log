@@ -1,0 +1,26 @@
+2026-11-22 14:32:20,906 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 14:32:31,389 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 14:32:41,377 INFO: no action. I am (pg3), a secondary, and following a leader (pg2)
+2026-11-22 14:32:51,231 WARNING: Request failed to pg2: GET http://127.0.0.1:9009/patroni (HTTPConnectionPool(host='127.0.0.1', port=9009): Max retries exceeded with url: /patroni (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9009): Failed to establish a new connection: [Errno 61] Connection refused")))
+2026-11-22 14:32:51,254 INFO: Got response from pg1 http://127.0.0.1:9008/patroni: {"state": "running", "postmaster_start_time": "2026-11-22 14:32:07.063286-08:00", "role": "replica", "server_version": 170012, "xlog": {"received_location": 2775217672, "replayed_location": 2775217672, "replayed_timestamp": "2026-11-22 14:32:24.042766-08:00", "paused": false}, "timeline": 45, "replication_state": "streaming", "cluster_unlocked": true, "dcs_last_seen": 1795386771, "database_system_identifier": "7711115187394724740", "patroni": {"version": "4.1.5", "scope": "pilot", "name": "pg1"}}
+2026-11-22 14:32:51,262 INFO: Could not take out TTL lock
+2026-11-22 14:32:51,263 ERROR: watchprefix failed: ProtocolError('Response ended prematurely')
+server signaled
+2026-11-22 14:32:51.269 PST [7703] LOG:  received SIGHUP, reloading configuration files
+2026-11-22 14:32:51.270 PST [7703] LOG:  parameter "primary_conninfo" changed to "dbname=postgres user=replicator passfile=$HOME/invention-hunt/pilots/failover-gate/cluster/pg3/pgpass host=127.0.0.1 port=6451 sslmode=prefer application_name=pg3 gssencmode=prefer channel_binding=prefer sslnegotiation=postgres"
+2026-11-22 14:32:51.271 PST [7707] LOG:  WAL receiver process shutdown requested
+2026-11-22 14:32:51.275 PST [29123] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 14:32:51.284 PST [35053] LOG:  started streaming WAL from primary at 0/A5000000 on timeline 45
+2026-11-22 14:32:51,285 INFO: following new leader after trying and failing to obtain lock
+2026-11-22 14:32:51,286 INFO: Lock owner: pg1; I am pg3
+2026-11-22 14:32:51,290 INFO: Local timeline=45 lsn=0/A56A7608
+2026-11-22 14:32:51,292 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)
+2026-11-22 14:32:51.350 PST [35053] LOG:  replication terminated by primary server
+2026-11-22 14:32:51.350 PST [35053] DETAIL:  End of WAL reached on timeline 45 at 0/A56A7608.
+2026-11-22 14:32:51.350 PST [35053] LOG:  fetching timeline history file for timeline 46 from primary server
+2026-11-22 14:32:51.350 PST [7707] LOG:  new target timeline is 46
+2026-11-22 14:32:51.350 PST [7707] LOG:  invalid record length at 0/A56A7608: expected at least 24, got 0
+2026-11-22 14:32:51.351 PST [35053] LOG:  restarted WAL streaming at 0/A5000000 on timeline 46
+2026-11-22 14:32:52,298 INFO: Lock owner: pg1; I am pg3
+2026-11-22 14:32:52,304 INFO: Local timeline=46 lsn=0/A56A7678
+2026-11-22 14:32:52,314 INFO: no action. I am (pg3), a secondary, and following a leader (pg1)

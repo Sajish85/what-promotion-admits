@@ -1,0 +1,34 @@
+2026-11-22 14:44:11,398 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 14:44:21,868 INFO: Lock owner: pg1; I am pg2
+2026-11-22 14:44:25,208 ERROR: Request to server http://127.0.0.1:22392 failed: ReadTimeoutError("HTTPConnectionPool(host='127.0.0.1', port=22392): Read timed out. (read timeout=3.333161083333328)")
+2026-11-22 14:44:25,208 INFO: Reconnection allowed, looking for another server.
+2026-11-22 14:44:27,663 ERROR: Request to server http://127.0.0.1:22392 failed: ReadTimeoutError("HTTPConnectionPool(host='127.0.0.1', port=22392): Read timed out. (read timeout=2.1065013358306857)")
+2026-11-22 14:44:27,663 INFO: Reconnection allowed, looking for another server.
+2026-11-22 14:44:29,249 ERROR: Request to server http://127.0.0.1:22392 failed: ReadTimeoutError("HTTPConnectionPool(host='127.0.0.1', port=22392): Read timed out. (read timeout=1.3149283773118938)")
+2026-11-22 14:44:29,249 INFO: Reconnection allowed, looking for another server.
+2026-11-22 14:44:31,443 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 14:44:31,444 WARNING: Loop time exceeded, rescheduling immediately.
+2026-11-22 14:44:31,446 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 14:44:31,447 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 14:44:41,964 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 14:44:51,960 INFO: no action. I am (pg2), a secondary, and following a leader (pg1)
+2026-11-22 14:45:01,787 INFO: establishing a new patroni restapi connection to postgres
+2026-11-22 14:45:01,799 INFO: Cleaning up failover key after acquiring leader lock...
+2026-11-22 14:45:01,813 INFO: promoted self to leader by acquiring session lock
+server promoting
+2026-11-22 14:45:01.820 PST [4545] LOG:  received promote request
+2026-11-22 14:45:01.820 PST [4590] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 14:45:01.820 PST [4545] LOG:  invalid record length at 0/43C4AF8: expected at least 24, got 0
+2026-11-22 14:45:01.820 PST [4545] LOG:  redo done at 0/43C4AD0 system usage: CPU: user: 0.02 s, system: 0.04 s, elapsed: 88.20 s
+2026-11-22 14:45:01.820 PST [4545] LOG:  last completed transaction was at log time 2026-11-22 14:44:16.156133-08
+2026-11-22 14:45:01,817 INFO: Lock owner: pg2; I am pg2
+2026-11-22 14:45:01,820 INFO: updated leader lock during promote
+2026-11-22 14:45:01.821 PST [4545] LOG:  selected new timeline ID: 2
+2026-11-22 14:45:01.854 PST [4545] LOG:  archive recovery complete
+2026-11-22 14:45:01.855 PST [4543] LOG:  checkpoint starting: force
+2026-11-22 14:45:01.856 PST [4542] LOG:  database system is ready to accept connections
+2026-11-22 14:45:02,885 INFO: no action. I am (pg2), the leader with the lock
+2026-11-22 14:45:02.887 PST [4543] LOG:  checkpoint complete: wrote 495 buffers (3.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.024 s, sync=0.008 s, total=1.033 s; sync files=30, longest=0.006 s, average=0.001 s; distance=36626 kB, estimate=36626 kB; lsn=0/43C5148, redo lsn=0/43C4B30
+2026-11-22 14:45:02.887 PST [4543] LOG:  checkpoint starting: immediate force wait
+2026-11-22 14:45:02.888 PST [4543] LOG:  checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.001 s; sync files=1, longest=0.001 s, average=0.001 s; distance=1 kB, estimate=32964 kB; lsn=0/43C5218, redo lsn=0/43C51C0
+2026-11-22 14:45:02,902 INFO: no action. I am (pg2), the leader with the lock

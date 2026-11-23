@@ -1,0 +1,65 @@
+16:01:57 49110 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): secondary ➜ secondary
+16:01:57 49110 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+16:02:03 49110 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+16:02:18 49110 ERROR Monitor ERROR:  deadlock detected
+16:02:18 49110 ERROR Monitor DETAIL:  Process 50310 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 50311.
+16:02:18 49110 ERROR Monitor Process 50311 waits for ShareLock on transaction 1099; blocked by process 50310.
+16:02:18 49110 ERROR Monitor HINT:  See server log for query details.
+16:02:18 49110 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+16:02:18 49110 ERROR SQL params: 'default', '2', '0', 'secondary', 'true', '1', '0/422A9E8', ''
+16:02:18 49110 ERROR Failed to get node state for node 2 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/422A9E8", see previous lines for details
+16:02:18 49110 ERROR Failed to get the goal state from the monitor
+16:02:19 49110 INFO  Successfully got the goal state from the monitor
+16:02:19 49110 INFO  Monitor assigned new state "report_lsn"
+16:02:19 49110 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+16:02:19 49110 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+16:02:19 49110 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+16:02:19 49109 INFO  Stopping pg_autoctl postgres service
+16:02:19 49109 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+16:02:19 49110 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+16:02:19 49110 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+16:02:19 49110 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+16:02:19 50331 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+16:02:19 49110 INFO  Transition complete: current state is now "report_lsn"
+16:02:19 49109 WARN  PostgreSQL was not running, restarted with pid 50331
+16:02:19 49110 INFO  New state for node 3 "n3" (127.0.0.1:6483): report_lsn ➜ report_lsn
+16:02:19 49110 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): report_lsn ➜ report_lsn
+16:02:19 49110 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): report_lsn ➜ prepare_promotion
+16:02:19 49110 INFO  Monitor assigned new state "prepare_promotion"
+16:02:19 49110 INFO  FSM transition from "report_lsn" to "prepare_promotion": Stop traffic to primary, wait for it to finish draining.
+16:02:19 49110 INFO  Transition complete: current state is now "prepare_promotion"
+16:02:19 49110 INFO  Monitor assigned new state "stop_replication"
+16:02:19 49110 INFO  FSM transition from "prepare_promotion" to "stop_replication": Prevent against split-brain situations.
+16:02:19 49110 INFO  Prevent writes to the promoted standby while the primary is not demoted yet, by making the service incompatible with target_session_attrs = read-write
+16:02:19 49110 INFO  Setting default_transaction_read_only to on
+16:02:19 49110 INFO  Reloading Postgres configuration and HBA rules
+16:02:19 49110 INFO  Promoting postgres
+16:02:19 49110 INFO  Waiting for postgres to promote
+16:02:20 49110 INFO  Cleaning-up Postgres replication settings
+16:02:20 49110 INFO  Disabling synchronous replication
+16:02:20 49110 INFO  Reloading Postgres configuration and HBA rules
+16:02:20 49110 INFO  Transition complete: current state is now "stop_replication"
+16:02:20 49110 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): prepare_promotion ➜ prepare_promotion
+16:02:20 49110 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): prepare_promotion ➜ stop_replication
+16:02:20 49110 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ demote_timeout
+16:02:20 49110 INFO  New state for node 3 "n3" (127.0.0.1:6483): report_lsn ➜ join_secondary
+16:02:20 49110 INFO  New state for node 3 "n3" (127.0.0.1:6483): join_secondary ➜ join_secondary
+16:02:20 49110 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): stop_replication ➜ stop_replication
+16:02:29 49110 INFO  New state for node 3 "n3" (127.0.0.1:6483): join_secondary ➜ join_secondary
+16:02:50 49110 INFO  Monitor assigned new state "wait_primary"
+16:02:50 49110 INFO  FSM transition from "stop_replication" to "wait_primary": Confirmed promotion with the monitor
+16:02:50 49110 INFO  Setting default_transaction_read_only to off
+16:02:50 49110 INFO  Reloading Postgres configuration and HBA rules
+16:02:50 49110 INFO  Fetched current list of 2 other nodes from the monitor to update HBA rules, including 2 changes.
+16:02:50 49110 INFO  Ensuring HBA rules for node 1 "n1" (127.0.0.1:6481)
+16:02:50 49110 INFO  Ensuring HBA rules for node 3 "n3" (127.0.0.1:6483)
+16:02:50 49110 INFO  Reloading Postgres configuration and HBA rules
+16:02:50 49110 INFO  Transition complete: current state is now "wait_primary"
+16:02:50 49110 INFO  New state for node 3 "n3" (127.0.0.1:6483): secondary ➜ secondary
+16:02:50 49110 INFO  Monitor assigned new state "primary"
+16:02:50 49110 INFO  FSM transition from "wait_primary" to "primary": A healthy secondary appeared
+16:02:50 49110 INFO  Setting synchronous_standby_names to ''
+16:02:50 49110 INFO  Reloading Postgres configuration and HBA rules
+16:02:50 49110 INFO  Transition complete: current state is now "primary"
+16:02:50 49110 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): wait_primary ➜ primary
+16:02:50 49110 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): primary ➜ primary

@@ -1,0 +1,22 @@
+22:00:44 37110 INFO  Monitor assigned new state "report_lsn"
+22:00:44 37110 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+22:00:44 37110 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+22:00:44 37110 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+22:00:44 37109 INFO  Stopping pg_autoctl postgres service
+22:00:44 37109 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+22:00:45 37110 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+22:00:45 37110 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+22:00:45 37110 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+22:00:45 38472 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+22:00:50 37109 WARN  PostgreSQL was not running, restarted with pid 38472
+22:00:50 37110 INFO  Transition complete: current state is now "report_lsn"
+22:00:51 37110 INFO  Monitor assigned new state "prepare_promotion"
+22:00:51 37110 INFO  FSM transition from "report_lsn" to "prepare_promotion": Stop traffic to primary, wait for it to finish draining.
+22:00:51 37110 INFO  Transition complete: current state is now "prepare_promotion"
+22:00:51 37110 INFO  Monitor assigned new state "stop_replication"
+22:00:51 37110 INFO  FSM transition from "prepare_promotion" to "stop_replication": Prevent against split-brain situations.
+22:00:51 37110 INFO  Prevent writes to the promoted standby while the primary is not demoted yet, by making the service incompatible with target_session_attrs = read-write
+22:00:51 37110 INFO  Setting default_transaction_read_only to on
+22:00:51 37110 INFO  Reloading Postgres configuration and HBA rules
+22:00:51 37110 INFO  Promoting postgres
+22:00:51 37110 INFO  Waiting for postgres to promote

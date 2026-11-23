@@ -1,0 +1,6 @@
+2026-11-22 14:41:31,873 INFO: no action. I am (pg3), the leader with the lock
+2026-11-22 14:41:38.511 PST [3532] LOG:  checkpoints are occurring too frequently (28 seconds apart)
+2026-11-22 14:41:38.511 PST [3532] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-11-22 14:41:38.511 PST [3532] LOG:  checkpoint starting: wal
+2026-11-22 14:41:39.367 PST [3851] FATAL:  terminating connection due to unexpected postmaster exit
+2026-11-22 14:41:39.367 PST [3620] FATAL:  terminating connection due to unexpected postmaster exit

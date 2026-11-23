@@ -1,0 +1,54 @@
+13:47:53 E-10MB-r01 VALID  promoted_silent gap= 10492144 lost= 1180 54s
+13:48:54 E-10MB-r02 VALID  promoted_silent gap= 10488088 lost= 1188 61s
+13:49:53 E-10MB-r03 VALID  promoted_silent gap= 10488128 lost= 1188 59s
+13:50:48 E-10MB-r04 VALID  promoted_silent gap= 10512920 lost= 1188 54s
+13:51:49 E-10MB-r05 VALID  promoted_silent gap= 10488104 lost= 1188 61s
+13:52:51 E-10MB-r06 VALID  promoted_silent gap= 10488104 lost= 1188 62s
+13:53:49 E-10MB-r07 VALID  promoted_silent gap= 10505736 lost= 1190 59s
+13:54:44 E-10MB-r08 VALID  promoted_silent gap= 10504088 lost= 1187 55s
+13:55:45 E-10MB-r09 VALID  promoted_silent gap= 10512904 lost= 1188 61s
+13:56:47 E-10MB-r10 VALID  promoted_silent gap= 10488128 lost= 1188 61s
+13:57:48 E-100MB-r01 VALID  promoted_silent gap= 104916536 lost= 11881 62s
+13:58:50 E-100MB-r02 VALID  promoted_silent gap= 104881296 lost= 11877 62s
+13:59:51 E-100MB-r03 VALID  promoted_silent gap= 105022352 lost= 11893 61s
+14:00:53 E-100MB-r04 VALID  promoted_silent gap= 105047168 lost= 11893 62s
+14:01:57 E-100MB-r05 VALID  promoted_silent gap= 104880472 lost= 11877 65s
+14:02:59 E-100MB-r06 VALID  promoted_silent gap= 104890088 lost= 11878 62s
+14:03:57 E-100MB-r07 VALID  promoted_silent gap= 105048816 lost= 11896 59s
+14:05:02 E-100MB-r08 VALID  promoted_silent gap= 105022392 lost= 11893 64s
+14:06:00 E-100MB-r09 VALID  promoted_silent gap= 105056880 lost= 11897 59s
+14:07:05 E-100MB-r10 VALID  promoted_silent gap= 104978312 lost= 11888 65s
+14:08:03 Ej-10MB-r01 VALID  promoted_silent gap= 10488880 lost= 1188 58s
+14:09:05 Ej-10MB-r02 VALID  promoted_silent gap= 10512904 lost= 1188 61s
+14:09:56 Ej-10MB-r03 VALID  promoted_silent gap= 10690864 lost= 596 52s
+14:10:58 Ej-10MB-r04 VALID  promoted_silent gap= 10488088 lost= 1188 62s
+14:11:59 Ej-10MB-r05 VALID  promoted_silent gap= 10488880 lost= 1188 62s
+14:13:04 Ej-10MB-r06 VALID  promoted_silent gap= 10488104 lost= 1188 65s
+14:14:02 Ej-10MB-r07 VALID  promoted_silent gap= 10488864 lost= 1188 58s
+14:15:07 Ej-10MB-r08 VALID  promoted_silent gap= 10488944 lost= 1188 65s
+14:16:15 Ej-10MB-r09 VALID  promoted_silent gap= 10488152 lost= 1188 69s
+14:17:17 Ej-10MB-r10 VALID  promoted_silent gap= 10512904 lost= 1188 61s
+14:18:21 Ej-100MB-r01 VALID  promoted_silent gap= 104967840 lost= 11884 65s
+14:19:29 Ej-100MB-r02 VALID  promoted_silent gap= 105022392 lost= 11893 68s
+14:20:45 Ej-100MB-r03 VALID  promoted_silent gap= 104943024 lost= 11884 76s
+14:21:58 Ej-100MB-r04 VALID  promoted_silent gap= 104863688 lost= 11875 73s
+14:23:19 Ej-100MB-r05 VALID  promoted_silent gap= 104914944 lost= 11878 81s
+14:24:12 Ej-100MB-r06 VALID  promoted_silent gap= 104907736 lost= 11880 54s
+14:25:33 Ej-100MB-r07 VALID  promoted_silent gap= 104942984 lost= 11884 81s
+14:26:36 Ej-100MB-r08 VALID  promoted_silent gap= 104898360 lost= 11878 63s
+14:27:38 Ej-100MB-r09 VALID  promoted_silent gap= 105019960 lost= 11890 62s
+14:28:39 Ej-100MB-r10 VALID  promoted_silent gap= 105082504 lost= 11897 61s
+14:29:38 Bjb-10MB-r01 VALID  promoted_silent gap= 11465592 lost= 1298 59s
+14:30:31 Bjb-10MB-r02 VALID  promoted_silent gap= 11458256 lost= 1297 52s
+14:31:20 Bjb-10MB-r03 VALID  promoted_silent gap= 11528256 lost= 1307 49s
+14:32:13 Bjb-10MB-r04 VALID  promoted_silent gap= 10655056 lost= 1206 53s
+14:33:05 Bjb-10MB-r05 VALID  promoted_silent gap= 11027496 lost= 1249 52s
+14:33:13 Bjb-10MB-r06 INVALID gap off target: 18688456 vs 10485760 (ratio 1.782)  gap= 18688456 lost= None 8s
+14:34:21 Bjb-10MB-r07 VALID  promoted_silent gap= 11335352 lost= 1284 67s
+14:35:14 Bjb-10MB-r08 VALID  promoted_silent gap= 10672664 lost= 1208 53s
+14:35:21 Bjb-10MB-r09 INVALID gap off target: 45558176 vs 10485760 (ratio 4.345)  gap= 45558176 lost= None 7s
+14:36:43 Bjb-10MB-r10 VALID  promoted_silent gap= 11290760 lost= 1278 81s
+14:38:30 Bjb-10MB-r11 INVALID rig exception: OSError: [Errno 28] No space left on device  gap= 10903344 lost=  107s
+14:41:23 Bjb-10MB-r12 VALID  promoted_silent gap= 10982640 lost= 1244 173s
+14:42:22 Bjb-10MB-r13 VALID  promoted_silent gap= 10546168 lost= 1160 59s
+DRIVER DONE

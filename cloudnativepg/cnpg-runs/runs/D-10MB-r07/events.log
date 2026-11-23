@@ -1,0 +1,22 @@
+1795414627.321 + 424.97s NOT healthy after 420s; diagnostics saved; rebuilding
+1795414627.321 + 424.97s REBUILD cluster pg
+1795414639.422 + 437.07s cluster.postgresql.cnpg.io/pg created
+1795414772.110 + 569.76s primary pg-1 10.244.3.60 on cnpg-worker; replicas pg-2=10.244.1.39@cnpg-worker3, pg-3=10.244.2.60@cnpg-worker2; failoverDelay=300
+1795414777.791 + 575.44s writers started (base 78.3 txn/s total); jitter done
+1795414777.792 + 575.44s pre-stall snapshot: {'pg-2': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}, 'pg-3': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}}
+1795414778.833 + 576.48s stall rules applied on cnpg-worker: 4 rules
+1795414783.843 + 581.49s growing: {'pg-2': 4027192, 'pg-3': 3782120}
+1795414788.856 + 586.51s growing: {'pg-2': 7741832, 'pg-3': 7496760}
+1795414793.219 + 590.87s gap reached {'pg-2': 10736208, 'pg-3': 10491136} in 15.36s; writers stopped
+1795414793.547 + 591.20s VERIFIED primary_lsn=115088456 recv={'pg-2': 104352248, 'pg-3': 104597320} replay={'pg-2': 104352248, 'pg-3': 104597320} gaps={'pg-2': 10736208, 'pg-3': 10491136} ratio=1.001
+1795414793.945 + 591.60s operator view (kubectl cnpg status, pre-fault): {'pg-1': ('Primary', 115088456), 'pg-3': ('Standby (file based)', 104597320), 'pg-2': ('Standby (file based)', 104352248)}
+1795414794.834 + 592.49s delete pod: pod "pg-1" force deleted from default namespace | Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+1795414794.834 + 592.49s FAULT: node cordoned, primary pod force-deleted; stall rules stay in place
+1795414798.687 + 596.34s pg_promote -> True in 0.50s
+1795414798.690 + 596.34s early read on candidate ok: 411 rows, tli 2
+1795414798.690 + 596.34s decision: promoted=pg-3 after 4.7s
+1795414799.459 + 597.11s survivors at promotion: 411 of 1564 acked; lost 1153; fork 0/63C0748; tli 2
+1795414867.545 + 665.20s D: rebuilding cluster after run
+1795414867.545 + 665.20s REBUILD cluster pg
+1795415054.057 + 851.71s cluster.postgresql.cnpg.io/pg created
+1795415186.838 + 984.49s run complete

@@ -1,0 +1,40 @@
+23:39:32 44106 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+23:39:32 44106 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+23:39:32 44106 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:39:32 44106 ERROR Failed to get the goal state from the monitor
+23:39:34 44106 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", retrying until the server is ready
+23:39:34 44106 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+23:39:34 44106 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+23:39:34 44106 WARN  Lost connection.
+23:39:36 44106 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+23:39:36 44106 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+23:39:36 44106 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:39:36 44106 ERROR Failed to get the goal state from the monitor
+23:39:38 44106 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", retrying until the server is ready
+23:39:40 44106 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+23:39:40 44106 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable" after 2 attempts in 4009 ms, pg_autoctl stops retrying now
+23:39:40 44106 WARN  Lost connection.
+23:39:42 44106 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+23:39:42 44106 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", see above for details
+23:39:42 44106 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+23:39:42 44106 ERROR Failed to get the goal state from the monitor
+23:39:44 44106 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable", retrying until the server is ready
+23:39:44 44106 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6502 failed: timeout expired
+23:39:44 44106 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6502/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+23:39:44 44106 WARN  Lost connection.
+23:39:46 44106 INFO  Successfully got the goal state from the monitor
+23:39:46 44106 INFO  New state for this node (node 2, "n2") (127.0.0.1:6482): secondary ➜ secondary
+23:39:46 44106 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:39:52 44106 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:40:08 44106 INFO  Monitor assigned new state "report_lsn"
+23:40:08 44106 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+23:40:08 44106 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+23:40:08 44106 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+23:40:08 44105 INFO  Stopping pg_autoctl postgres service
+23:40:08 44105 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --wait stop --mode fast
+23:40:08 44106 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf"
+23:40:08 44106 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n2/postgresql-auto-failover-standby.conf" have changed, overwriting
+23:40:08 44106 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n2"
+23:40:08 45222 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n2 -p 6472 -h 127.0.0.1
+23:40:08 44106 INFO  Transition complete: current state is now "report_lsn"
+23:40:08 44105 WARN  PostgreSQL was not running, restarted with pid 45222

@@ -1,0 +1,210 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"postgresql.cnpg.io/v1","kind":"Cluster","metadata":{"annotations":{},"name":"pg","namespace":"default"},"spec":{"affinity":{"enablePodAntiAffinity":true,"podAntiAffinityType":"required","topologyKey":"kubernetes.io/hostname"},"bootstrap":{"initdb":{"database":"app","owner":"app"}},"enablePDB":false,"enableSuperuserAccess":true,"failoverDelay":0,"imageName":"ghcr.io/cloudnative-pg/postgresql:17","instances":3,"postgresql":{"parameters":{"max_connections":"100"}},"resources":{"requests":{"cpu":"250m","memory":"512Mi"}},"storage":{"size":"8Gi"}}}
+  creationTimestamp: "2026-11-23T05:55:56Z"
+  generation: 2
+  name: pg
+  namespace: default
+  resourceVersion: "59488"
+  uid: 4d1e8dc1-c989-4ef2-9ace-5e8f2dcec786
+spec:
+  affinity:
+    enablePodAntiAffinity: true
+    podAntiAffinityType: required
+    topologyKey: kubernetes.io/hostname
+  bootstrap:
+    initdb:
+      database: app
+      encoding: UTF8
+      localeCType: C
+      localeCollate: C
+      owner: app
+  enablePDB: false
+  enableSuperuserAccess: true
+  failoverDelay: 300
+  imageName: ghcr.io/cloudnative-pg/postgresql:17
+  instances: 3
+  logLevel: info
+  maxSyncReplicas: 0
+  minSyncReplicas: 0
+  monitoring:
+    customQueriesConfigMap:
+    - key: queries
+      name: cnpg-default-monitoring
+    disableDefaultQueries: false
+    enablePodMonitor: false
+  postgresGID: 26
+  postgresUID: 26
+  postgresql:
+    parameters:
+      archive_mode: "on"
+      archive_timeout: 5min
+      dynamic_shared_memory_type: posix
+      full_page_writes: "on"
+      log_destination: csvlog
+      log_directory: /controller/log
+      log_filename: postgres
+      log_rotation_age: "0"
+      log_rotation_size: "0"
+      log_truncate_on_rotation: "false"
+      logging_collector: "on"
+      max_connections: "100"
+      max_parallel_workers: "32"
+      max_replication_slots: "32"
+      max_worker_processes: "32"
+      shared_memory_type: mmap
+      shared_preload_libraries: ""
+      ssl_max_protocol_version: TLSv1.3
+      ssl_min_protocol_version: TLSv1.3
+      wal_keep_size: 512MB
+      wal_level: logical
+      wal_log_hints: "on"
+      wal_receiver_timeout: 5s
+      wal_sender_timeout: 5s
+    syncReplicaElectionConstraint:
+      enabled: false
+  primaryUpdateMethod: restart
+  primaryUpdateStrategy: unsupervised
+  probes:
+    liveness:
+      isolationCheck:
+        connectionTimeout: 1000
+        enabled: true
+        requestTimeout: 1000
+  replicationSlots:
+    highAvailability:
+      enabled: true
+      slotPrefix: _cnpg_
+    synchronizeReplicas:
+      enabled: true
+    updateInterval: 30
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+  smartShutdownTimeout: 180
+  startDelay: 3600
+  stopDelay: 1800
+  storage:
+    resizeInUseVolumes: true
+    size: 8Gi
+  switchoverDelay: 3600
+status:
+  availableArchitectures:
+  - goArch: amd64
+    hash: a6dfa13db51ac4fe2cbab24dd170add4be10fcab472e3fc0eb24ed8684365733
+  - goArch: arm64
+    hash: 2d4f91dee3c2b9ee303969f2876b8c56f5690f436ffb68cf4e794c04530fdf26
+  certificates:
+    clientCASecret: pg-ca
+    expirations:
+      pg-ca: 2027-02-21 05:50:57 +0000 UTC
+      pg-replication: 2027-02-21 05:50:57 +0000 UTC
+      pg-server: 2027-02-21 05:50:57 +0000 UTC
+    replicationTLSSecret: pg-replication
+    serverAltDNSNames:
+    - pg-rw
+    - pg-rw.default
+    - pg-rw.default.svc
+    - pg-rw.default.svc.cluster.local
+    - pg-r
+    - pg-r.default
+    - pg-r.default.svc
+    - pg-r.default.svc.cluster.local
+    - pg-ro
+    - pg-ro.default
+    - pg-ro.default.svc
+    - pg-ro.default.svc.cluster.local
+    serverCASecret: pg-ca
+    serverTLSSecret: pg-server
+  cloudNativePGCommitHash: 30cca36d3
+  cloudNativePGOperatorHash: a6dfa13db51ac4fe2cbab24dd170add4be10fcab472e3fc0eb24ed8684365733
+  conditions:
+  - lastTransitionTime: "2026-11-23T05:56:05Z"
+    message: Cluster has been bootstrapped
+    reason: BootstrapCompleted
+    status: "True"
+    type: Initialized
+  - lastTransitionTime: "2026-11-23T05:56:37Z"
+    message: A single, unique system ID was found across reporting instances.
+    reason: Unique
+    status: "True"
+    type: ConsistentSystemID
+  - lastTransitionTime: "2026-11-23T06:05:31Z"
+    message: Cluster is Ready
+    reason: ClusterIsReady
+    status: "True"
+    type: Ready
+  - lastTransitionTime: "2026-11-23T06:05:10Z"
+    message: Continuous archiving is working
+    reason: ContinuousArchivingSuccess
+    status: "True"
+    type: ContinuousArchiving
+  configMapResourceVersion:
+    metrics:
+      cnpg-default-monitoring: "57750"
+  currentPrimary: pg-1
+  currentPrimaryTimestamp: "2026-11-23T06:05:08.863776Z"
+  healthyPVC:
+  - pg-1
+  - pg-2
+  - pg-3
+  image: ghcr.io/cloudnative-pg/postgresql:17
+  instanceNames:
+  - pg-1
+  - pg-2
+  - pg-3
+  instances: 3
+  instancesReportedState:
+    pg-1:
+      ip: 10.244.1.31
+      isPrimary: true
+      timeLineID: 3
+    pg-2:
+      ip: 10.244.3.52
+      isPrimary: false
+      timeLineID: 3
+    pg-3:
+      ip: 10.244.2.52
+      isPrimary: false
+      timeLineID: 2
+  instancesStatus:
+    healthy:
+    - pg-1
+    - pg-2
+    - pg-3
+  managedRolesStatus: {}
+  operatorCertificateFingerprint: 356168933349eb857d978c7f9c742f8b11b72f39600fc6b0987a46322ab1eae3
+  pgDataImageInfo:
+    image: ghcr.io/cloudnative-pg/postgresql:17
+    majorVersion: 17
+  phase: Cluster in healthy state
+  poolerIntegrations:
+    pgBouncerIntegration: {}
+  pvcCount: 3
+  readService: pg-r
+  readyInstances: 3
+  secretsResourceVersion:
+    applicationSecretVersion: "57710"
+    clientCaSecretVersion: "57702"
+    replicationSecretVersion: "57706"
+    serverCaSecretVersion: "57702"
+    serverSecretVersion: "57704"
+    superuserSecretVersion: "57708"
+  selector: cnpg.io/cluster=pg,cnpg.io/podRole=instance
+  switchReplicaClusterStatus: {}
+  systemID: "7711241756939599901"
+  targetPrimary: pg-1
+  targetPrimaryTimestamp: "2026-11-23T06:05:07.508496Z"
+  timelineID: 3
+  topology:
+    instances:
+      pg-1: {}
+      pg-2: {}
+      pg-3: {}
+    nodesUsed: 3
+    successfullyExtracted: true
+  writeService: pg-rw

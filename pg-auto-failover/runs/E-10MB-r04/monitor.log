@@ -1,0 +1,82 @@
+23:07:54 11589 INFO  Updating candidate priority to 151 for node 2 "n2" (127.0.0.1:6482)
+23:07:54 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): secondary ➜ secondary
+23:07:54 11589 INFO  Setting goal state of node 1 "n1" (127.0.0.1:6481)at LSN 0/4C28A30 to draining after a user-initiated failover.
+23:07:54 11589 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:07:54 11589 INFO  Updating candidate priority to -51 for node 1 "n1" (127.0.0.1:6481)
+23:08:00 11589 INFO  Node node 1 "n1" (127.0.0.1:6481) is marked as unhealthy by the monitor
+23:08:00 11589 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+23:08:15 11589 INFO  Setting goal state of node 2 "n2" (127.0.0.1:6482) to report_lsn to find the failover candidate
+23:08:15 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): secondary ➜ report_lsn
+23:08:15 11589 INFO  Setting goal state of node 3 "n3" (127.0.0.1:6483) to report_lsn to find the failover candidate
+23:08:15 11589 INFO  New state for node 3 "n3" (127.0.0.1:6483): secondary ➜ report_lsn
+23:08:15 11589 INFO  Failover still in progress after 0 nodes reported their LSN and we are waiting for 2 nodes to report, activeNode is node 2 "n2" (127.0.0.1:6482) and reported state "secondary"
+23:08:16 11589 INFO  Failover still in progress after 0 nodes reported their LSN and we are waiting for 2 nodes to report, activeNode is node 3 "n3" (127.0.0.1:6483) and reported state "secondary"
+23:08:16 11589 INFO  Failover still in progress after 0 nodes reported their LSN and we are waiting for 2 nodes to report, activeNode is node 2 "n2" (127.0.0.1:6482) and reported state "secondary"
+23:08:16 11589 INFO  New state is reported by node 2 "n2" (127.0.0.1:6482) with LSN 0/4230AD8: report_lsn
+23:08:16 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): report_lsn ➜ report_lsn
+23:08:16 11589 INFO  Failover still in progress after 1 nodes reported their LSN and we are waiting for 1 nodes to report, activeNode is node 2 "n2" (127.0.0.1:6482) and reported state "report_lsn"
+23:08:17 11589 INFO  New state is reported by node 3 "n3" (127.0.0.1:6483) with LSN 0/4230AD8: report_lsn
+23:08:17 11589 INFO  New state for node 3 "n3" (127.0.0.1:6483): report_lsn ➜ report_lsn
+23:08:17 11589 INFO  The current most advanced reported LSN is 0/4230AD8, as reported by node 2 "n2" (127.0.0.1:6482) and 1 other nodes
+23:08:17 11589 INFO  Updating candidate priority back to 50 for node 2 "n2" (127.0.0.1:6482)
+23:08:17 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): report_lsn ➜ report_lsn
+23:08:17 11589 INFO  Setting goal state of node 2 "n2" (127.0.0.1:6482) to prepare_promotion after node 1 "n1" (127.0.0.1:6481) became unhealthy and 2 nodes reported their LSN position.
+23:08:17 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): report_lsn ➜ prepare_promotion
+23:08:17 11589 INFO  New state is reported by node 2 "n2" (127.0.0.1:6482): "prepare_promotion"
+23:08:17 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): prepare_promotion ➜ prepare_promotion
+23:08:17 11589 INFO  Setting goal state of node 1 "n1" (127.0.0.1:6481) to demote_timeout and node 2 "n2" (127.0.0.1:6482) to stop_replication after node 2 "n2" (127.0.0.1:6482) converged to prepare_promotion.
+23:08:17 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): prepare_promotion ➜ stop_replication
+23:08:17 11589 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ demote_timeout
+23:08:17 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "prepare_promotion"/"stop_replication")
+23:08:17 11589 INFO  Setting goal state of node 3 "n3" (127.0.0.1:6483) to join_secondary after node 2 "n2" (127.0.0.1:6482) got selected as the failover candidate.
+23:08:17 11589 INFO  New state for node 3 "n3" (127.0.0.1:6483): report_lsn ➜ join_secondary
+23:08:17 11589 INFO  New state is reported by node 3 "n3" (127.0.0.1:6483): "join_secondary"
+23:08:17 11589 INFO  New state for node 3 "n3" (127.0.0.1:6483): join_secondary ➜ join_secondary
+23:08:17 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "prepare_promotion"/"stop_replication")
+23:08:18 11589 INFO  New state is reported by node 2 "n2" (127.0.0.1:6482): "stop_replication"
+23:08:18 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): stop_replication ➜ stop_replication
+23:08:18 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:18 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:19 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:20 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:21 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:22 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:23 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:24 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:25 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:26 11589 INFO  Node node 3 "n3" (127.0.0.1:6483) is marked as unhealthy by the monitor
+23:08:26 11589 INFO  New state for node 3 "n3" (127.0.0.1:6483): join_secondary ➜ join_secondary
+23:08:26 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:27 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:28 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:29 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:30 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:31 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:32 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:33 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:34 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:35 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:36 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:38 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:39 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:40 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:41 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:42 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:43 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:44 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:45 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:46 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:47 11589 INFO  Active node 3 "n3" (127.0.0.1:6483) found failover candidate node 2 "n2" (127.0.0.1:6482) being promoted (currently "stop_replication"/"stop_replication")
+23:08:47 11589 INFO  Setting goal state of node 2 "n2" (127.0.0.1:6482) to wait_primary and node 1 "n1" (127.0.0.1:6481) to demoted after the demote timeout expired.
+23:08:47 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): stop_replication ➜ wait_primary
+23:08:47 11589 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ demoted
+23:08:47 11589 INFO  New state is reported by node 2 "n2" (127.0.0.1:6482): "wait_primary"
+23:08:47 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): wait_primary ➜ wait_primary
+23:08:47 11589 INFO  Setting goal state of node 3 "n3" (127.0.0.1:6483) to secondary after node 2 "n2" (127.0.0.1:6482) converged to wait_primary.
+23:08:47 11589 INFO  New state for node 3 "n3" (127.0.0.1:6483): join_secondary ➜ secondary
+23:08:47 11589 INFO  New state is reported by node 3 "n3" (127.0.0.1:6483): "secondary"
+23:08:47 11589 INFO  New state for node 3 "n3" (127.0.0.1:6483): secondary ➜ secondary
+23:08:47 11589 INFO  Setting goal state of node 2 "n2" (127.0.0.1:6482) to primary because none of the secondary nodes are healthy at the moment.
+23:08:47 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): wait_primary ➜ primary
+23:08:47 11589 INFO  New state is reported by node 2 "n2" (127.0.0.1:6482): "primary"
+23:08:47 11589 INFO  New state for node 2 "n2" (127.0.0.1:6482): primary ➜ primary

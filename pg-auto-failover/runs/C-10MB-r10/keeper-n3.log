@@ -1,0 +1,56 @@
+16:20:42 67760 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): secondary ➜ secondary
+16:20:42 67760 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+16:20:49 67760 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ draining
+16:21:03 67760 ERROR Monitor ERROR:  deadlock detected
+16:21:03 67760 ERROR Monitor DETAIL:  Process 68695 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 68696.
+16:21:03 67760 ERROR Monitor Process 68696 waits for ShareLock on transaction 1091; blocked by process 68695.
+16:21:03 67760 ERROR Monitor HINT:  See server log for query details.
+16:21:03 67760 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+16:21:03 67760 ERROR SQL params: 'default', '3', '0', 'secondary', 'true', '1', '0/422A9E8', ''
+16:21:03 67760 ERROR Failed to get node state for node 3 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/422A9E8", see previous lines for details
+16:21:03 67760 ERROR Failed to get the goal state from the monitor
+16:21:04 67760 INFO  Successfully got the goal state from the monitor
+16:21:04 67760 INFO  Monitor assigned new state "report_lsn"
+16:21:04 67760 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+16:21:04 67760 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+16:21:04 67760 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+16:21:04 67759 INFO  Stopping pg_autoctl postgres service
+16:21:04 67759 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+16:21:04 67760 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+16:21:04 67760 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+16:21:04 67760 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+16:21:04 68719 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+16:21:04 67760 INFO  Transition complete: current state is now "report_lsn"
+16:21:04 67759 WARN  PostgreSQL was not running, restarted with pid 68719
+16:21:05 67760 INFO  Monitor assigned new state "prepare_promotion"
+16:21:05 67760 INFO  FSM transition from "report_lsn" to "prepare_promotion": Stop traffic to primary, wait for it to finish draining.
+16:21:05 67760 INFO  Transition complete: current state is now "prepare_promotion"
+16:21:05 67760 INFO  Monitor assigned new state "stop_replication"
+16:21:05 67760 INFO  FSM transition from "prepare_promotion" to "stop_replication": Prevent against split-brain situations.
+16:21:05 67760 INFO  Prevent writes to the promoted standby while the primary is not demoted yet, by making the service incompatible with target_session_attrs = read-write
+16:21:05 67760 INFO  Setting default_transaction_read_only to on
+16:21:05 67760 INFO  Reloading Postgres configuration and HBA rules
+16:21:05 67760 INFO  Promoting postgres
+16:21:05 67760 INFO  Waiting for postgres to promote
+16:21:06 67760 INFO  Cleaning-up Postgres replication settings
+16:21:06 67760 INFO  Disabling synchronous replication
+16:21:06 67760 INFO  Reloading Postgres configuration and HBA rules
+16:21:06 67760 INFO  Transition complete: current state is now "stop_replication"
+16:21:15 67760 INFO  New state for node 2 "n2" (127.0.0.1:6482): join_secondary ➜ join_secondary
+16:21:36 67760 INFO  Monitor assigned new state "wait_primary"
+16:21:36 67760 INFO  FSM transition from "stop_replication" to "wait_primary": Confirmed promotion with the monitor
+16:21:36 67760 INFO  Setting default_transaction_read_only to off
+16:21:36 67760 INFO  Reloading Postgres configuration and HBA rules
+16:21:36 67760 INFO  Fetched current list of 2 other nodes from the monitor to update HBA rules, including 2 changes.
+16:21:36 67760 INFO  Ensuring HBA rules for node 1 "n1" (127.0.0.1:6481)
+16:21:36 67760 INFO  Ensuring HBA rules for node 2 "n2" (127.0.0.1:6482)
+16:21:36 67760 INFO  Reloading Postgres configuration and HBA rules
+16:21:36 67760 INFO  Transition complete: current state is now "wait_primary"
+16:21:36 67760 INFO  New state for node 2 "n2" (127.0.0.1:6482): secondary ➜ secondary
+16:21:36 67760 INFO  Monitor assigned new state "primary"
+16:21:36 67760 INFO  FSM transition from "wait_primary" to "primary": A healthy secondary appeared
+16:21:36 67760 INFO  Setting synchronous_standby_names to ''
+16:21:36 67760 INFO  Reloading Postgres configuration and HBA rules
+16:21:36 67760 INFO  Transition complete: current state is now "primary"
+16:21:36 67760 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): wait_primary ➜ primary
+16:21:36 67760 INFO  New state for this node (node 3, "n3") (127.0.0.1:6483): primary ➜ primary

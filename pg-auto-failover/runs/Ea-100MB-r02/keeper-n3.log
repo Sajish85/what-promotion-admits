@@ -1,0 +1,48 @@
+20:41:28 46878 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+20:41:28 46878 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+20:41:28 46878 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+20:41:28 46878 ERROR Failed to get the goal state from the monitor
+20:41:30 46878 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+20:41:30 46878 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+20:41:30 46878 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+20:41:30 46878 WARN  Lost connection.
+20:41:33 46878 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+20:41:33 46878 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+20:41:33 46878 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+20:41:33 46878 ERROR Failed to get the goal state from the monitor
+20:41:35 46878 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+20:41:35 46878 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+20:41:35 46878 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 1 attempts in 2001 ms, pg_autoctl stops retrying now
+20:41:35 46878 WARN  Lost connection.
+20:41:37 46878 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+20:41:37 46878 ERROR Failed to connect to monitor database at "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", see above for details
+20:41:37 46878 ERROR Failed to get the current version for extension "pgautofailover", see previous lines for details.
+20:41:37 46878 ERROR Failed to get the goal state from the monitor
+20:41:39 46878 WARN  Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable", retrying until the server is ready
+20:41:41 46878 ERROR Connection to database failed: connection to server at "127.0.0.1", port 6503 failed: timeout expired
+20:41:41 46878 ERROR Failed to connect to "postgres://autoctl_node@127.0.0.1:6503/pg_auto_failover?sslmode=disable" after 2 attempts in 4008 ms, pg_autoctl stops retrying now
+20:41:41 46878 WARN  Lost connection.
+20:41:42 46878 INFO  Successfully got the goal state from the monitor
+20:41:48 46878 INFO  New state for node 1 "n1" (127.0.0.1:6481): primary ➜ primary
+20:42:03 46878 ERROR Monitor ERROR:  deadlock detected
+20:42:03 46878 ERROR Monitor DETAIL:  Process 47899 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 47898.
+20:42:03 46878 ERROR Monitor Process 47898 waits for ShareLock on transaction 1087; blocked by process 47899.
+20:42:03 46878 ERROR Monitor HINT:  See server log for query details.
+20:42:03 46878 ERROR SQL query: SELECT * FROM pgautofailover.node_active($1, $2, $3, $4::pgautofailover.replication_state, $5, $6, $7, $8)
+20:42:03 46878 ERROR SQL params: 'default', '3', '0', 'secondary', 'true', '1', '0/53DCB60', ''
+20:42:03 46878 ERROR Failed to get node state for node 3 in group 0 of formation "default" with initial state "secondary", replication state "", and current lsn "0/53DCB60", see previous lines for details
+20:42:03 46878 ERROR Failed to get the goal state from the monitor
+20:42:04 46878 INFO  Successfully got the goal state from the monitor
+20:42:04 46878 INFO  Monitor assigned new state "report_lsn"
+20:42:04 46878 INFO  FSM transition from "secondary" to "report_lsn": Reporting the last write-ahead log location received
+20:42:04 46878 INFO  Restarting standby node to disconnect replication from failed primary node, to prepare failover
+20:42:04 46878 INFO  Stopping Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+20:42:04 46877 INFO  Stopping pg_autoctl postgres service
+20:42:04 46877 INFO  $HOME/tools/pg/17/bin/pg_ctl --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n3 --wait stop --mode fast
+20:42:04 46878 INFO  Creating the standby signal file at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/standby.signal", and replication setup at "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf"
+20:42:04 46878 INFO  Contents of "$HOME/invention-hunt/studies/failover-gate/cluster/n3/postgresql-auto-failover-standby.conf" have changed, overwriting
+20:42:04 46878 INFO  Restarting Postgres at "$HOME/invention-hunt/studies/failover-gate/cluster/n3"
+20:42:04 47935 INFO   $HOME/tools/pg/17/bin/postgres -D $HOME/invention-hunt/studies/failover-gate/cluster/n3 -p 6473 -h 127.0.0.1
+20:42:04 46877 WARN  PostgreSQL was not running, restarted with pid 47935
+20:42:04 46878 INFO  Transition complete: current state is now "report_lsn"
+20:42:04 46878 INFO  New state for node 2 "n2" (127.0.0.1:6482): report_lsn ➜ report_lsn

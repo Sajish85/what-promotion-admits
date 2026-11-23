@@ -1,0 +1,79 @@
+11:56:45 B-10MB-r01 VALID  no_promotion_refused gap= 10512904 lost=  119s
+11:58:44 B-10MB-r02 VALID  no_promotion_refused gap= 10488088 lost=  119s
+12:00:43 B-10MB-r03 VALID  no_promotion_refused gap= 10512904 lost=  119s
+12:02:42 B-10MB-r04 VALID  no_promotion_refused gap= 10488112 lost=  119s
+12:04:41 B-10MB-r05 VALID  no_promotion_refused gap= 10488088 lost=  119s
+12:06:40 B-10MB-r06 VALID  no_promotion_refused gap= 10488088 lost=  119s
+12:08:39 B-10MB-r07 VALID  no_promotion_refused gap= 10488112 lost=  119s
+12:10:37 B-10MB-r08 VALID  no_promotion_refused gap= 10488088 lost=  119s
+12:12:36 B-10MB-r09 VALID  no_promotion_refused gap= 10488088 lost=  119s
+12:14:35 B-10MB-r10 VALID  no_promotion_refused gap= 10488088 lost=  119s
+12:16:47 B-100MB-r01 VALID  no_promotion_refused gap= 104933392 lost=  132s
+12:18:58 B-100MB-r02 VALID  no_promotion_refused gap= 105048800 lost=  132s
+12:21:10 B-100MB-r03 VALID  no_promotion_refused gap= 104960640 lost=  132s
+12:23:21 B-100MB-r04 VALID  no_promotion_refused gap= 104916600 lost=  132s
+12:25:24 B-100MB-r05 VALID  no_promotion_refused gap= 104995904 lost=  122s
+12:27:35 B-100MB-r06 VALID  no_promotion_refused gap= 105066496 lost=  131s
+12:29:47 B-100MB-r07 VALID  no_promotion_refused gap= 104934200 lost=  131s
+12:31:58 B-100MB-r08 VALID  no_promotion_refused gap= 104986312 lost=  131s
+12:34:10 B-100MB-r09 VALID  no_promotion_refused gap= 104967824 lost=  131s
+12:36:09 B-100MB-r10 VALID  no_promotion_refused gap= 104898912 lost=  119s
+12:37:06 C-10MB-r01 VALID  promoted_silent gap= 10488088 lost= 1188 57s
+12:38:04 C-10MB-r02 VALID  promoted_silent gap= 10488088 lost= 1188 59s
+12:38:59 C-10MB-r03 VALID  promoted_silent gap= 10488104 lost= 1188 55s
+12:39:57 C-10MB-r04 VALID  promoted_silent gap= 10488104 lost= 1188 59s
+12:40:52 C-10MB-r05 VALID  promoted_silent gap= 10488104 lost= 1188 54s
+12:41:53 C-10MB-r06 VALID  promoted_silent gap= 10488128 lost= 1188 61s
+12:42:55 C-10MB-r07 VALID  promoted_silent gap= 10514560 lost= 1191 62s
+12:43:56 C-10MB-r08 VALID  promoted_silent gap= 10488088 lost= 1188 62s
+12:44:55 C-10MB-r09 VALID  promoted_silent gap= 10512904 lost= 1188 58s
+12:45:49 C-10MB-r10 VALID  promoted_silent gap= 10488128 lost= 1188 55s
+12:46:51 C-100MB-r02 VALID  promoted_silent gap= 105022416 lost= 11893 61s
+12:47:52 C-100MB-r03 VALID  promoted_silent gap= 104960656 lost= 11886 62s
+12:48:54 C-100MB-r04 VALID  promoted_silent gap= 105022352 lost= 11893 61s
+12:49:55 C-100MB-r05 VALID  promoted_silent gap= 105031168 lost= 11894 62s
+12:50:57 C-100MB-r06 VALID  promoted_silent gap= 104943008 lost= 11884 61s
+12:51:58 C-100MB-r07 VALID  promoted_silent gap= 105020736 lost= 11890 62s
+12:53:00 C-100MB-r08 VALID  promoted_silent gap= 105066432 lost= 11898 61s
+12:54:01 C-100MB-r09 VALID  promoted_silent gap= 104960640 lost= 11886 62s
+12:55:03 C-100MB-r10 VALID  promoted_silent gap= 104916536 lost= 11881 62s
+12:56:27 D-10MB-r02 VALID  promoted_silent gap= 10488104 lost= 1188 84s
+12:57:51 D-10MB-r03 VALID  promoted_silent gap= 10488088 lost= 1188 84s
+12:59:15 D-10MB-r04 VALID  promoted_silent gap= 10488088 lost= 1188 84s
+13:00:39 D-10MB-r05 VALID  promoted_silent gap= 10512904 lost= 1188 84s
+13:02:02 D-10MB-r06 VALID  promoted_silent gap= 10488088 lost= 1188 84s
+13:03:26 D-10MB-r07 VALID  promoted_silent gap= 10488088 lost= 1188 84s
+13:04:50 D-10MB-r08 VALID  promoted_silent gap= 10488088 lost= 1188 84s
+13:06:14 D-10MB-r09 VALID  promoted_silent gap= 10488088 lost= 1188 84s
+13:07:38 D-10MB-r10 VALID  promoted_silent gap= 10512904 lost= 1188 84s
+13:09:02 D-100MB-r01 VALID  promoted_silent gap= 104897272 lost= 11876 84s
+13:10:26 D-100MB-r02 VALID  promoted_silent gap= 104906088 lost= 11877 84s
+13:11:51 D-100MB-r03 VALID  promoted_silent gap= 104934168 lost= 11883 84s
+13:13:15 D-100MB-r04 VALID  promoted_silent gap= 105022352 lost= 11893 84s
+13:14:40 D-100MB-r05 VALID  promoted_silent gap= 104978272 lost= 11888 84s
+13:16:04 D-100MB-r06 VALID  promoted_silent gap= 104933392 lost= 11883 84s
+13:17:28 D-100MB-r07 VALID  promoted_silent gap= 104987088 lost= 11889 84s
+13:18:53 D-100MB-r08 VALID  promoted_silent gap= 104896496 lost= 11876 84s
+13:20:17 D-100MB-r09 VALID  promoted_silent gap= 104977496 lost= 11888 85s
+13:21:42 D-100MB-r10 VALID  promoted_silent gap= 104951800 lost= 11885 84s
+13:22:37 E-10MB-r01 VALID  promoted_silent gap= 10512904 lost= 1188 55s
+13:23:38 E-10MB-r02 VALID  promoted_silent gap= 10504088 lost= 1187 61s
+13:24:40 E-10MB-r03 VALID  promoted_silent gap= 10512944 lost= 1188 61s
+13:25:38 E-10MB-r04 VALID  promoted_silent gap= 10488128 lost= 1188 59s
+13:26:33 E-10MB-r05 VALID  promoted_silent gap= 10512944 lost= 1188 54s
+13:27:32 E-10MB-r06 VALID  promoted_silent gap= 10488104 lost= 1188 59s
+13:28:26 E-10MB-r07 VALID  promoted_silent gap= 10488104 lost= 1188 54s
+13:29:27 E-10MB-r08 VALID  promoted_silent gap= 10488112 lost= 1188 62s
+13:30:26 E-10MB-r09 VALID  promoted_silent gap= 10488088 lost= 1188 59s
+13:31:21 E-10MB-r10 VALID  promoted_silent gap= 10488088 lost= 1188 55s
+13:32:22 E-100MB-r01 VALID  promoted_silent gap= 104897248 lost= 11876 61s
+13:33:24 E-100MB-r02 VALID  promoted_silent gap= 104897288 lost= 11876 62s
+13:34:25 E-100MB-r03 VALID  promoted_silent gap= 104941352 lost= 11881 61s
+13:35:27 E-100MB-r04 VALID  promoted_silent gap= 105013536 lost= 11892 62s
+13:36:28 E-100MB-r05 VALID  promoted_silent gap= 105013536 lost= 11892 61s
+13:37:29 E-100MB-r06 VALID  promoted_silent gap= 104951800 lost= 11885 61s
+13:38:31 E-100MB-r07 VALID  promoted_silent gap= 104987104 lost= 11889 62s
+13:39:30 E-100MB-r08 VALID  promoted_silent gap= 104943048 lost= 11884 59s
+13:40:24 E-100MB-r09 VALID  promoted_silent gap= 104994312 lost= 11887 55s
+13:41:25 E-100MB-r10 VALID  promoted_silent gap= 105004760 lost= 11891 61s
+DRIVER DONE

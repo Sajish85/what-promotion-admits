@@ -1,0 +1,13 @@
+    3.06s leader=pg1 replicas=['pg2', 'pg3'] candidate=pg3
+    6.10s pre-stall gap (candidates) bytes={'pg3': 0} tps_total=789.9
+    6.10s phase jitter 8.92s before stall
+   15.05s DCS cut: stall conns=39 fwd_c2u=241416 fwd_u2c=786151
+   15.06s replication stall on primary proxy: stall conns=4 fwd_c2u=4479318 fwd_u2c=10877228464
+   31.33s VERIFIED gap: primary_lsn=604433048 recv={'pg2': 499490024, 'pg3': 499490024} gap={'pg2': 104943024, 'pg3': 104943024} candidate_gap=104943024 ratio=1.001
+   31.36s DCS restore: pass conns=40 fwd_c2u=241416 fwd_u2c=786151
+   31.36s KILL primary pg1: agent 36505 + postmaster 37201
+   32.07s Patroni view at decision: optime=547472840 cand=pg3 xlog=499490024 reported_lag=47982816 true=104943024
+   32.80s patronictl rc=0 in 0.7s: yError: HTTPConnectionPool(host='127.0.0.1', port=9008): Max retries exceeded with url: /failover (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=9008): Failed to establish a new connection: [Errno 61] Connection refused"))
+2026-11-22 14:20:02,615 - WARNING - Failing over to DCS
+   53.17s PROMOTED pg3 after 21.8s; survivors=9060 fork_lsn=499490024
+   54.35s recover: restore proxies, restart old primary agent

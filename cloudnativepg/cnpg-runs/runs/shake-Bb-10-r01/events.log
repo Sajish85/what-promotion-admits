@@ -1,0 +1,18 @@
+1795395423.620 +   1.14s healthy after 0s
+1795395423.879 +   1.40s primary pg-1 10.244.1.18 on cnpg-worker3; replicas pg-2=10.244.3.17@cnpg-worker, pg-3=10.244.2.18@cnpg-worker2; failoverDelay=300
+1795395430.818 +   8.34s writers started (base 40.0 txn/s total); jitter done
+1795395431.741 +   9.26s stall rules applied on cnpg-worker3: 4 rules
+1795395435.417 +  12.93s gap reached {'pg-2': 15149528, 'pg-3': 11000728} in 4.58s; writers stopped
+1795395435.620 +  13.14s VERIFIED primary_lsn=128450128 recv={'pg-2': 113291712, 'pg-3': 117440512} replay={'pg-2': 113291712, 'pg-3': 117440672} gaps={'pg-2': 15158416, 'pg-3': 11009616} ratio=1.05
+1795395435.954 +  13.47s operator view (kubectl cnpg status, pre-fault): {'pg-1': ('Primary', 128450128), 'pg-3': ('Standby (file based)', 117440672), 'pg-2': ('Standby (async)', 113291712)}
+1795395436.610 +  14.13s delete pod: pod "pg-1" force deleted from default namespace | Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+1795395436.610 +  14.13s FAULT: node cordoned, primary pod force-deleted; stall rules stay in place
+1795395736.944 + 314.46s decision: promoted=None after 301.0s
+1795396164.481 + 742.00s NOT healthy after 420s; diagnostics saved; rebuilding
+1795396164.481 + 742.00s REBUILD cluster pg
+1795396347.868 + 925.38s cluster.postgresql.cnpg.io/pg created
+1795396466.799 +1044.32s final read failed: relation "t_shake_bb_10_r01" does not exist
+LINE 1: select id from t_shake_Bb_10_r01 order by id
+                       ^
+
+1795396466.799 +1044.32s run complete

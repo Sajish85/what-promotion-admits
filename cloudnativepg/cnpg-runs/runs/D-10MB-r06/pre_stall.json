@@ -1,0 +1,1 @@
+{"pg-1": {"gap": 0, "walreceiver": [["streaming", "pg-rw", 5432]]}, "pg-3": {"gap": -44495936, "walreceiver": []}}

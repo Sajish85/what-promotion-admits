@@ -1,0 +1,23 @@
+1795412804.404 +   1.30s healthy after 0s
+1795412804.624 +   1.52s primary pg-2 10.244.3.47 on cnpg-worker; replicas pg-1=10.244.1.26@cnpg-worker3, pg-3=10.244.2.47@cnpg-worker2; failoverDelay=300
+1795412810.664 +   7.56s writers started (base 78.3 txn/s total); jitter done
+1795412810.666 +   7.56s pre-stall snapshot: {'pg-1': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}, 'pg-3': {'gap': -44495936, 'walreceiver': []}}
+1795412811.575 +   8.47s stall rules applied on cnpg-worker: 4 rules
+1795412816.585 +  13.48s growing: {'pg-1': 3946400, 'pg-3': -40362008}
+1795412821.595 +  18.49s growing: {'pg-1': 7450520, 'pg-3': -36857888}
+1795412826.612 +  23.51s growing: {'pg-1': 10943504, 'pg-3': -33364904}
+1795412831.620 +  28.52s growing: {'pg-1': 14439864, 'pg-3': -29868544}
+1795412836.640 +  33.54s growing: {'pg-1': 17968384, 'pg-3': -26340024}
+1795412841.658 +  38.55s growing: {'pg-1': 21463952, 'pg-3': -22844456}
+1795412846.673 +  43.57s growing: {'pg-1': 24980992, 'pg-3': -19327416}
+1795412851.675 +  48.57s growing: {'pg-1': 28478112, 'pg-3': -15830296}
+1795412856.686 +  53.58s growing: {'pg-1': 31970280, 'pg-3': -12338128}
+1795412861.701 +  58.60s growing: {'pg-1': 35474176, 'pg-3': -8834232}
+1795412866.705 +  63.60s growing: {'pg-1': 38967120, 'pg-3': -5341288}
+1795412871.705 +  68.60s growing: {'pg-1': 42463448, 'pg-3': -1844960}
+1795412876.724 +  73.62s growing: {'pg-1': 45956488, 'pg-3': 1648080}
+1795412881.740 +  78.64s growing: {'pg-1': 49452032, 'pg-3': 5143624}
+1795412886.748 +  83.64s growing: {'pg-1': 53374104, 'pg-3': 9065696}
+1795412888.838 +  85.73s gap reached {'pg-1': 54798072, 'pg-3': 10489664} in 78.11s; writers stopped
+1795412889.194 +  86.09s VERIFIED primary_lsn=1553993536 recv={'pg-1': 1499195464, 'pg-3': 1543503872} replay={'pg-1': 1499195464, 'pg-3': 1543504032} gaps={'pg-1': 54798072, 'pg-3': 10489664} ratio=1.0
+1795412889.198 +  86.09s INVALID: replicas not streaming/in sync at stall start: {'pg-1': {'gap': 0, 'walreceiver': [('streaming', 'pg-rw', 5432)]}, 'pg-3': {'gap': -44495936, 'walreceiver': []}}

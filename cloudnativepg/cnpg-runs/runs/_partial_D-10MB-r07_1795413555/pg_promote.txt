@@ -1,0 +1,2 @@
+recovery is not in progress
+HINT:  Recovery control functions can only be executed during recovery.

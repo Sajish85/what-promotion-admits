@@ -1,0 +1,11 @@
+$ pg_autoctl perform promotion --pgdata $HOME/invention-hunt/studies/failover-gate/cluster/n2 --name n2
+rc=0
+18:46:46 22224 ERROR Monitor ERROR:  deadlock detected
+18:46:46 22224 ERROR Monitor DETAIL:  Process 22234 waits for ShareLock on transaction 1053; blocked by process 22233.
+18:46:46 22224 ERROR Monitor Process 22233 waits for ExclusiveLock on advisory lock [16385,822708183,0,11]; blocked by process 22234.
+18:46:46 22224 ERROR Monitor HINT:  See server log for query details.
+18:46:46 22224 ERROR Monitor CONTEXT:  while updating tuple (0,16) in relation "node"
+18:46:46 22224 ERROR Monitor SQL statement "UPDATE pgautofailover.node   SET candidatepriority = $1, replicationquorum = $2  WHERE nodeid = $3 and nodehost = $4 AND nodeport = $5"
+18:46:46 22224 ERROR SQL query: SELECT pgautofailover.perform_promotion($1, $2)
+18:46:46 22224 ERROR SQL params: 'default', 'n2'
+18:46:46 22224 ERROR Failed to perform failover for node n2 in formation default

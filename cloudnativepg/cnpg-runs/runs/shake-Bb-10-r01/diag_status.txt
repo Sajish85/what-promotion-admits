@@ -1,0 +1,27 @@
+Cluster Summary
+Name                     default/pg
+System ID:               7711161735840296989
+PostgreSQL Image:        ghcr.io/cloudnative-pg/postgresql:17
+Primary instance:        pg-3
+Primary promotion time:  2026-11-23 01:02:36 +0000 UTC (6m48s)
+Status:                  Cluster in healthy state 
+Instances:               3
+Ready instances:         3
+Size:                    210M
+Current Write LSN:       0/8000110 (Timeline: 5 - WAL File: 000000050000000000000008)
+
+Continuous Backup not configured
+
+Streaming Replication status
+Replication Slots Enabled
+Name  Sent LSN   Write LSN  Flush LSN  Replay LSN  Write Lag  Flush Lag  Replay Lag  State      Sync State  Sync Priority  Replication Slot
+----  --------   ---------  ---------  ----------  ---------  ---------  ----------  -----      ----------  -------------  ----------------
+pg-1  0/8000110  0/8000110  0/8000110  0/8000110   00:00:00   00:00:00   00:00:00    streaming  async       0              active
+
+Instances status
+Name  Current LSN  Replication role      Status  QoS        Manager Version  Node
+----  -----------  ----------------      ------  ---        ---------------  ----
+pg-3  0/8000110    Primary               OK      Burstable  1.30.2           cnpg-worker2
+pg-1  0/8000110    Standby (async)       OK      Burstable  1.30.2           cnpg-worker3
+pg-2  0/6C0B1C0    Standby (file based)  OK      Burstable  1.30.2           cnpg-worker
+

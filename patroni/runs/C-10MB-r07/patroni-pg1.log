@@ -1,0 +1,24 @@
+2026-11-22 12:42:04,586 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:42:14,573 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:42:25,080 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:42:35,075 INFO: no action. I am (pg1), a secondary, and following a leader (pg2)
+2026-11-22 12:42:44,953 INFO: establishing a new patroni restapi connection to postgres
+2026-11-22 12:42:44,964 INFO: Cleaning up failover key after acquiring leader lock...
+2026-11-22 12:42:44,983 INFO: promoted self to leader by acquiring session lock
+2026-11-22 12:42:44,984 INFO: Lock owner: pg1; I am pg1
+2026-11-22 12:42:44,990 INFO: updated leader lock during promote
+server promoting
+2026-11-22 12:42:44.993 PST [89823] LOG:  received promote request
+2026-11-22 12:42:44.993 PST [89828] FATAL:  terminating walreceiver process due to administrator command
+2026-11-22 12:42:44.993 PST [89823] LOG:  invalid record length at 0/5F057430: expected at least 24, got 0
+2026-11-22 12:42:44.997 PST [89823] LOG:  redo done at 0/5F057408 system usage: CPU: user: 0.01 s, system: 0.01 s, elapsed: 59.03 s
+2026-11-22 12:42:44.997 PST [89823] LOG:  last completed transaction was at log time 2026-11-22 12:41:59.968154-08
+2026-11-22 12:42:45.003 PST [89823] LOG:  selected new timeline ID: 29
+2026-11-22 12:42:45.020 PST [89823] LOG:  archive recovery complete
+2026-11-22 12:42:45.021 PST [89821] LOG:  checkpoint starting: force
+2026-11-22 12:42:45.023 PST [89820] LOG:  database system is ready to accept connections
+2026-11-22 12:42:46,061 INFO: no action. I am (pg1), the leader with the lock
+2026-11-22 12:42:46.074 PST [89821] LOG:  checkpoint complete: wrote 294 buffers (1.8%); 0 WAL file(s) added, 2 removed, 0 recycled; write=1.047 s, sync=0.002 s, total=1.054 s; sync files=27, longest=0.001 s, average=0.001 s; distance=4507 kB, estimate=4507 kB; lsn=0/5F05B650, redo lsn=0/5F057468
+2026-11-22 12:42:46.075 PST [89821] LOG:  checkpoint starting: immediate force wait
+2026-11-22 12:42:46.075 PST [89821] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.001 s; sync files=3, longest=0.001 s, average=0.001 s; distance=16 kB, estimate=4058 kB; lsn=0/5F05B720, redo lsn=0/5F05B6C8
+2026-11-22 12:42:46,089 INFO: no action. I am (pg1), the leader with the lock
